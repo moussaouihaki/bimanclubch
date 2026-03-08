@@ -23,8 +23,8 @@
 
   @media (max-width: 768px) {
     --side-pad: 1.25rem;
-    --section-pad: 4rem;
-    --nav-height: 70px;
+    --section-pad: 3rem;
+    --nav-height: 80px;
   }
 
   /* Deep colors for contrast */

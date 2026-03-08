@@ -29,19 +29,28 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="hero-title" style={{ textShadow: '0 10px 30px rgba(0,0,0,0.5)' }}>
-              <span style={{ color: 'white' }}>{t('hero.title')}</span> <br />
+            <h1 className="hero-title" style={{
+              textShadow: '0 4px 30px rgba(0,0,0,0.8), 0 2px 5px rgba(0,0,0,1)',
+              filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.5))',
+              color: 'white'
+            }}>
+              <span style={{ color: 'white', display: 'block' }}>{t('hero.title')}</span>
               <motion.span
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5, duration: 1 }}
                 className="text-serif"
-                style={{ fontStyle: 'italic', fontWeight: 300, color: 'var(--clr-gold)', textShadow: '0 5px 15px rgba(0,0,0,0.3)' }}
+                style={{ fontStyle: 'italic', fontWeight: 300, color: 'var(--clr-gold)', textShadow: '0 2px 10px rgba(0,0,0,0.4)', display: 'block', marginTop: '0.5rem' }}
               >
                 {t('hero.subtitle')}
               </motion.span>
             </h1>
-            <p className="hero-text" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
+            <p className="hero-text" style={{
+              textShadow: '0 2px 8px rgba(0,0,0,0.9)',
+              color: 'rgba(255,255,255,1)',
+              fontWeight: 500,
+              padding: '0 20px'
+            }}>
               {t('hero.text')}
             </p>
             <div className="hero-actions">
