@@ -172,10 +172,21 @@ export function Navbar() {
                     .lang-switcher-desktop { display: none; }
                     .desktop-nav-btn { display: none; }
                     .mobile-extras { display: flex; }
-                    .brand-text { font-size: 13px; }
+                    .brand-text span:last-child { 
+                        font-size: 8px !important; 
+                        letter-spacing: 0.1em !important; 
+                        white-space: nowrap; 
+                    }
+                    .brand-text span:first-child { font-size: 13px !important; }
+                    .nav-container { padding: 0 15px; }
                     .menu-open .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
                     .menu-open .bar:nth-child(2) { opacity: 0; }
                     .menu-open .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+                }
+                
+                @media (max-width: 400px) {
+                    .brand-text span:last-child { display: none; }
+                    .brand-text { justify-content: center; }
                 }
             `}</style>
         </nav >
