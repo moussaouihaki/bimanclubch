@@ -20,7 +20,7 @@ export default function ContactPage() {
                         </p>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'minmax(300px, 1fr) 2fr', gap: '4rem' }}>
+                    <div className="contact-grid">
 
                         <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="card-apple" style={{ background: 'var(--clr-silk)', height: 'fit-content' }}>
                             <h3 style={{ fontSize: '1.8rem', color: 'var(--clr-seal)', marginBottom: '2rem' }}>{t('nav.club')}</h3>
@@ -37,7 +37,7 @@ export default function ContactPage() {
                         </motion.div>
 
                         <motion.form initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="card-apple" style={{ background: 'white', display: 'grid', gap: '2rem' }}>
-                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+                            <div className="contact-name-grid">
                                 <div>
                                     <label className="form-label">{t('form.field_name')}</label>
                                     <input type="text" className="input-premium" required />
@@ -53,9 +53,9 @@ export default function ContactPage() {
                             </div>
                             <div>
                                 <label className="form-label">{t('contact.field_message')}</label>
-                                <textarea className="input-premium" style={{ minHeight: '150px', resize: 'vertical' }} required></textarea>
+                                <textarea className="input-premium" style={{ minHeight: '150px', resize: 'vertical' as const }} required></textarea>
                             </div>
-                            <button type="submit" className="btn-gold" style={{ width: 'fit-content' }}>
+                            <button type="submit" className="btn-gold">
                                 {t('contact.send')}
                             </button>
                         </motion.form>
@@ -67,6 +67,15 @@ export default function ContactPage() {
                 .form-label { display: block; margin-bottom: 0.6rem; font-size: 0.9rem; font-weight: 500; color: var(--clr-text-muted); }
                 .input-premium { width: 100%; padding: 1.2rem; border-radius: 14px; border: 1px solid #e0e0e0; outline: none; font-size: 1rem; transition: border 0.3s; }
                 .input-premium:focus { border-color: var(--clr-gold); }
+                .contact-grid { display: grid; grid-template-columns: minmax(300px, 1fr) 2fr; gap: 4rem; }
+                .contact-name-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+
+                @media (max-width: 768px) {
+                    .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+                }
+                @media (max-width: 480px) {
+                    .contact-name-grid { grid-template-columns: 1fr; }
+                }
             `}</style>
         </main>
     );

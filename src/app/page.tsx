@@ -23,7 +23,7 @@ export default function Home() {
           <div className="hero-overlay" style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.8))' }} />
         </div>
 
-        <div className="container" style={{ textAlign: 'center', color: 'white', position: 'relative', zIndex: 10 }}>
+        <div className="container" style={{ textAlign: 'center', position: 'relative', zIndex: 10 }}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -57,22 +57,23 @@ export default function Home() {
 
         <style jsx>{`
           .hero-overlay { 
-            background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.85) 100%) !important; 
+            background: linear-gradient(to bottom, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.95) 100%) !important; 
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
           }
           .hero-title { 
             font-size: clamp(3rem, 8vw, 6.5rem); 
-            font-weight: 700; 
+            font-weight: 800; 
             letter-spacing: -0.04em; 
             line-height: 1.05; 
-            color: white;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+            color: var(--clr-text);
+            text-shadow: 0 4px 20px rgba(0,0,0,0.05);
           }
-          .title-main { display: block; }
+          .title-main { display: block; color: var(--clr-text); }
           .subtitle-gold { 
             font-style: italic; 
-            fontWeight: 300; 
-            color: var(--clr-gold); 
-            text-shadow: 0 2px 10px rgba(0,0,0,0.4); 
+            font-weight: 300; 
+            color: var(--clr-blue-vibrant); 
             display: block; 
             margin-top: 0.5rem; 
           }
@@ -80,20 +81,22 @@ export default function Home() {
             max-width: 800px; 
             margin: 2.5rem auto 3.5rem auto; 
             font-size: 1.3rem; 
-            color: rgba(255,255,255,0.95); 
-            text-shadow: 0 2px 10px rgba(0,0,0,0.8); 
+            color: var(--clr-text-muted); 
+            text-shadow: none; 
             font-weight: 500; 
             line-height: 1.6;
           }
           .hero-actions { display: flex; gap: 2rem; justify-content: center; }
-          .hero-btn { font-size: 1.1rem; padding: 1.2rem 3.5rem; border-radius: 100px; font-weight: 600; text-decoration: none; }
-          .contrast-btn { background: rgba(255,255,255,0.9); color: var(--clr-sapphire); border: none; }
+          .hero-btn { font-size: 1.1rem; padding: 1.2rem 3.5rem; border-radius: 100px; font-weight: 600; text-decoration: none; transition: 0.3s; }
+          .btn-gold { background: var(--clr-blue-vibrant); color: white; border: none; }
+          .contrast-btn { background: rgba(0,0,0,0.04); color: var(--clr-sapphire); border: 1px solid rgba(0,0,0,0.08); }
+          .contrast-btn:hover { background: rgba(0,0,0,0.08); }
 
           @media (max-width: 768px) {
-            .hero-overlay { background: rgba(0,0,0,0.7) !important; }
+            .hero-overlay { background: linear-gradient(to bottom, rgba(255,255,255,0.85), rgba(255,255,255,1)) !important; }
             .hero-title { font-size: 2.8rem; letter-spacing: -0.02em; }
             .subtitle-gold { font-size: 1.8rem; margin-top: 0.2rem; }
-            .hero-text { font-size: 1rem; margin: 1.5rem auto 2.5rem auto; padding: 0 10px; line-height: 1.5; }
+            .hero-text { font-size: 1.1rem; margin: 1.5rem auto 2.5rem auto; padding: 0 10px; line-height: 1.5; color: var(--clr-text-muted); }
             .hero-actions { flex-direction: column; gap: 1rem; align-items: center; width: 100%; }
             .hero-btn { width: 100%; max-width: 300px; padding: 1rem; font-size: 1rem; }
           }
@@ -177,6 +180,6 @@ export default function Home() {
           }
         `}</style>
       </section>
-    </main>
+    </main >
   );
 }

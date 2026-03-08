@@ -47,8 +47,8 @@ export default function EvenementsPage() {
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: i * 0.1 }}
-                                className="card-apple"
-                                style={{ display: 'flex', alignItems: 'center', gap: '4rem' }}
+                                className="card-apple event-card"
+                                style={{ display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' as const }}
                             >
                                 <div style={{ textAlign: 'center', minWidth: '150px' }}>
                                     {/* @ts-ignore */}

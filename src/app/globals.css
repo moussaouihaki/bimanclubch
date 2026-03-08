@@ -6,12 +6,13 @@
   /* Apple classic light gray background */
   --clr-card: #FFFFFF;
   --clr-sapphire: #012B7C;
-  /* Club Blue */
-  --clr-gold: #003399;
-  /* Primary Action Blue */
-  --clr-gold-light: #E5F0FF;
+  --clr-blue-vibrant: #007AFF;
+  /* Apple Blue for vibrancy */
+  --clr-blue-deep: #003399;
+  /* Official Blue */
+  --clr-gold: #007AFF;
+  /* Redirected to vibrant blue per user request */
   --clr-text: #1D1D1F;
-  /* Apple dark text */
   --clr-text-muted: #86868B;
   /* Apple secondary text */
   --clr-border: rgba(0, 0, 0, 0.05);
@@ -111,12 +112,37 @@ h5 {
   font-weight: 400;
 }
 
+.text-blue-vibrant {
+  color: var(--clr-blue-vibrant);
+}
+
 .text-gold {
   color: var(--clr-gold);
 }
 
 .text-sapphire {
   color: var(--clr-sapphire);
+}
+
+/* Grids */
+.breeders-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+@media (max-width: 1024px) {
+  .breeders-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .breeders-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
 }
 
 /* Structure */
@@ -500,4 +526,97 @@ h5 {
 
 .card-apple:hover .gallery-img {
   transform: scale(1.05);
+}
+
+/* =============================================
+   GLOBAL MOBILE RESPONSIVE UTILITIES
+   Covers all pages: forms, contact, dashboard sub-pages
+   ============================================= */
+
+/* filter-bar wraps on mobile */
+@media (max-width: 768px) {
+  .filter-bar {
+    border-radius: 20px;
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+
+  .filter-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Contact page: side-by-side layout stacks on mobile */
+@media (max-width: 768px) {
+
+  /* contact grid */
+  [style*="minmax(300px, 1fr) 2fr"],
+  [style*="minmax(300px,1fr) 2fr"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* All inline 1fr 1fr grids inside forms collapse on mobile */
+@media (max-width: 600px) {
+
+  [style*="gridTemplateColumns: '1fr 1fr'"],
+  [style*='gridTemplateColumns: "1fr 1fr"'] {
+    grid-template-columns: 1fr !important;
+  }
+
+  [style*="gridTemplateColumns: '1fr 1fr 1fr'"],
+  [style*='gridTemplateColumns: "1fr 1fr 1fr"'] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Reduce section padding on mobile */
+  .section {
+    padding: 3rem var(--side-pad);
+  }
+
+  /* Card padding reduction on mobile (global) */
+  .card-apple {
+    padding: 2rem !important;
+    border-radius: 20px !important;
+  }
+
+  /* buttons full-width on mobile forms */
+  .btn-gold,
+  .btn-outline {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Dashboard sub-pages: naissance, saillie, pedigree, annonces, transfer */
+@media (max-width: 768px) {
+  main[style*="paddingTop"] .container {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  /* Tables in pedigree page */
+  [style*="30px 1fr 100px 1fr 200px 40px"] {
+    grid-template-columns: 1fr auto !important;
+    flex-wrap: wrap;
+    gap: 0.5rem !important;
+  }
+
+  /* zuchtplaner - large minmax grids */
+  [style*="minmax(450px, 1fr)"],
+  [style*="minmax(400px, 1fr)"],
+  [style*="minmax(350px, 1fr)"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* h1 global scale down on mobile */
+  h1 {
+    font-size: clamp(1.8rem, 6vw, 3rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 5vw, 2.5rem) !important;
+  }
 }

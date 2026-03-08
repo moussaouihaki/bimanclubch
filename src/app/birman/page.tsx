@@ -105,8 +105,8 @@ export default function BirmanPage() {
                 </div>
 
                 <style jsx>{`
-                    .legend-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 5rem; align-items: center; }
-                    .legend-image-wrapper { position: relative; height: 600px; border-radius: 40px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+                    .legend-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 5rem; align-items: center; width: 100%; }
+                    .legend-image-wrapper { position: relative; height: 600px; border-radius: 40px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.1); width: 100%; }
                     .legend-content-wrapper { padding: 1rem; }
                     .legend-title { font-size: 3rem; marginBottom: 2.5rem; font-family: var(--font-serif); }
                     .legend-text { font-size: 1.3rem; line-height: 1.8; color: var(--clr-text-muted); marginBottom: 3rem; }

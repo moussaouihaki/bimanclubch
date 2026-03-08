@@ -489,11 +489,11 @@ export default function AdminDashboard() {
                     )}
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '280px 1fr', gap: '3rem' }}>
+                <div className="admin-layout">
 
                     {/* Sidebar */}
                     <aside>
-                        <div className="card-apple" style={{ background: 'white', padding: '1rem', display: 'grid', gap: '0.5rem', position: 'sticky', top: '140px' }}>
+                        <div className="card-apple admin-sidebar">
                             <button onClick={() => setTab('memberships')} className={`admin-nav-btn ${tab === 'memberships' ? 'active' : ''}`}>
                                 👥 {t('admin.tab_memberships')} ({memberships.length})
                             </button>
@@ -761,7 +761,7 @@ export default function AdminDashboard() {
                         )}
 
                         {tab === 'messages' && (
-                            <div style={{ display: 'grid', gridTemplateColumns: '380px 1fr', height: '80vh', background: 'white', borderRadius: '24px', overflow: 'hidden', boxShadow: 'var(--shadow-lg)' }}>
+                            <div className="chat-layout">
                                 {/* User List */}
                                 <div style={{ borderRight: '1px solid #eee', overflowY: 'auto', background: '#FBFBFD' }}>
                                     <div style={{ padding: '2rem', borderBottom: '1px solid #eee', background: 'white' }}>
@@ -883,6 +883,16 @@ export default function AdminDashboard() {
                 .admin-nav-btn.active {
                     background: var(--clr-gold);
                     color: white;
+                }
+                .admin-layout { display: grid; grid-template-columns: 280px 1fr; gap: 3rem; }
+                .admin-sidebar { background: white; padding: 1rem; display: grid; gap: 0.5rem; position: sticky; top: 140px; }
+                .chat-layout { display: grid; grid-template-columns: 380px 1fr; height: 80vh; background: white; border-radius: 24px; overflow: hidden; box-shadow: var(--shadow-lg); }
+                
+                @media (max-width: 1024px) {
+                    .admin-layout { grid-template-columns: 1fr; gap: 2rem; }
+                    .admin-sidebar { position: static; display: flex; overflow-x: auto; white-space: nowrap; padding-bottom: 1rem; border-radius: 16px; margin-bottom: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+                    .admin-nav-btn { width: auto; font-size: 0.9rem; padding: 0.8rem 1.2rem; flex-shrink: 0; }
+                    .chat-layout { grid-template-columns: 1fr; height: 85vh; display: flex; flex-direction: column; }
                 }
             `}</style>
         </main>

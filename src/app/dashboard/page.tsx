@@ -57,16 +57,16 @@ export default function DashboardPage() {
             <div className="container-large">
 
                 {/* Header Dashboard */}
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '4rem' }}>
+                <div className="dash-header">
                     <div>
-                        <span style={{ color: 'var(--clr-gold)', letterSpacing: '0.2em', textTransform: 'uppercase', fontSize: '0.8rem', fontWeight: 700 }}>
+                        <span style={{ color: 'var(--clr-gold)', letterSpacing: '0.2em', textTransform: 'uppercase', fontSize: '0.8rem', fontWeight: 700 as const }}>
                             {t('auth.member_space')}
                         </span>
-                        <h1 style={{ fontSize: '3.5rem', marginTop: '1rem' }}>
+                        <h1 className="dash-h1">
                             {t('nav.home')}, <span className="text-serif text-gold">{user.email?.split('@')[0]}</span>
                         </h1>
                     </div>
-                    <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                    <div className="dash-header-actions">
                         {profile?.role === 'admin' && (
                             <Link href="/admin" className="btn-outline" style={{ padding: '0.8rem 2rem', fontSize: '0.9rem', color: 'var(--clr-sapphire)', border: '1px solid var(--clr-sapphire)' }}>
                                 {t('dashboard.admin_panel')}
@@ -78,11 +78,12 @@ export default function DashboardPage() {
                     </div>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '3rem' }}>
+
+                <div className="dashboard-layout">
 
                     {/* Sidebar / Profile Card */}
                     <div style={{ display: 'grid', gap: '2rem', height: 'fit-content' }}>
-                        <div className="card-apple" style={{ background: 'white', padding: '3rem' }}>
+                        <div className="card-apple dashboard-card" style={{ background: 'white' }}>
                             <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'var(--clr-gold-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem', marginBottom: '2rem' }}>
                                 👤
                             </div>
@@ -110,7 +111,7 @@ export default function DashboardPage() {
                             </div>
                         </div>
 
-                        <div className="card-apple" style={{ background: 'var(--clr-sapphire)', color: 'white', padding: '3rem', position: 'relative' }}>
+                        <div className="card-apple dashboard-card" style={{ background: 'var(--clr-sapphire)', color: 'white', position: 'relative' }}>
                             {hasNewMessage && (
                                 <div style={{ position: 'absolute', top: '2rem', right: '2rem', background: '#EF4444', color: 'white', padding: '4px 12px', borderRadius: '20px', fontSize: '0.7rem', fontWeight: 800, animation: 'pulse 2s infinite' }}>
                                     {t('dashboard.new')}
@@ -128,7 +129,7 @@ export default function DashboardPage() {
                     <div style={{ display: 'grid', gap: '2.5rem' }}>
 
                         {/* Quick Stats / Actions */}
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem' }}>
+                        <div className="stats-grid">
                             <Link href="/dashboard/naissance" className="card-apple" style={{ background: 'white', padding: '2rem', textAlign: 'center', border: '1px solid #f0f0f5', textDecoration: 'none', color: 'inherit' }}>
                                 <div style={{ fontSize: '1.8rem', marginBottom: '0.5rem' }}>🐾</div>
                                 <div style={{ fontSize: '1.5rem', fontWeight: 700 }}>{stats.births}</div>
@@ -152,7 +153,7 @@ export default function DashboardPage() {
                         </div>
 
                         {/* Recent Activity / Next Steps */}
-                        <div className="card-apple" style={{ background: 'white', padding: '4rem' }}>
+                        <div className="card-apple dashboard-card" style={{ background: 'white' }}>
                             <h2 style={{ fontSize: '2rem', marginBottom: '3rem' }}>{t('dashboard.quick_actions')}</h2>
                             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '2rem' }}>
                                 <Link href="/dashboard/naissance" style={{ textDecoration: 'none' }}>
@@ -215,7 +216,7 @@ export default function DashboardPage() {
                         </div>
 
                         {/* My Ads Management */}
-                        <div className="card-apple" style={{ background: 'white', padding: '4rem' }}>
+                        <div className="card-apple dashboard-card" style={{ background: 'white' }}>
                             <h2 style={{ fontSize: '2rem', marginBottom: '3rem' }}>{t('mgmt.my_ads')}</h2>
 
                             <MyAdsList user={user} t={t} />
@@ -232,6 +233,16 @@ export default function DashboardPage() {
                     border-radius: 20px;
                     border: 1px solid #f0f0f5;
                     cursor: pointer;
+                    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                    background: white;
+                    height: 100%;
+                }
+                .action-card {
+                    padding: 2.5rem;
+                    border: 1px solid #f0f0f5;
+                    border-radius: 20px;
+                    text-decoration: none;
+                    display: block;
                     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
                     background: white;
                     height: 100%;
@@ -253,8 +264,31 @@ export default function DashboardPage() {
                     box-shadow: 0 15px 30px rgba(0,0,0,0.08);
                     border-color: var(--clr-gold) !important;
                 }
+
+                .dashboard-layout { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; }
+                .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+                .dashboard-card { padding: 4rem; }
+                .dash-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; }
+                .dash-header h1 { font-size: 3.5rem; margin-top: 1rem; }
+                .dash-header-actions { display: flex; gap: 1rem; align-items: center; }
+
+                @media (max-width: 1024px) {
+                    .dashboard-layout { grid-template-columns: 1fr; }
+                    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+                    .dashboard-card { padding: 2.5rem; }
+                }
+
+                @media (max-width: 600px) {
+                    .dash-header { flex-direction: column; align-items: flex-start; gap: 1.5rem; margin-bottom: 2.5rem; }
+                    .dash-header h1 { font-size: 2.2rem; margin-top: 0.5rem; }
+                    .dash-header-actions { width: 100%; }
+                    .dash-header-actions a, .dash-header-actions button { flex: 1; text-align: center; }
+                    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+                    .dashboard-card { padding: 1.5rem; }
+                    .action-card { padding: 1.5rem; }
+                }
             `}</style>
-        </main>
+        </main >
     );
 }
 
@@ -286,7 +320,7 @@ function MyAdsList({ user, t }: { user: any, t: any }) {
     return (
         <div style={{ display: 'grid', gap: '1.5rem' }}>
             {ads.map(ad => (
-                <div key={ad.id} style={{ display: 'flex', gap: '2rem', padding: '2rem', border: '1px solid #eee', borderRadius: '20px', alignItems: 'center' }}>
+                <div key={ad.id} className="ad-item">
                     <div style={{ width: '80px', height: '80px', borderRadius: '12px', overflow: 'hidden', background: '#f5f5f7' }}>
                         {ad.images?.[0] ? <img src={ad.images[0]} style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> : '🐱'}
                     </div>
@@ -309,6 +343,12 @@ function MyAdsList({ user, t }: { user: any, t: any }) {
                     </div>
                 </div>
             ))}
+            <style jsx>{`
+                .ad-item { display: flex; gap: 2rem; padding: 2rem; border: 1px solid #eee; border-radius: 20px; align-items: center; }
+                @media (max-width: 600px) {
+                    .ad-item { flex-direction: column; text-align: center; gap: 1rem; padding: 1.5rem; }
+                }
+            `}</style>
         </div>
     );
 }

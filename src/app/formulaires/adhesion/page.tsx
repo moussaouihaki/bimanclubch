@@ -103,7 +103,7 @@ export default function AdhesionFormPage() {
                             <motion.div key="s2" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}>
                                 <h3 style={{ marginBottom: '2.5rem', fontSize: '1.5rem', color: 'var(--clr-seal)' }}>{t('form.step2')}</h3>
                                 <div style={{ display: 'grid', gap: '1.8rem' }}>
-                                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+                                    <div className="form-2col">
                                         <div>
                                             <label className="form-label">{t('form.field_name')}</label>
                                             <input required type="text" className="input-premium" value={formData.fullName} onChange={e => setFormData({ ...formData, fullName: e.target.value })} />
@@ -117,7 +117,7 @@ export default function AdhesionFormPage() {
                                         <label className="form-label">{t('form.field_address')}</label>
                                         <input required type="text" className="input-premium" value={formData.address} onChange={e => setFormData({ ...formData, address: e.target.value })} />
                                     </div>
-                                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+                                    <div className="form-2col">
                                         <div>
                                             <label className="form-label">{t('form.field_city')}</label>
                                             <input required type="text" className="input-premium" value={formData.city} onChange={e => setFormData({ ...formData, city: e.target.value })} />
@@ -134,7 +134,7 @@ export default function AdhesionFormPage() {
                                         </div>
                                     )}
                                 </div>
-                                <div style={{ marginTop: '3.5rem', display: 'flex', justifyContent: 'space-between' }}>
+                                <div className="form-nav-btns" style={{ marginTop: '3.5rem' }}>
                                     <button type="button" onClick={() => setStep(1)} className="btn-outline">{t('common.back')}</button>
                                     <button type="button" onClick={() => setStep(3)} className="btn-gold">{t('common.next')}</button>
                                 </div>
@@ -151,7 +151,7 @@ export default function AdhesionFormPage() {
 
                                 {formData.isBreeder && (
                                     <div style={{ display: 'grid', gap: '1.8rem' }}>
-                                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+                                        <div className="form-2col">
                                             <div>
                                                 <label className="form-label">{t('form.field_cattery')}</label>
                                                 <input type="text" className="input-premium" value={formData.catteryName} onChange={e => setFormData({ ...formData, catteryName: e.target.value })} />
@@ -161,7 +161,7 @@ export default function AdhesionFormPage() {
                                                 <input type="text" className="input-premium" value={formData.homepage} onChange={e => setFormData({ ...formData, homepage: e.target.value })} />
                                             </div>
                                         </div>
-                                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+                                        <div className="form-2col">
                                             <div>
                                                 <label className="form-label">{t('form.field_cats')}</label>
                                                 <input type="number" className="input-premium" value={formData.catsCount} onChange={e => setFormData({ ...formData, catsCount: e.target.value })} />
@@ -173,7 +173,7 @@ export default function AdhesionFormPage() {
                                         </div>
                                     </div>
                                 )}
-                                <div style={{ marginTop: '3.5rem', display: 'flex', justifyContent: 'space-between' }}>
+                                <div className="form-nav-btns" style={{ marginTop: '3.5rem' }}>
                                     <button type="button" onClick={() => setStep(2)} className="btn-outline">{t('common.back')}</button>
                                     <button type="button" onClick={() => setStep(4)} className="btn-gold">{t('common.next')}</button>
                                 </div>
@@ -206,7 +206,7 @@ export default function AdhesionFormPage() {
                                     </label>
                                 </div>
 
-                                <div style={{ marginTop: '3.5rem', display: 'flex', justifyContent: 'space-between' }}>
+                                <div className="form-nav-btns" style={{ marginTop: '3.5rem' }}>
                                     <button type="button" onClick={() => setStep(3)} className="btn-outline">{t('common.back')}</button>
                                     <button type="submit" disabled={isSubmitting} className="btn-gold">
                                         {isSubmitting ? '...' : t('common.submit')}
@@ -222,6 +222,14 @@ export default function AdhesionFormPage() {
                 .form-label { display: block; margin-bottom: 0.6rem; font-size: 0.9rem; font-weight: 500; color: var(--clr-text-muted); }
                 .input-premium { width: 100%; padding: 1.2rem; border-radius: 14px; border: 1px solid #e0e0e0; outline: none; font-size: 1rem; transition: border 0.2s; }
                 .input-premium:focus { border-color: var(--clr-gold); }
+                .form-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+                .form-nav-btns { display: flex; justify-content: space-between; gap: 1rem; }
+
+                @media (max-width: 480px) {
+                    .form-2col { grid-template-columns: 1fr; }
+                    .form-nav-btns { flex-direction: column; }
+                    .form-nav-btns button, .form-nav-btns a { width: 100%; justify-content: center; }
+                }
             `}</style>
         </main>
     );

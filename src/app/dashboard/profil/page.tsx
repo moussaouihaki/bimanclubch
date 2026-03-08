@@ -95,7 +95,7 @@ export default function ProfilePage() {
                         <input type="text" name="ownerName" value={formData.ownerName} onChange={handleChange} placeholder="ex: Jean Dupont" className="form-input" />
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '2rem' }}>
+                    <div className="form-grid">
                         <div>
                             <label className="field-label">Canton</label>
                             <select name="canton" value={formData.canton} onChange={handleChange} className="form-input">
@@ -110,7 +110,7 @@ export default function ProfilePage() {
                         </div>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+                    <div className="form-grid-2">
                         <div>
                             <label className="field-label">{t('profile.phone')}</label>
                             <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="ex: +41 79 123 45 67" className="form-input" />
@@ -135,6 +135,14 @@ export default function ProfilePage() {
                 .field-label { display: block; margin-bottom: 0.8rem; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--clr-text-muted); }
                 .form-input { width: 100%; padding: 1.2rem; border-radius: 12px; border: 1px solid #E5E5E7; background: #FBFBFD; font-size: 1rem; transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
                 .form-input:focus { border-color: var(--clr-gold); background: white; outline: none; box-shadow: 0 0 0 4px rgba(0, 51, 153, 0.05); }
+                .form-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; }
+                .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+                
+                @media (max-width: 600px) {
+                    .form-grid, .form-grid-2 { grid-template-columns: 1fr; gap: 1.5rem; }
+                    .card-apple { padding: 2rem !important; }
+                    h1 { font-size: 2.5rem !important; }
+                }
             `}</style>
         </main>
     );

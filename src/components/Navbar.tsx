@@ -61,11 +61,11 @@ export function Navbar() {
                         <Image src="/images/logo.png" alt="CBS Logo" fill style={{ objectFit: 'contain' }} />
                     </div>
                     <div className="brand-text">
-                        <span style={{ fontWeight: 800, letterSpacing: '-0.02em', fontSize: 'clamp(15px, 4vw, 20px)', color: 'var(--clr-text)', whiteSpace: 'nowrap' }}>
+                        <span style={{ fontWeight: 800, letterSpacing: '-0.02em', fontSize: 'clamp(15px, 4vw, 20px)', color: scrolled ? 'var(--clr-text)' : 'white', whiteSpace: 'nowrap' }}>
                             CLUB BIRMAN
                         </span>
-                        <span className="brand-subtitle" style={{ fontWeight: 600, letterSpacing: '0.15em', fontSize: 'clamp(8px, 2vw, 10px)', color: 'var(--clr-gold)', whiteSpace: 'nowrap', opacity: 0.9 }}>
-                            SCHWEIZ · SUISSE · SVIZZERA
+                        <span className="brand-subtitle" style={{ fontWeight: 600, letterSpacing: '0.15em', fontSize: 'clamp(8px, 2vw, 10px)', color: 'var(--clr-blue-vibrant)', whiteSpace: 'nowrap', opacity: 1 }}>
+                            SCHWEIZ · <span style={{ color: 'var(--clr-blue-vibrant)' }}>SUISSE</span> · SVIZZERA
                         </span>
                     </div>
                 </Link>
@@ -170,7 +170,7 @@ export function Navbar() {
                 .nav-actions { display: flex; gap: 1.5rem; align-items: center; }
                 .lang-switcher-desktop { display: flex; background: rgba(0,0,0,0.04); padding: 3px; border-radius: 100px; }
                 .hamburger { display: none; background: none; border: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 10px; z-index: 2100; }
-                .bar { width: 22px; height: 1.5px; background: var(--clr-text); transition: 0.3s; border-radius: 10px; }
+                .bar { width: 22px; height: 1.5px; background: ${scrolled || isMenuOpen ? 'var(--clr-text)' : 'white'}; transition: 0.3s; border-radius: 10px; }
                 .mobile-extras { display: none; flex-direction: column; gap: 2rem; margin-top: 2rem; width: 100%; }
                 .mobile-divider { height: 1px; background: rgba(0,0,0,0.08); width: 100%; }
                 .lang-switcher-mobile { display: flex; gap: 10px; justify-content: center; background: #f5f5f7; padding: 12px; border-radius: 100px; }
@@ -201,8 +201,10 @@ export function Navbar() {
                         visibility: visible;
                         pointer-events: auto;
                     }
-                    .nav-group { width: 100%; border-bottom: 1px solid #f5f5f7; padding: 12px 0; }
-                    .nav-dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; padding: 10px 0 0 20px; border: none; }
+                    .nav-group { width: 100%; border-bottom: 1px solid #f5f5f7; padding: 15px 0; align-items: flex-start; flex-direction: column; gap: 12px; }
+                    .nav-dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; padding: 5px 0 10px 15px; border: none; width: 100%; }
+                    .nav-dropdown .nav-link { font-size: 15px; text-align: left; padding: 10px 12px; }
+                    .nav-link { font-size: 17px; }
                     .hamburger { display: flex; }
                     .mobile-extras { display: flex; }
                     
