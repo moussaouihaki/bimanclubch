@@ -1,26 +1,448 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Apple-inspired Light Palette with Club Colors */
+  --clr-bg: #F5F5F7;
+  /* Apple classic light gray background */
+  --clr-card: #FFFFFF;
+  --clr-sapphire: #012B7C;
+  /* Club Blue */
+  --clr-gold: #003399;
+  /* Primary Action Blue */
+  --clr-gold-light: #E5F0FF;
+  --clr-text: #1D1D1F;
+  /* Apple dark text */
+  --clr-text-muted: #86868B;
+  /* Apple secondary text */
+  --clr-border: rgba(0, 0, 0, 0.05);
+
+  /* Deep colors for contrast */
+  --clr-seal: #2D2D2D;
+  --clr-silk: #F8F9FA;
+  --clr-opal: #FFFFFF;
+
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  /* Keep serif for elegant headers only */
+
+  /* Spacing */
+  --margin-edge: 5vw;
+  --section-pad: 8rem;
+
+  /* Effects */
+  --shadow-sm: 0 4px 14px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 20px 40px -15px rgba(0, 0, 0, 0.12);
+  --shadow-hover: 0 30px 60px -15px rgba(0, 51, 153, 0.15);
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-blur: blur(20px) saturate(180%);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--clr-bg);
+  color: var(--clr-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+}
+
+/* Typography Mastery */
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--font-sans);
+  /* Moving towards clean sans-serif for Apple feel */
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--clr-text);
+  letter-spacing: -0.02em;
+}
+
+.title-massive {
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  margin-bottom: 1rem;
+}
+
+/* Keep serif for special elegant accents */
+.text-serif {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.text-gold {
+  color: var(--clr-gold);
+}
+
+.text-sapphire {
+  color: var(--clr-sapphire);
+}
+
+/* Structure */
+.section {
+  padding: var(--section-pad) var(--margin-edge);
+  position: relative;
+}
+
+.container-large {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Enhanced Apple-style Cards */
+.card-apple {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  border-radius: 32px;
+  padding: 3.5rem;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.05),
+    0 0 0 1px rgba(0, 0, 0, 0.03) inset,
+    0 1px 1px rgba(255, 255, 255, 0.8) inset;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-apple::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+}
+
+.card-apple:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 30px 60px -15px rgba(0, 51, 153, 0.12),
+    0 0 0 1px rgba(0, 0, 0, 0.05) inset,
+    0 1px 1px rgba(255, 255, 255, 0.9) inset;
+}
+
+/* Modern Spacious Navbar */
+.nav-luxury {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 80px;
+  /* Increased height */
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(25px) saturate(200%);
+  -webkit-backdrop-filter: blur(25px) saturate(200%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-container {
+  width: 100%;
+  max-width: 1400px;
+  /* Wider container */
+  padding: 0 40px;
+  /* More side breathing room */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.nav-brand:hover {
+  transform: scale(1.02);
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  /* More spacing between groups */
+  align-items: center;
+}
+
+.nav-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 12px;
+  transition: background 0.3s ease;
+}
+
+.nav-group:hover {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.nav-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: white;
+  min-width: 220px;
+  border-radius: 20px;
+  padding: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nav-group:hover .nav-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.nav-link {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  /* Slightly larger */
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.75);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  padding: 10px 14px;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+
+.nav-dropdown .nav-link {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 13px;
+}
+
+.nav-dropdown .nav-link:hover {
+  background: var(--clr-gold-light);
+  color: var(--clr-gold);
+}
+
+.nav-link:hover {
+  color: var(--clr-text);
+}
+
+.lang-pill {
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.lang-pill.active {
+  background: var(--clr-gold);
+  color: white;
+}
+
+.lang-pill:not(.active):hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Beautiful Premium Buttons */
+.btn-gold {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.2rem;
+  background: linear-gradient(135deg, var(--clr-gold) 0%, var(--clr-sapphire) 100%);
+  color: #FFFFFF;
+  border-radius: 40px;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 20px -5px rgba(0, 51, 153, 0.4),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+  z-index: 10;
+}
+
+.btn-gold::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.btn-gold:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 15px 30px -5px rgba(0, 51, 153, 0.5),
+    inset 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.btn-gold:hover::before {
+  opacity: 1;
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.2rem;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--clr-sapphire);
+  border-radius: 40px;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(0, 51, 153, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  cursor: pointer;
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(0, 51, 153, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 51, 153, 0.08);
+}
+
+/* Utilities */
+.rounded-xl {
+  border-radius: 20px;
+}
+
+.rounded-2xl {
+  border-radius: 30px;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.relative {
+  position: relative;
+}
+
+.z-10 {
+  z-index: 10;
+}
+
+/* Filter bar styles (Eleveurs) */
+.filter-bar {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 0.5rem;
+  border-radius: 100px;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--clr-border);
+}
+
+.filter-btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 100px;
+  border: none;
+  background: transparent;
+  color: var(--clr-text-muted);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.filter-btn:hover {
+  color: var(--clr-text);
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.filter-.btn-secondary:hover {
+  background: var(--clr-gold);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Premium Gold Button */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem 3rem;
+  background: var(--clr-gold);
+  color: white;
+  border: none;
+  border-radius: 99px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 20px rgba(0, 51, 153, 0.15);
+}
+
+.btn-gold:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 51, 153, 0.25);
+  filter: brightness(1.1);
+}
+
+.btn-gold:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.filter-btn.active {
+  background: var(--clr-card);
+  color: var(--clr-text);
+  box-shadow: var(--shadow-sm);
+}
+
+.card-apple:hover .gallery-img {
+  transform: scale(1.05);
 }

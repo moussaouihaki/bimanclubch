@@ -1,0 +1,107 @@
+# Source: http://www.club-birman.ch:80/site_de/Haltung.html
+
+![bandeau](/images/pages/bandeau-de.jpg)
+
+*   [Home](/index.php)
+*   [Der Club](#)
+    *   [Aktuelles](/site_de/Aktuelles.html)
+    *   [Vorstellung](/site_de/Club-Vorstellung.html)
+    *   [Der Vorstand](/site_de/Vorstand.html)
+    *   [Mitgliederliste](/site_de/Mitglieder.html)
+    *   [Statuten / Beitritt](/site_de/Statuten.html)
+*   [Die Birmakatze](#)
+    *   [Vorstellung](/site_de/Birma-Vorstellung.html)
+    *   [Der FIFe-Standard](#)
+        *   [Die ursprüngliche Birmakatze](/site_de/Standard-Ursprung.html)
+        *   [Der aktuelle Standard](/site_de/Standard-Aktuel.html)
+        *   [Fehler nach dem Standard](/site_de/Standard-Fehler.html)
+    *   [Die Sage](/site_de/Sage.html)
+    *   [Die Geschichte](/site_de/Geschichte.html)
+    *   [Der Charakter](/site_de/Charakter.html)
+    *   [Die verschiedenen Farben](#)
+        *   [Ueberblick](/site_de/Farben.html)
+        *   [Seal](/site_de/Farbe-Seal.html)
+        *   [Blue](/site_de/Farbe-Blue.html)
+        *   [Chocolate](/site_de/Farbe-Chocolate.html)
+        *   [Lilac](/site_de/Farbe-Lilac.html)
+        *   [Red](/site_de/Farbe-Red.html)
+        *   [Cream](/site_de/Farbe-Cream.html)
+        *   [Tabby](/site_de/Tabby-Point.html)
+        *   [Tortie](/site_de/Tortie-Point.html)
+        *   [Zukünftige ?](/site_de/Zukunft.html)
+*   [Jungtiere](#)
+    *   [Jungtiervermittlung](/site_de/Vermittlung.html)
+    *   [Die Jungtiere](#)
+        *   [Jungtier kaufen](/site_de/Jungtier-Kaufen.html)
+        *   [Augen auf !](/site_de/Augen_auf.html)
+        *   [Jungtier empfangen](/site_de/Jungtier-Empfangen.html)
+        *   [Die Zubehöre](/site_de/Jungtier-Zubehoere.html)
+        *   [Seine Sauberkeit](/site_de/Jungtier-Sauberkeit.html)
+        *   [Seine Gesundheit](/site_de/Jungtier-Gesundheit.html)
+        *   [Seine Papiere](/site_de/Jungtier-Papiere.html)
+    *   [Haltung](#)
+        *   [Ernährung](/site_de/Ernahrung.html)
+        *   [Haltung](/site_de/Haltung.html)
+        *   [Giftpflanzen](/site_de/Giftpflanzen.html)
+        *   [Giftprodukte](/site_de/Giftprodukte.html)
+        *   [Die Kastration](/site_de/Kastrieren.html)
+        *   [Alte Katzen](/site_de/Alte-Katzen.html)
+    *   [Pflege](#)
+        *   [Impfungen](/site_de/Impfungen.html)
+        *   [Köperpflege](/site_de/Fellpflege.html)
+        *   [Zahnpflege](/site_de/Zahnpflege.html)
+        *   [Katzen-Apotheke](/site_de/Katzen-Apotheke.html)
+        *   [Notpflege](/site_de/Notpflege.html)
+        *   [Know-How](/site_de/Know-How.html)
+    *   [Ein bisschen Humor](#)
+        *   [Katze und Tablette](/site_de/Katze-und-Tablette.html)
+        *   [Katze und Bad](/site_de/Katze-und-Bad.html)
+*   [Ausstellungen](#)
+    *   [Zwecke der Ausstellungen](/site_de/Ausstellungen.html)
+    *   [Die Titel](/site_de/Ausstellungen-Titel)
+    *   [Die ersten Ausstellungen](/site_de/Ausstellungen-Ersten)
+    *   [Resultate unserer Züchter](/site_de/Resultaten.html)
+    *   [Fotos von Ausstellungen](/site_de/Ausstellungen-Fotos.html)
+*   [Fotos](#)
+    *   [Die Katzen unserer Mitglieder](/site_de/Mitgliederkatzen.html)
+    *   [Club-Ereignisse](/site_de/Ereignisse.html)
+*   [Diverses](#)
+    *   [Bücher](/site_de/Buecher.html)
+    *   [Links](/site_de/Links.html)
+    *   [Herunterladen](/site_de/Herunterladen.html)
+*   [Spender](/site_de/Spender.html)
+*   [Mitgliederbereich](#)
+    *   [Katzensprache](/site_de/Mitglieder/Sprache.php)
+    *   [Katzenanatomie](/site_de/Mitglieder/Anatomie.php)
+    *   [Die Sinne](/site_de/Mitglieder/Sinne.php)
+    *   [Krankheiten](/site_de/Mitglieder/Krankheiten.php)
+    *   [Genetik der Fellfarben](/site_de/Mitglieder/Genetik.php)
+    *   [Katzenzucht](/site_de/Mitglieder/Katzenzucht.php)
+    *   [Fortpflanzung](/site_de/Mitglieder/Fortpflanzung.php)
+    *   [Geschichte](/site_de/Mitglieder/Geschichte.php)
+    *   [Archiven](/site_de/Mitglieder/Archiv.php)
+
+![](../images/images/toilette.png)
+
+### Haltung
+
+###### • [Die Ernährung](Ernahrung.html)  
+• [Haltung](Haltung.html)  
+• [Giftpflanzen](Giftpflanzen.html)  
+• [Giftprodukte](Giftprodukte.html)  
+• [Die Kastration](Kastrieren.html)  
+• [Die alten Katzen](Alte-Katzen.html)  
+
+# Haltung und Pflege
+
+Birmakatzen faszinieren durch ihr Aussehen und ihren umwerfenden Charme. Birmchen haben das „Schmuseabitur“, sie schmusen alles und jeden in Grund und Boden. Aufgrund ihres freundlichen, sanften Wesens gelten sie zu Recht als ideale Wohnungs- und Familienkatzen. Doch gerade weil Birmelis sehr familienbezogen und anhänglich sind, sollten sie nicht in Einzelhaltung leben! Das gilt ganz besonders für Haushalte von Berufstätigen. Dabei muss es nicht unbedingt ein zweites Birmchen sein. Auch Hausies oder Katzen anderer Rassen sind willkommene Gefährten. Selbst mit Hunden schließen viele Birmas enge Freundschaft. Sie sind dafür berüchtigt alles zu lieben was den Anschein erweckt, ihrer Liebe zu bedürfen. Kinder und Birmakatzen sind eine unschlagbare Kombination. Kinder lieben Birmas und Birmas lieben Kinder. Und natürlich sind Birmas Bettkatzen. Wer seinen blauäugigen Schnurrer nicht im Bett haben möchte, darf ihn niemals ins Schlafzimmer lassen! Ein hoffnungsloses Unterfangen. Birmelis lieben nicht nur das Schmusen und die Wärme, sie brauchen auch viel liebevolle Aufmerksamkeit und haben einen ausgeprägten Hang zum Luxus. Nur der beste, schönste, kuscheligste Platz ist gerade gut genug.
+
+Birmelis sind gewitzt, extrem neugierig und perfekte „Haushaltshilfen“. Sie helfen beim Bettenmachen durch das Bekämpfen von Laken und Bettbezügen, beim Einräumen von Einkäufen (der Mensch räumt ein, das Birmchen räumt aus) und viele sind fasziniert von offenen Näh- oder Werkzeugkästen. Da werden Garnrollen gemopst, Schrauben ausgeräumt und Zollstöcke bepfötelt. Erwischt man sie bei solchem Tun, schauen sie treuherzig als wollten sie sagen: „Was denn? Ich wollte Dich doch nur unterstützen! Darf ich Dir ein Werkzeug reichen…?“ Birmchen sind lebhaft und verspielt bis ins hohe Alter.
+
+Birmakatzen sollten keinesfalls als Freigänger gehalten werden, da sie sehr menschenfreundlich sind und sich auch von Fremden gerne streicheln, hoch- und mitnehmen lassen.  
+Der seidig-weiche Pelz einer Heiligen Birma bedarf keiner besonderen Behandlung. Doch sollte er, wie bei allen Katzen, regelmäßig gebürstet werden, da ein Übermaß verschluckter Haare zum Darm- verschluss führen kann. Außerdem ist regelmäßiges Fellbürsten gut für den Hautstoffwechsel.
+
+Viele Birmas sind etwas heikel beim Futter und mäkelige, kapriziöse Esser. Häufig entwickeln sie in puncto Speisezettel ganz besondere Vorlieben und kaum eine Katze gleicht darin der anderen. Beim Füttern sollte man unbedingt auf hochwertiges Premiumfutter achten, denn viele Birmchen sind magen- und darmempfindlich. Fütterungsfehler haben oft Verstopfungen, Durchfälle oder Magenprobleme zur Folge.
+
+©  Birma Club 2010 - Alle Rechte am Inhalt liegen beim Birma Club Schweiz bzw. ihren jeweiligen Eigent�mer.  
+Webdesigner & Webmaster : [Danièle](mailto:danielemonnet@netplus.ch)  und  [J. Maurice Monnet](mailto:jmmonnet@netplus.ch)

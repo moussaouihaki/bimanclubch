@@ -1,0 +1,243 @@
+.hero {
+    height: 100vh;
+    min-height: 900px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(at 100% 0%, rgba(197, 160, 89, 0.05) 0, transparent 40%);
+}
+
+.hero-layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6rem;
+}
+
+.hero-text {
+    flex: 1.1;
+    position: relative;
+    z-index: 100;
+}
+
+.hero-text .badge {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background: var(--clr-gold);
+    color: white;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+    box-shadow: 10px 10px 0 rgba(197, 160, 89, 0.1);
+}
+
+.hero-text .display-title {
+    color: var(--clr-seal);
+    font-weight: 800;
+    line-height: 0.9;
+    font-size: 6.5rem;
+}
+
+.hero-text .display-title span {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 0.4em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-top: 1rem;
+    color: var(--clr-gold);
+}
+
+.hero-text p {
+    font-size: 1.35rem;
+    max-width: 580px;
+    line-height: 1.6;
+    margin-bottom: 3.5rem;
+    color: var(--clr-seal);
+    opacity: 0.8;
+}
+
+.hero-visual {
+    flex: 1.3;
+    position: relative;
+    height: 95vh;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lux);
+}
+
+.hero-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 10s linear;
+}
+
+.hero:hover .hero-visual img {
+    transform: scale(1.1);
+}
+
+.hero-visual .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(45, 36, 30, 0.4) 100%);
+    z-index: 2;
+}
+
+/* SECTION HEADERS */
+.section-head {
+    text-align: center;
+    margin-bottom: 8rem;
+}
+
+.section-head .badge {
+    display: inline-block;
+    padding: 0.4rem 1.2rem;
+    background: var(--clr-cream);
+    color: var(--clr-gold);
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+.section-head h2 {
+    font-size: 4rem;
+    color: var(--clr-seal);
+}
+
+/* CARDS 3.0 */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+}
+
+.lux-card {
+    padding: 4rem 3rem;
+    background: white;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lux);
+    border-bottom: 4px solid transparent;
+    transition: var(--trans-ux);
+}
+
+.lux-card:hover {
+    transform: translateY(-20px);
+    border-bottom-color: var(--clr-gold);
+}
+
+.lux-card .icon {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    display: block;
+}
+
+.lux-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--clr-seal);
+}
+
+/* BREED HIGHLIGHT ZENITH */
+.breed-zenith {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    align-items: center;
+    gap: 8rem;
+}
+
+.breed-zenith .image-stack {
+    position: relative;
+    height: 600px;
+}
+
+.breed-zenith .main-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 90%;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-lux);
+    z-index: 2;
+}
+
+.breed-zenith .sub-img {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 60%;
+    height: 70%;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-lux);
+    z-index: 1;
+    border: 4px solid var(--clr-silk);
+}
+
+.breed-zenith h2 {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    color: var(--clr-seal);
+}
+
+.breed-zenith p {
+    font-size: 1.25rem;
+    margin-bottom: 3rem;
+}
+
+.breed-list {
+    list-style: none;
+    display: grid;
+    gap: 1.5rem;
+}
+
+.breed-list li {
+    padding-left: 2rem;
+    position: relative;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.breed-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--clr-gold);
+    font-weight: 900;
+}
+
+@media (max-width: 1100px) {
+    .hero-layout {
+        flex-direction: column-reverse;
+        height: auto;
+        padding: 12rem 0 6rem 0;
+        text-align: center;
+    }
+
+    .hero-text .display-title {
+        font-size: 4rem;
+    }
+
+    .hero-visual {
+        width: 100%;
+        height: 500px;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .breed-zenith {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}

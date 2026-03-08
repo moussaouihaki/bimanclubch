@@ -1,0 +1,87 @@
+/* src/styles/Eleveurs.css */
+.directory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 2.5rem;
+}
+
+.breeder-card {
+    background: var(--clr-silk);
+    border-radius: 20px;
+    padding: 3rem 2.5rem;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.breeder-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-float);
+}
+
+.breeder-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--clr-seal), var(--clr-gold));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.breeder-card:hover::before {
+    opacity: 1;
+}
+
+.breeder-canton {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: var(--clr-opal);
+    color: var(--clr-gold);
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+.filter-bar {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 4rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.7rem 1.8rem;
+    border-radius: 100px;
+    border: 1px solid rgba(45, 36, 30, 0.08);
+    background: var(--clr-silk);
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--clr-text-muted);
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: var(--clr-seal);
+    color: white;
+    border-color: var(--clr-seal);
+    box-shadow: 0 10px 20px -5px rgba(45, 36, 30, 0.3);
+}
+
+@media (max-width: 768px) {
+    .directory-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,48 @@
+# Source: http://club-birman.ch/site_it/foto-allevatori.html
+
+![bandeau](/images/pages/bandeau-it.jpg)
+
+*   [Benvenuto](/index.php)
+*   [Il Club](#)
+    *   [Novità](/site_it/novita.html)
+    *   [Chi Siamo](/site_it/presentazione-club.html)
+    *   [Comitato](/site_it/comitato.html)
+    *   [Allevatori](/site_it/allevatori.html)
+    *   [Soci](/site_it/soci.html)
+    *   [Eventi del Club](/site_it/eventi.html)
+    *   [Statuti e Moduli](/site_it/statuti.html)
+*   [Il Sacro di Birmania](#)
+    *   [Presentazione](/site_it/presentazione-gatto.html)
+    *   [Standard FIFe](/site_it/standard-origine.html)
+    *   [Leggenda](/site_it/leggenda.html)
+    *   [Storia](/site_it/storia.html)
+    *   [Carattere](/site_it/caraterre.html)
+    *   [Colori e Varietà](/site_it/colori.html)
+*   [Cuccioli](#)
+    *   [Collocamento dei cuccioli](/site_it/collocamento.html)
+    *   [Acquisto di un cucciolo](/site_it/acquisto.html)
+    *   [Consigli](/site_it/birmano-casa.html)
+    *   [Cura](/site_it/vaccini.html)
+*   [Esposizioni](#)
+    *   [Scopo](/site_it/scopo.html)
+    *   [Prime esposizioni](/site_it/primo_espo.html)
+    *   [I titoli](/site_it/titoli.html)
+    *   [Nostri allevatori in esposizioni](/site_it/foto-allevatori.html)
+    *   [Successi dei nostri allevatori](/site_it/successi.html)
+    *   [Special Shows](/site_it/foto-esposizioni.html)
+*   [Links](/site_it/links.html)
+*   [Varie](#)
+    *   [Letteratura](/site_it/letteratura.html)
+    *   [Moduli-Download](/site_it/download.html)
+*   [Area soci](/site_it/area_soci.html)
+
+  
+
+# I nostri allevatori in esposizioni
+
+[![Nicole M�ller e la sua famiglia a Zofingen (CH), 28.02.2015](/galeries photos/eleveurs/vignettes/Nicole-Muller-Fam.jpg)](/galeries photos/eleveurs/Nicole-Muller-Fam.jpg) [![Pia Schweizer con Virgile de la Rose al special show Sacro di Birmania di Zofingen (CH), 28.02.2015](/galeries photos/eleveurs/vignettes/Pia-Virgile-Zofingen.jpg)](/galeries photos/eleveurs/Pia-Virgile-Zofingen.jpg) [![Franz Wildhaber e Aloisius, il figlio di lui, con la presidente al special show Sacro di Birmania di Zofingen (CH), 28.02.2015](/galeries photos/eleveurs/vignettes/Franz-Zofingen2015.jpg)](/galeries photos/eleveurs/Franz-Zofingen2015.jpg) [![FIFe giudice Louis Coste, Dr. vet. Katrin Berger con Aimee von Mausezahn a Zofingen (CH), 28.02.2015](/galeries photos/eleveurs/vignettes/KBerger-Zofingen.jpg)](/galeries photos/eleveurs/KBerger-Zofingen.jpg) [![Sabine Christen con White Moon Winni a Zofingen (CH), 28.02.2015](/galeries photos/eleveurs/vignettes/Christen-Zofingen.jpg)](/galeries photos/eleveurs/Christen-Zofingen.jpg) [![Stefanie Burkard con Kisha van Minou Bloe a Rapperwil (CH), 28.06.2014](/galeries photos/eleveurs/vignettes/Steffi-Kisha.jpg)](/galeries photos/eleveurs/Steffi-Kisha.jpg) [![Monika M�hlheim con Excellence Birma Zaphira a La Chaux-de-Fonds (CH), 22.02.2014](/galeries photos/eleveurs/vignettes/Monika-Zaphira.jpg)](/galeries photos/eleveurs/Monika-Zaphira.jpg) [![Katrin Berger con Ursina von Schlaraffenland a La Chaux-de-Fonds (CH), 22.02.2014](/galeries photos/eleveurs/vignettes/KBerger-Ursina.jpg)](/galeries photos/eleveurs/KBerger-Ursina.jpg) [![Daniela e Maurizio Bellanca con Blues Sunny Queen e Cheers Beauty Tinebra a Cernobbio (I), 8.02.2014](/galeries photos/eleveurs/vignettes/Bellanca-1.jpg)](/galeries photos/eleveurs/Bellanca-1.jpg) [![Dani�le Monnet con Virgile de la Rose a B�lach (CH), 25.01.2014](/galeries photos/eleveurs/vignettes/Daniele-Bulach-1.jpg)](/galeries photos/eleveurs/Daniele-Bulach-1.jpg) [![Liliane Ballaman con UJaya de la Rose a Beaune (F), 11.01.2014](/galeries photos/eleveurs/vignettes/Liliane-UJaya-2.jpg)](/galeries photos/eleveurs/Liliane-UJaya-2.jpg) [![Daniela Bellanca con gattino Vento Nero a la premiazione special show Sacro di Birmania a B�lach (CH), 25.01.2014)](/galeries photos/eleveurs/vignettes/Bellanca-Bulach-Vento.jpg)](/galeries photos/eleveurs/Bellanca-Bulach-Vento.jpg) [![Liliane Ballaman con Shiny Lover Boy a Zofingen (CH), 3.02.2013](/galeries photos/eleveurs/vignettes/zofingen-ballaman-shiny.jpg)](/galeries photos/eleveurs/zofingen-ballaman-shiny.jpg) [![Gertrud M�ller con Asia Cuore d`Havanna a Zofingen (CH), 3.02.2013](/galeries photos/eleveurs/vignettes/muller-zofingen.jpg)](/galeries photos/eleveurs/muller-zofingen.jpg) [![Stefanie Burkard con Kisha van Minou Bloe a B�lach (CH), 25.01.2014](/galeries photos/eleveurs/vignettes/Stefanie-Bulach-1.jpg)](/galeries photos/eleveurs/Stefanie-Bulach-1.jpg) [![Gabriella Cereghetti con Tender Love a Zofingen (CH), 03.02.2013](/galeries photos/eleveurs/vignettes/Cereghetti-Zofingen-1.jpg)](/galeries photos/eleveurs/Cereghetti-Zofingen-1.jpg) [![Picnic a B�lach (CH), 25.01.2014 : Barbara e Fabio Mainini, Maurizio Bellanca, Cristiano Sandon e Daniela Bellanca](/galeries photos/eleveurs/vignettes/Picnic-Bulach-1.jpg)](/galeries photos/eleveurs/Picnic-Bulach-1.jpg) [![Cristiano F. Sandon con la sua femmina lilac point Ortenilla delle Ninfe del Lago, CS e BIS a Rovigno (I)](/galeries photos/eleveurs/vignettes/Cristiano-Ortenilla.jpg)](/galeries photos/eleveurs/Cristiano-Ortenilla.jpg) [![Cristiano F. Sandon con Rhodesia delle Ninfe del Lago, Best of Best a Montichiari (I)](/galeries photos/eleveurs/vignettes/Cristiano-Rhodesia-BOB.jpg)](/galeries photos/eleveurs/Cristiano-Rhodesia-BOB.jpg) [![Romina Ramelli con Sweeticetears Vanity a Zofingen (CH), 3.02.2013](/galeries photos/eleveurs/vignettes/zofingen-ramelli-vanity.jpg)](/galeries photos/eleveurs/zofingen-ramelli-vanity.jpg) [![Sabina Di Battista con Tosca Cuore d`Havanna a la selezione per BIV a Zofingen (CH), 3.02.2013](/galeries photos/eleveurs/vignettes/DiBattista-Zofingen-1.jpg)](/galeries photos/eleveurs/DiBattista-Zofingen-1.jpg) [![Barbara Mainini con Syros il Greco delle Ninfe del Lago a Zofingen (CH), 3.02.2013](/galeries photos/eleveurs/vignettes/Barbara-Mainini-Zofingen.jpg)](/galeries photos/eleveurs/Barbara-Mainini-Zofingen.jpg) [![Sabine Christen con la gattina Peppels a Zofingen (CH), 3.02.2013](/galeries photos/eleveurs/vignettes/zofingen-christen-peppels.jpg)](/galeries photos/eleveurs/zofingen-christen-peppels.jpg) [![Ivana Thi�vent con Ocean von Achor a Zofingen (CH), 3.02.2013](/galeries photos/eleveurs/vignettes/zofingen-thievent.jpg)](/galeries photos/eleveurs/zofingen-thievent.jpg) [![Mireille Correvon con Bhayani de la Cour du Roy e giudice Madsen a Bulle (CH), 8.06.2013](/galeries photos/eleveurs/vignettes/Mireille-Bulle-2013.jpg)](/galeries photos/eleveurs/Mireille-Bulle-2013.jpg) [![Bernard Belot con premior femmina blue point Anouchka du Saphir de Queyras a Aigle (CH), 18.06.2011](/galeries photos/eleveurs/vignettes/Belot-Aigle-11.jpg)](/galeries photos/eleveurs/Belot-Aigle-11.jpg) [![Bernard Belot, Nicolas Coutodier e Dani�le Monnet a Geneva (CH), 25.02.2012](/galeries photos/eleveurs/vignettes/geneve-2012.jpg)](/galeries photos/eleveurs/geneve-2012.jpg) [![Dani�le Monnet con Ulyssia de la Rose al special show Sacro di Birmania di Milano, 24.09.2011](/galeries photos/eleveurs/vignettes/Daniele-ulyssia-Milan.jpg)](/galeries photos/eleveurs/Daniele-ulyssia-Milan.jpg) [![Franca Maria Gabriele, presidente della A.Ga.Bi,  a Milano, 24.09.2011](/galeries photos/eleveurs/vignettes/franca.jpg)](/galeries photos/eleveurs/franca.jpg) [![Daniele Monnet e Liliane Ballaman a B�lach (CH), 25.01.2014](/galeries photos/eleveurs/vignettes/Daniele-Liliane.jpg)](/galeries photos/eleveurs/Daniele-Liliane.jpg) [![Barbara e Fabio Mainini con Syros e Rhodesia delle Ninfe del Lago a Zofingen (CH), 3.02.2013](/galeries photos/eleveurs/vignettes/Mainini-Syros-Rhodesia.jpg)](/galeries photos/eleveurs/Mainini-Syros-Rhodesia.jpg) [![Mireille Correvon con O-Chayan a Neuch�tel (CH), 01.09.2012](/galeries photos/eleveurs/vignettes/Mireille-NE-12.jpg)](/galeries photos/eleveurs/Mireille-NE-12.jpg) [![Claire Frii con la femmina blue point Tuamotu Hakarekareka a D�dingen (CH), 9.06.2012](/galeries photos/eleveurs/vignettes/Claire-Frii-Dudingen.jpg)](/galeries photos/eleveurs/Claire-Frii-Dudingen.jpg) [![Sabina Di Battista con la femmina GIC Nuvola, seal tabby point, in giudizio a Baar (CH), 16.04.2011](/galeries photos/eleveurs/vignettes/Di-Battista-Baar.jpg)](/galeries photos/eleveurs/Di-Battista-Baar.jpg) [![Gertrud M�ller, Marie-France Parrat e Sabina Di Battista a D�dingen (CH), 9.06.2012](/galeries photos/eleveurs/vignettes/Gertrud-Parrat-Sabina.jpg)](/galeries photos/eleveurs/Gertrud-Parrat-Sabina.jpg) [![Marie-France Parrat con il maschio blue point Shymai a D�dingen (CH), 9.06.2012](/galeries photos/eleveurs/vignettes/Parrat-Dudingen.jpg)](/galeries photos/eleveurs/Parrat-Dudingen.jpg) [![Suzanne Wittek con Rimmel delle Ninfe del Lago a Baar (CH), 16.04.2011](/galeries photos/eleveurs/vignettes/Suzanne-Wittek.jpg)](/galeries photos/eleveurs/Suzanne-Wittek.jpg) [![Fabrizia Tonelli con Royal Birmans Venezia in giudizio](/galeries photos/eleveurs/vignettes/Tonelli-Fabrizia.jpg)](/galeries photos/eleveurs/Tonelli-Fabrizia.jpg) [![Aase Nissen, giudice FIFe, e Dani�le Monnet a Neuch�tel (CH), 01.09.2012](/galeries photos/eleveurs/vignettes/Nissen-Neuchatel2012.jpg)](/galeries photos/eleveurs/Nissen-Neuchatel2012.jpg)
+
+Ultimo aggiornamento : 04.05.2015
+
+©  Club Birmano 2010 - Tutti i diritti sono riservati al _Club Birmano Svizzera_, rispettivamente ai suoi rappresentanti legali.  
+Webdesigner & Webmaster : [Danièle](mailto:danielemonnet@netplus.ch)  e [J. Maurice Monnet](mailto:jmmonnet@netplus.ch)

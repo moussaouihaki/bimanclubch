@@ -1,0 +1,130 @@
+# Source: http://www.club-birman.ch:80/site_de/Statuten.html
+
+![bandeau](/images/pages/bandeau-de.jpg)
+
+*   [Home](/index.php)
+*   [Der Club](#)
+    *   [Aktuelles](/site_de/Aktuelles.html)
+    *   [Vorstellung](/site_de/Club-Vorstellung.html)
+    *   [Der Vorstand](/site_de/Vorstand.html)
+    *   [Mitgliederliste](/site_de/Mitglieder.html)
+    *   [Statuten / Beitritt](/site_de/Statuten.html)
+*   [Die Birmakatze](#)
+    *   [Vorstellung](/site_de/Birma-Vorstellung.html)
+    *   [Der FIFe-Standard](#)
+        *   [Die ursprüngliche Birmakatze](/site_de/Standard-Ursprung.html)
+        *   [Der aktuelle Standard](/site_de/Standard-Aktuel.html)
+        *   [Fehler nach dem Standard](/site_de/Standard-Fehler.html)
+    *   [Die Sage](/site_de/Sage.html)
+    *   [Die Geschichte](/site_de/Geschichte.html)
+    *   [Der Charakter](/site_de/Charakter.html)
+    *   [Die verschiedenen Farben](#)
+        *   [Ueberblick](/site_de/Farben.html)
+        *   [Seal](/site_de/Farbe-Seal.html)
+        *   [Blue](/site_de/Farbe-Blue.html)
+        *   [Chocolate](/site_de/Farbe-Chocolate.html)
+        *   [Lilac](/site_de/Farbe-Lilac.html)
+        *   [Red](/site_de/Farbe-Red.html)
+        *   [Cream](/site_de/Farbe-Cream.html)
+        *   [Tabby](/site_de/Tabby-Point.html)
+        *   [Tortie](/site_de/Tortie-Point.html)
+        *   [Zukünftige ?](/site_de/Zukunft.html)
+*   [Jungtiere](#)
+    *   [Jungtiervermittlung](/site_de/Vermittlung.html)
+    *   [Die Jungtiere](#)
+        *   [Jungtier kaufen](/site_de/Jungtier-Kaufen.html)
+        *   [Augen auf !](/site_de/Augen_auf.html)
+        *   [Jungtier empfangen](/site_de/Jungtier-Empfangen.html)
+        *   [Die Zubehöre](/site_de/Jungtier-Zubehoere.html)
+        *   [Seine Sauberkeit](/site_de/Jungtier-Sauberkeit.html)
+        *   [Seine Gesundheit](/site_de/Jungtier-Gesundheit.html)
+        *   [Seine Papiere](/site_de/Jungtier-Papiere.html)
+    *   [Haltung](#)
+        *   [Ernährung](/site_de/Ernahrung.html)
+        *   [Haltung](/site_de/Haltung.html)
+        *   [Giftpflanzen](/site_de/Giftpflanzen.html)
+        *   [Giftprodukte](/site_de/Giftprodukte.html)
+        *   [Die Kastration](/site_de/Kastrieren.html)
+        *   [Alte Katzen](/site_de/Alte-Katzen.html)
+    *   [Pflege](#)
+        *   [Impfungen](/site_de/Impfungen.html)
+        *   [Köperpflege](/site_de/Fellpflege.html)
+        *   [Zahnpflege](/site_de/Zahnpflege.html)
+        *   [Katzen-Apotheke](/site_de/Katzen-Apotheke.html)
+        *   [Notpflege](/site_de/Notpflege.html)
+        *   [Know-How](/site_de/Know-How.html)
+    *   [Ein bisschen Humor](#)
+        *   [Katze und Tablette](/site_de/Katze-und-Tablette.html)
+        *   [Katze und Bad](/site_de/Katze-und-Bad.html)
+*   [Ausstellungen](#)
+    *   [Zwecke der Ausstellungen](/site_de/Ausstellungen.html)
+    *   [Die Titel](/site_de/Ausstellungen-Titel)
+    *   [Die ersten Ausstellungen](/site_de/Ausstellungen-Ersten)
+    *   [Resultate unserer Züchter](/site_de/Resultaten.html)
+    *   [Fotos von Ausstellungen](/site_de/Ausstellungen-Fotos.html)
+*   [Fotos](#)
+    *   [Die Katzen unserer Mitglieder](/site_de/Mitgliederkatzen.html)
+    *   [Club-Ereignisse](/site_de/Ereignisse.html)
+*   [Diverses](#)
+    *   [Bücher](/site_de/Buecher.html)
+    *   [Links](/site_de/Links.html)
+    *   [Herunterladen](/site_de/Herunterladen.html)
+*   [Spender](/site_de/Spender.html)
+*   [Mitgliederbereich](#)
+    *   [Katzensprache](/site_de/Mitglieder/Sprache.php)
+    *   [Katzenanatomie](/site_de/Mitglieder/Anatomie.php)
+    *   [Die Sinne](/site_de/Mitglieder/Sinne.php)
+    *   [Krankheiten](/site_de/Mitglieder/Krankheiten.php)
+    *   [Genetik der Fellfarben](/site_de/Mitglieder/Genetik.php)
+    *   [Katzenzucht](/site_de/Mitglieder/Katzenzucht.php)
+    *   [Fortpflanzung](/site_de/Mitglieder/Fortpflanzung.php)
+    *   [Geschichte](/site_de/Mitglieder/Geschichte.php)
+    *   [Archiven](/site_de/Mitglieder/Archiv.php)
+
+  
+
+# Die Statuten
+
+Sie k�nnen die Birma Club Statuten hier online lesen oder als PDF-Datei herunterladen:  
+  
+[**Club Statuten online lesen oder herunterladen**](../pdf/Birma_Club_Statuten_de.pdf)
+
+# Beitrittsformular
+
+Wenn Sie bei uns Mitglied werden m�chten, laden Sie das hier angegebene Beitrittsformular herunter, f�llen Sie dann es vollst�ndig aus und senden Sie es unserem Pr�sident per E-Mail :
+
+[**Beitrittsformular herunterladen**](../pdf/Beitritt_de.doc)
+
+Wenn Sie MS Office Word nicht haben, können Sie das hier als PDF-Datei angegebene Beitrittsformular herunterladen, drucken und von Hand ausfüllen. Dann schicken Sie es dem Club-Präsident per Post.
+
+[**Beitrittsformular herunterladen**](../pdf/Beitritt_de.pdf)
+
+###### Bemerkung: Wenn sie Acrobat Reader für die PDF-Datei nicht haben, können Sie es gratis herunterladen: [Adobe Acrobat Reader](http://get.adobe.com/de/reader/)
+
+# Jahresbeitr�ge
+
+Die Jahresbeitr�ge sind wie folgt festgelegt:  
+  
+� CHF 30.- f�r Einzelmitglied�  
+� CHF 40.- f�r Doppelmitglied��  
+
+Nach Empfang Ihrer Beitrittsanmeldung wird der Präsident mit Ihnen Kontakt nehmen und der Kassier Ihnen ein Einzahlungsschein schicken, damit Sie den Jahresbeitrag bezahlen können. Ihre Mitgliedschaft beginnt, wenn Sie Ihren Jahresbeitrag bezahlt haben.
+
+Wenn Sie Ihren Jahresbeitrag per Telebanking bezahlen können, hier ist der Kontoinhaber und die Kontonummer :
+
+**CLUB-BIRMAN CH  
+3960 Sierre  
+  
+Postkonto : 12-633630-9  
+  
+IBAN : CH88 0900 0000 1263 3630 9**  
+  
+Im voraus vielen Dank.
+
+die Präsidentin des Birma Clubs Schweiz  
+Danièle Monnet  
+Rue de la Monder�che 30  
+3960 Sierre
+
+©  Birma Club 2010 - Alle Rechte am Inhalt liegen beim Birma Club Schweiz bzw. ihren jeweiligen Eigent�mer.  
+Webdesigner & Webmaster : [Danièle](mailto:danielemonnet@netplus.ch)  und  [J. Maurice Monnet](mailto:jmmonnet@netplus.ch)
