@@ -29,9 +29,17 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="title-massive" style={{ color: 'white', textShadow: '0 15px 45px rgba(0,0,0,0.6)' }}>
-              {t('hero.title')} <br />
-              <span className="text-serif" style={{ fontStyle: 'italic', fontWeight: 300 }}>{t('hero.subtitle')}</span>
+            <h1 className="title-massive" style={{ textShadow: '0 15px 45px rgba(0,0,0,0.6)' }}>
+              <span style={{ color: 'white' }}>{t('hero.title')}</span> <br />
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5, duration: 1 }}
+                className="text-serif"
+                style={{ fontStyle: 'italic', fontWeight: 300, color: 'var(--clr-gold)' }}
+              >
+                {t('hero.subtitle')}
+              </motion.span>
             </h1>
             <p style={{ maxWidth: '800px', margin: '2rem auto 3rem auto', fontSize: '1.4rem', color: 'rgba(255,255,255,0.95)', textShadow: '0 2px 15px rgba(0,0,0,0.5)', fontWeight: 500 }}>
               {t('hero.text')}

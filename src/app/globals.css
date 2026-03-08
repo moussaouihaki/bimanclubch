@@ -246,6 +246,7 @@ h5 {
   width: 100%;
   padding: 12px 16px;
   font-size: 13px;
+  text-align: center;
 }
 
 .nav-dropdown .nav-link:hover {
