@@ -25,32 +25,23 @@ export default function Home() {
 
         <div className="container" style={{ textAlign: 'center', color: 'white', position: 'relative', zIndex: 10 }}>
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            className="hero-content"
           >
-            <h1 className="hero-title" style={{
-              textShadow: '0 4px 30px rgba(0,0,0,0.8), 0 2px 5px rgba(0,0,0,1)',
-              filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.5))',
-              color: 'white'
-            }}>
-              <span style={{ color: 'white', display: 'block' }}>{t('hero.title')}</span>
+            <h1 className="hero-title">
+              <span className="title-main">{t('hero.title')}</span>
               <motion.span
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5, duration: 1 }}
-                className="text-serif"
-                style={{ fontStyle: 'italic', fontWeight: 300, color: 'var(--clr-gold)', textShadow: '0 2px 10px rgba(0,0,0,0.4)', display: 'block', marginTop: '0.5rem' }}
+                className="text-serif subtitle-gold"
               >
                 {t('hero.subtitle')}
               </motion.span>
             </h1>
-            <p className="hero-text" style={{
-              textShadow: '0 2px 8px rgba(0,0,0,0.9)',
-              color: 'rgba(255,255,255,1)',
-              fontWeight: 500,
-              padding: '0 20px'
-            }}>
+            <p className="hero-text">
               {t('hero.text')}
             </p>
             <div className="hero-actions">
@@ -65,19 +56,46 @@ export default function Home() {
         </div>
 
         <style jsx>{`
-          .hero-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.85) 100%) !important; }
-          .hero-title { font-size: clamp(3rem, 8vw, 6.5rem); font-weight: 700; letter-spacing: -0.04em; margin-bottom: 1rem; line-height: 1.1; }
-          .hero-text { max-width: 800px; margin: 2rem auto 3rem auto; font-size: 1.4rem; color: rgba(255,255,255,0.95); text-shadow: 0 2px 15px rgba(0,0,0,0.5); fontWeight: 500; }
-          .hero-actions { display: flex; gap: 2rem; justifyContent: center; }
-          .hero-btn { fontSize: 1.1rem; padding: 1.2rem 3.5rem; }
+          .hero-overlay { 
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.85) 100%) !important; 
+          }
+          .hero-title { 
+            font-size: clamp(3rem, 8vw, 6.5rem); 
+            font-weight: 700; 
+            letter-spacing: -0.04em; 
+            line-height: 1.05; 
+            color: white;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+          }
+          .title-main { display: block; }
+          .subtitle-gold { 
+            font-style: italic; 
+            fontWeight: 300; 
+            color: var(--clr-gold); 
+            text-shadow: 0 2px 10px rgba(0,0,0,0.4); 
+            display: block; 
+            margin-top: 0.5rem; 
+          }
+          .hero-text { 
+            max-width: 800px; 
+            margin: 2.5rem auto 3.5rem auto; 
+            font-size: 1.3rem; 
+            color: rgba(255,255,255,0.95); 
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8); 
+            font-weight: 500; 
+            line-height: 1.6;
+          }
+          .hero-actions { display: flex; gap: 2rem; justify-content: center; }
+          .hero-btn { font-size: 1.1rem; padding: 1.2rem 3.5rem; border-radius: 100px; font-weight: 600; text-decoration: none; }
           .contrast-btn { background: rgba(255,255,255,0.9); color: var(--clr-sapphire); border: none; }
 
           @media (max-width: 768px) {
             .hero-overlay { background: rgba(0,0,0,0.7) !important; }
-            .hero-title { font-size: 3.5rem; }
-            .hero-text { font-size: 1.1rem; line-height: 1.6; }
-            .hero-actions { flex-direction: column; gap: 1rem; align-items: center; }
-            .hero-btn { width: 100%; max-width: 300px; padding: 1rem 2rem; font-size: 1rem; }
+            .hero-title { font-size: 2.8rem; letter-spacing: -0.02em; }
+            .subtitle-gold { font-size: 1.8rem; margin-top: 0.2rem; }
+            .hero-text { font-size: 1rem; margin: 1.5rem auto 2.5rem auto; padding: 0 10px; line-height: 1.5; }
+            .hero-actions { flex-direction: column; gap: 1rem; align-items: center; width: 100%; }
+            .hero-btn { width: 100%; max-width: 300px; padding: 1rem; font-size: 1rem; }
           }
         `}</style>
       </section>

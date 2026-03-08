@@ -215,7 +215,7 @@ export default function BirmanPage() {
                             .mobile-cat-image { width: 100%; border-radius: 20px; overflow: hidden; }
                             .mobile-cat-image img { width: 100%; height: auto; }
                             .mobile-labels { display: grid; grid-template-columns: 1fr; gap: 1rem; }
-                            .mobile-label-card { background: white; padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--clr-gold); box-shadow: var(--shadow-sm); }
+                            .mobile-label-card { background: white; padding: 2rem; border-radius: 16px; border-left: 5px solid var(--clr-gold); box-shadow: var(--shadow-sm); }
                             .mobile-tag { display: block; font-size: 0.7rem; font-weight: 700; color: var(--clr-gold); letter-spacing: 0.1em; margin-bottom: 0.5rem; }
                             .mobile-label-card p { font-size: 0.9rem; line-height: 1.5; margin: 0; color: var(--clr-text); }
                         }

@@ -6,7 +6,7 @@ import { useI18n } from "@/i18n/I18nContext";
 import { useAuth } from "@/context/AuthContext";
 import { motion } from "framer-motion";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export function Navbar() {
     const { t, language, setLanguage } = useI18n();
@@ -15,7 +15,7 @@ export function Navbar() {
     const [scrolled, setScrolled] = useState(false);
 
     // Add scroll listener for transparent-to-solid transition
-    useState(() => {
+    useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 20) setScrolled(true);
             else setScrolled(false);
@@ -181,27 +181,33 @@ export function Navbar() {
                     .nav-links {
                         position: fixed;
                         top: 0;
-                        left: 0;
+                        right: 0;
                         width: 100%;
                         height: 100vh;
                         background: white;
                         flex-direction: column;
                         padding: 100px 30px 40px 30px;
-                        gap: 1.5rem;
+                        gap: 1.2rem;
                         transform: translateX(100%);
-                        transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+                        visibility: hidden;
+                        pointer-events: none;
+                        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
                         overflow-y: auto;
                         display: flex;
                         z-index: 1500;
                     }
-                    .menu-open .nav-links { transform: translateX(0); }
-                    .nav-group { width: 100%; border-bottom: 1px solid #f5f5f7; padding: 15px 0; }
-                    .nav-dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; padding: 15px 0 0 20px; border: none; }
+                    .menu-open .nav-links { 
+                        transform: translateX(0); 
+                        visibility: visible;
+                        pointer-events: auto;
+                    }
+                    .nav-group { width: 100%; border-bottom: 1px solid #f5f5f7; padding: 12px 0; }
+                    .nav-dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; padding: 10px 0 0 20px; border: none; }
                     .hamburger { display: flex; }
                     .mobile-extras { display: flex; }
                     
-                    .brand-text span:first-child { font-size: 17px !important; letter-spacing: -0.01em !important; }
-                    .brand-subtitle { font-size: 7px !important; letter-spacing: 0.08em !important; opacity: 0.7; margin-top: 2px; }
+                    .brand-text span:first-child { font-size: 16px !important; letter-spacing: -0.01em !important; }
+                    .brand-subtitle { font-size: 7px !important; letter-spacing: 0.05em !important; opacity: 0.7; margin-top: 1px; }
                     
                     .menu-open .bar:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
                     .menu-open .bar:nth-child(2) { opacity: 0; }

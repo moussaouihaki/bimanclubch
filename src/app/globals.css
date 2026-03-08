@@ -72,6 +72,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.5;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 /* Typography Mastery */
@@ -89,11 +91,11 @@ h5 {
 }
 
 .title-massive {
-  font-size: clamp(2.5rem, 8vw, 6.5rem);
+  font-size: clamp(2.5rem, 8vw, 6rem);
   font-weight: 700;
   letter-spacing: -0.04em;
   margin-bottom: 1rem;
-  line-height: 1.1;
+  line-height: 1.05;
 }
 
 @media (max-width: 768px) {
