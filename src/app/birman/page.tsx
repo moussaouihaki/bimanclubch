@@ -113,70 +113,113 @@ export default function BirmanPage() {
                         <p style={{ fontSize: '1.2rem', color: 'var(--clr-text-muted)' }}>Les caractéristiques physiques essentielles du Sacré de Birmanie</p>
                     </div>
 
-                    <div style={{ position: 'relative', maxWidth: '1000px', margin: '0 auto', height: '850px' }}>
+                    <div className="standard-container">
+                        {/* Desktop Diagram (Hidden on Mobile) */}
+                        <div className="desktop-only" style={{ position: 'relative', height: '850px' }}>
+                            {/* Central Image */}
+                            <div className="central-cat-wrapper">
+                                <img
+                                    src="/images/cats/solid_point.png"
+                                    alt="Birman Standard Diagram"
+                                    className="cat-image"
+                                />
+                            </div>
 
-                        {/* Central Image */}
-                        <div style={{
-                            position: 'absolute',
-                            top: '52%',
-                            left: '50%',
-                            transform: 'translate(-50%, -50%)',
-                            width: '60%',
-                            borderRadius: '40px',
-                            overflow: 'hidden',
-                            boxShadow: '0 30px 60px rgba(0,0,0,0.1)'
-                        }}>
-                            <img
-                                src="/images/cats/solid_point.png"
-                                alt="Birman Standard Diagram"
-                                style={{ width: '100%', height: 'auto', display: 'block' }}
-                            />
-                        </div>
+                            {/* Labels positioned as before for desktop */}
+                            <div style={{ position: 'absolute', top: '100px', left: '20px', width: '220px', zIndex: 10 }}>
+                                <div className="std-label left">
+                                    <p>{t('birman.std_ears')}</p>
+                                </div>
+                            </div>
 
-                        {/* DESCRIPTIONS LEFT */}
-                        <div style={{ position: 'absolute', top: '100px', left: '20px', width: '220px', zIndex: 10 }}>
-                            <div style={{ background: 'white', padding: '1rem', borderRadius: '15px', borderLeft: '4px solid var(--clr-gold)', boxShadow: 'var(--shadow-lg)' }}>
-                                <p style={{ fontSize: '0.8rem', fontWeight: 500, margin: 0 }}>{t('birman.std_ears')}</p>
+                            <div style={{ position: 'absolute', top: '320px', left: '20px', width: '220px', zIndex: 10 }}>
+                                <div className="std-label left">
+                                    <p>{t('birman.std_profile')}</p>
+                                </div>
+                            </div>
+
+                            <div style={{ position: 'absolute', top: '580px', left: '20px', width: '220px', zIndex: 10 }}>
+                                <div className="std-label left">
+                                    <p>{t('birman.std_coat')}</p>
+                                </div>
+                            </div>
+
+                            <div style={{ position: 'absolute', bottom: '20px', left: '140px', width: '220px', zIndex: 10 }}>
+                                <div className="std-label left">
+                                    <p>{t('birman.std_tail')}</p>
+                                </div>
+                            </div>
+
+                            {/* RIGHT LABELS */}
+                            <div style={{ position: 'absolute', top: '140px', right: '20px', width: '220px', zIndex: 10 }}>
+                                <div className="std-label right">
+                                    <p>{t('birman.std_eyes')}</p>
+                                </div>
+                            </div>
+
+                            <div style={{ position: 'absolute', top: '420px', right: '20px', width: '220px', zIndex: 10 }}>
+                                <div className="std-label right">
+                                    <p>{t('birman.std_body')}</p>
+                                </div>
+                            </div>
+
+                            <div style={{ position: 'absolute', bottom: '50px', right: '20px', width: '220px', zIndex: 10 }}>
+                                <div className="std-label right">
+                                    <p>{t('birman.std_spurs')}</p>
+                                </div>
                             </div>
                         </div>
 
-                        <div style={{ position: 'absolute', top: '320px', left: '20px', width: '220px', zIndex: 10 }}>
-                            <div style={{ background: 'white', padding: '1rem', borderRadius: '15px', borderLeft: '4px solid var(--clr-gold)', boxShadow: 'var(--shadow-lg)' }}>
-                                <p style={{ fontSize: '0.8rem', fontWeight: 500, margin: 0 }}>{t('birman.std_profile')}</p>
+                        {/* Mobile Diagram (Stacked list) */}
+                        <div className="mobile-only">
+                            <div className="mobile-cat-image">
+                                <img src="/images/cats/solid_point.png" alt="Birman Standard" />
                             </div>
-                        </div>
-
-                        <div style={{ position: 'absolute', top: '580px', left: '20px', width: '220px', zIndex: 10 }}>
-                            <div style={{ background: 'white', padding: '1rem', borderRadius: '15px', borderLeft: '4px solid var(--clr-gold)', boxShadow: 'var(--shadow-lg)' }}>
-                                <p style={{ fontSize: '0.8rem', fontWeight: 500, margin: 0 }}>{t('birman.std_coat')}</p>
-                            </div>
-                        </div>
-
-                        <div style={{ position: 'absolute', bottom: '20px', left: '140px', width: '220px', zIndex: 10 }}>
-                            <div style={{ background: 'white', padding: '1rem', borderRadius: '15px', borderLeft: '4px solid var(--clr-gold)', boxShadow: 'var(--shadow-lg)' }}>
-                                <p style={{ fontSize: '0.8rem', fontWeight: 500, margin: 0 }}>{t('birman.std_tail')}</p>
-                            </div>
-                        </div>
-
-                        {/* DESCRIPTIONS RIGHT */}
-                        <div style={{ position: 'absolute', top: '140px', right: '20px', width: '220px', zIndex: 10 }}>
-                            <div style={{ background: 'white', padding: '1rem', borderRadius: '15px', borderRight: '4px solid var(--clr-gold)', boxShadow: 'var(--shadow-lg)' }}>
-                                <p style={{ fontSize: '0.8rem', fontWeight: 500, margin: 0 }}>{t('birman.std_eyes')}</p>
-                            </div>
-                        </div>
-
-                        <div style={{ position: 'absolute', top: '420px', right: '20px', width: '220px', zIndex: 10 }}>
-                            <div style={{ background: 'white', padding: '1rem', borderRadius: '15px', borderRight: '4px solid var(--clr-gold)', boxShadow: 'var(--shadow-lg)' }}>
-                                <p style={{ fontSize: '0.8rem', fontWeight: 500, margin: 0 }}>{t('birman.std_body')}</p>
-                            </div>
-                        </div>
-
-                        <div style={{ position: 'absolute', bottom: '50px', right: '20px', width: '220px', zIndex: 10 }}>
-                            <div style={{ background: 'white', padding: '1rem', borderRadius: '15px', borderRight: '4px solid var(--clr-gold)', boxShadow: 'var(--shadow-lg)' }}>
-                                <p style={{ fontSize: '0.8rem', fontWeight: 500, margin: 0 }}>{t('birman.std_spurs')}</p>
+                            <div className="mobile-labels">
+                                {[
+                                    { tag: 'OREILLES', text: t('birman.std_ears') },
+                                    { tag: 'YEUX', text: t('birman.std_eyes') },
+                                    { tag: 'PROFIL', text: t('birman.std_profile') },
+                                    { tag: 'CORPS', text: t('birman.std_body') },
+                                    { tag: 'PELAGE', text: t('birman.std_coat') },
+                                    { tag: 'QUEUE', text: t('birman.std_tail') },
+                                    { tag: 'ÉPERONS', text: t('birman.std_spurs') }
+                                ].map((item, i) => (
+                                    <div key={i} className="mobile-label-card">
+                                        <span className="mobile-tag">{item.tag}</span>
+                                        <p>{item.text}</p>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </div>
+
+                    <style jsx>{`
+                        .standard-container { max-width: 1000px; margin: 0 auto; }
+                        .central-cat-wrapper { 
+                            position: absolute; top: 52%; left: 50%; 
+                            transform: translate(-50%, -50%); width: 60%;
+                            border-radius: 40px; overflow: hidden; 
+                            box-shadow: 0 30px 60px rgba(0,0,0,0.1); 
+                        }
+                        .cat-image { width: 100%; height: auto; display: block; }
+                        .std-label { background: white; padding: 1rem; border-radius: 15px; box-shadow: var(--shadow-lg); font-size: 0.8rem; font-weight: 500; }
+                        .std-label.left { border-left: 4px solid var(--clr-gold); }
+                        .std-label.right { border-right: 4px solid var(--clr-gold); }
+                        
+                        .mobile-only { display: none; }
+
+                        @media (max-width: 900px) {
+                            .desktop-only { display: none; }
+                            .mobile-only { display: flex; flex-direction: column; gap: 3rem; }
+                            .mobile-cat-image { width: 100%; border-radius: 20px; overflow: hidden; }
+                            .mobile-cat-image img { width: 100%; height: auto; }
+                            .mobile-labels { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+                            .mobile-label-card { background: white; padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--clr-gold); box-shadow: var(--shadow-sm); }
+                            .mobile-tag { display: block; font-size: 0.7rem; font-weight: 700; color: var(--clr-gold); letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+                            .mobile-label-card p { font-size: 0.9rem; line-height: 1.5; margin: 0; color: var(--clr-text); }
+                        }
+                    `}</style>
                 </div>
             </section>
 

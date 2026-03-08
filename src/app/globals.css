@@ -16,14 +16,31 @@
   /* Apple secondary text */
   --clr-border: rgba(0, 0, 0, 0.05);
 
+  /* Responsive Spacing */
+  --side-pad: 2rem;
+  --section-pad: 8rem;
+
+  @media (max-width: 768px) {
+    --side-pad: 1.25rem;
+    --section-pad: 5rem;
+  }
+
   /* Deep colors for contrast */
   --clr-seal: #2D2D2D;
   --clr-silk: #F8F9FA;
   --clr-opal: #FFFFFF;
 
   /* Typography */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Inter',
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  Roboto,
+  Helvetica,
+  Arial,
+  sans-serif;
+  --font-serif: 'Playfair Display',
+  serif;
   /* Keep serif for elegant headers only */
 
   /* Spacing */
@@ -100,11 +117,15 @@ h5 {
 .container-large {
   max-width: 1400px;
   margin: 0 auto;
+  padding-left: var(--side-pad);
+  padding-right: var(--side-pad);
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  padding-left: var(--side-pad);
+  padding-right: var(--side-pad);
 }
 
 /* Enhanced Apple-style Cards */
