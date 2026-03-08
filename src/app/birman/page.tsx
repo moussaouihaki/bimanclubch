@@ -267,19 +267,29 @@ export default function BirmanPage() {
                             <p style={{ color: 'var(--clr-text-muted)', fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '2rem' }}>
                                 {t('birman.coat_desc')}
                             </p>
-                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
-                                <div style={{ background: 'var(--clr-silk)', padding: '1.5rem', borderRadius: '20px' }}>
-                                    <div style={{ fontWeight: 800, color: 'var(--clr-gold)', fontSize: '1.1rem' }}>{t('birman.gloves')}</div>
-                                    <div style={{ fontSize: '0.85rem', marginTop: '0.4rem' }}>Blancs purs sur les 4 pattes.</div>
+                            <div className="coat-details">
+                                <div className="coat-feature">
+                                    <div className="coat-tag">{t('birman.gloves')}</div>
+                                    <div className="coat-desc-small">Blancs purs sur les 4 pattes.</div>
                                 </div>
-                                <div style={{ background: 'var(--clr-silk)', padding: '1.5rem', borderRadius: '20px' }}>
-                                    <div style={{ fontWeight: 800, color: 'var(--clr-gold)', fontSize: '1.1rem' }}>{t('birman.spurs')}</div>
-                                    <div style={{ fontSize: '0.85rem', marginTop: '0.4rem' }}>Forme de V renversé (Keil).</div>
+                                <div className="coat-feature">
+                                    <div className="coat-tag">{t('birman.spurs')}</div>
+                                    <div className="coat-desc-small">Forme de V renversé (Keil).</div>
                                 </div>
                             </div>
                         </motion.div>
                     </div>
                 </div>
+                <style jsx>{`
+                    .coat-details { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+                    .coat-feature { background: var(--clr-silk); padding: 1.5rem; border-radius: 20px; }
+                    .coat-tag { font-weight: 800; color: var(--clr-gold); font-size: 1.1rem; }
+                    .coat-desc-small { font-size: 0.85rem; margin-top: 0.4rem; }
+
+                    @media (max-width: 480px) {
+                        .coat-details { grid-template-columns: 1fr; }
+                    }
+                `}</style>
                 <style jsx>{`
                     .char-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 5rem; }
                     @media (max-width: 1024px) { .char-grid { grid-template-columns: 1fr; gap: 4rem; } }
@@ -373,37 +383,50 @@ export default function BirmanPage() {
             </section>
 
             {/* LEGEND & HISTORY FULL SECTIONS */}
-            <section className="section" style={{ background: 'var(--clr-bg)', padding: '10rem 0' }}>
+            <section className="section" style={{ background: 'var(--clr-bg)', padding: 'var(--section-pad) 0' }}>
                 <div className="container-large">
-                    <div style={{ textAlign: 'center', marginBottom: '8rem' }}>
-                        <h2 style={{ fontSize: '3rem', color: 'var(--clr-gold)', textTransform: 'uppercase', letterSpacing: '0.2em', fontFamily: 'var(--font-serif)' }}>
+                    <div className="history-header">
+                        <h2 className="history-title-main">
                             La Légende de la Sainte Birmanie
                         </h2>
                     </div>
 
-                    <div className="card-apple" style={{ background: 'white', padding: '5rem', maxWidth: '1100px', margin: '0 auto', marginBottom: '4rem' }}>
-                        <h3 style={{ fontSize: '2rem', color: '#1a4a8e', marginBottom: '2rem', borderBottom: '2px solid #1a4a8e', paddingBottom: '1rem', display: 'inline-block' }}>
-                            Origine
-                        </h3>
-                        <p style={{ fontSize: '1.25rem', lineHeight: 1.9, color: 'var(--clr-text)', marginBottom: '3rem' }}>
+                    <div className="card-apple history-card">
+                        <h3 className="history-sub">Origine</h3>
+                        <p className="history-text-full">
                             {t('birman.history_full')}
                         </p>
                     </div>
 
-                    <div className="card-apple" style={{ background: 'white', padding: '5rem', maxWidth: '1100px', margin: '0 auto' }}>
-                        <h3 style={{ fontSize: '2rem', color: '#1a4a8e', marginBottom: '2rem', borderBottom: '2px solid #1a4a8e', paddingBottom: '1rem', display: 'inline-block' }}>
-                            Origine
-                        </h3>
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '3rem' }}>
-                            <p style={{ fontSize: '1.25rem', lineHeight: 1.9, color: 'var(--clr-text)' }}>
+                    <div className="card-apple history-card">
+                        <h3 className="history-sub">Origine</h3>
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '2rem' }}>
+                            <p className="history-text-full">
                                 {t('birman.legend_full')}
                             </p>
-                            <div style={{ fontSize: '1rem', color: 'var(--clr-text-muted)', fontStyle: 'italic', textAlign: 'right', borderTop: '1px solid var(--clr-bg)', paddingTop: '1.5rem' }}>
+                            <div className="history-source">
                                 Source : "Mon grand livre des chats" David Taylor, Weltbildverlag 1989
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <style jsx>{`
+                    .history-header { text-align: center; margin-bottom: 6rem; }
+                    .history-title-main { font-size: 3rem; color: var(--clr-gold); text-transform: uppercase; letter-spacing: 0.2em; font-family: var(--font-serif); line-height: 1.2; }
+                    .history-card { background: white; padding: 5rem; max-width: 1100px; margin: 0 auto 4rem auto; }
+                    .history-sub { font-size: 2rem; color: #1a4a8e; margin-bottom: 2rem; border-bottom: 2px solid #1a4a8e; padding-bottom: 1rem; display: inline-block; }
+                    .history-text-full { font-size: 1.25rem; line-height: 1.9; color: var(--clr-text); }
+                    .history-source { font-size: 1rem; color: var(--clr-text-muted); font-style: italic; text-align: right; border-top: 1px solid var(--clr-bg); padding-top: 1.5rem; }
+
+                    @media (max-width: 1024px) {
+                        .history-header { margin-bottom: 4rem; }
+                        .history-title-main { font-size: 2.22rem; padding: 0 1rem; }
+                        .history-card { padding: 2.5rem 1.5rem; margin-bottom: 2rem; }
+                        .history-sub { font-size: 1.6rem; margin-bottom: 1.5rem; }
+                        .history-text-full { font-size: 1.1rem; line-height: 1.7; }
+                    }
+                `}</style>
             </section>
         </main>
     );
