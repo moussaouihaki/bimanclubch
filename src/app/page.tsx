@@ -20,7 +20,7 @@ export default function Home() {
             style={{ objectFit: 'cover' }}
             priority
           />
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.85))' }} />
+          <div className="hero-overlay" style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.8))' }} />
         </div>
 
         <div className="container" style={{ textAlign: 'center', color: 'white', position: 'relative', zIndex: 10 }}>
@@ -65,6 +65,7 @@ export default function Home() {
         </div>
 
         <style jsx>{`
+          .hero-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.85) 100%) !important; }
           .hero-title { font-size: clamp(3rem, 8vw, 6.5rem); font-weight: 700; letter-spacing: -0.04em; margin-bottom: 1rem; line-height: 1.1; }
           .hero-text { max-width: 800px; margin: 2rem auto 3rem auto; font-size: 1.4rem; color: rgba(255,255,255,0.95); text-shadow: 0 2px 15px rgba(0,0,0,0.5); fontWeight: 500; }
           .hero-actions { display: flex; gap: 2rem; justifyContent: center; }
@@ -72,6 +73,7 @@ export default function Home() {
           .contrast-btn { background: rgba(255,255,255,0.9); color: var(--clr-sapphire); border: none; }
 
           @media (max-width: 768px) {
+            .hero-overlay { background: rgba(0,0,0,0.7) !important; }
             .hero-title { font-size: 3.5rem; }
             .hero-text { font-size: 1.1rem; line-height: 1.6; }
             .hero-actions { flex-direction: column; gap: 1rem; align-items: center; }

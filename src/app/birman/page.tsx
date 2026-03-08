@@ -226,34 +226,38 @@ export default function BirmanPage() {
             {/* CHARACTER & COAT INFO */}
             <section className="section" style={{ background: 'white', padding: '8rem 0', borderTop: '1px solid var(--clr-bg)' }}>
                 <div className="container-large">
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '6rem' }}>
+                    <div className="char-grid">
                         <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-                            <h2 style={{ fontSize: '2.5rem', marginBottom: '1.5rem', color: 'var(--clr-seal)' }}>{t('birman.char_title')}</h2>
-                            <p style={{ color: 'var(--clr-text-muted)', fontSize: '1.2rem', lineHeight: 1.8, marginBottom: '2rem' }}>
+                            <h2 style={{ fontSize: '2.2rem', marginBottom: '1.5rem', color: 'var(--clr-seal)' }}>{t('birman.char_title')}</h2>
+                            <p style={{ color: 'var(--clr-text-muted)', fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '2rem' }}>
                                 {t('birman.char_detailed')}
                             </p>
-                            <div style={{ padding: '2rem', background: 'var(--clr-bg)', borderRadius: '24px', fontSize: '1.1rem', color: 'var(--clr-seal)', fontWeight: 600, borderLeft: '5px solid var(--clr-gold)' }}>
+                            <div style={{ padding: '2rem', background: 'var(--clr-bg)', borderRadius: '24px', fontSize: '1rem', color: 'var(--clr-seal)', fontWeight: 600, borderLeft: '5px solid var(--clr-gold)' }}>
                                 "L'équilibre parfait entre le calme du Persan et la curiosité du Siamois."
                             </div>
                         </motion.div>
                         <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-                            <h2 style={{ fontSize: '2.5rem', marginBottom: '1.5rem', color: 'var(--clr-seal)' }}>{t('birman.coat_title')}</h2>
-                            <p style={{ color: 'var(--clr-text-muted)', fontSize: '1.2rem', lineHeight: 1.8, marginBottom: '2rem' }}>
+                            <h2 style={{ fontSize: '2.2rem', marginBottom: '1.5rem', color: 'var(--clr-seal)' }}>{t('birman.coat_title')}</h2>
+                            <p style={{ color: 'var(--clr-text-muted)', fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '2rem' }}>
                                 {t('birman.coat_desc')}
                             </p>
-                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
                                 <div style={{ background: 'var(--clr-silk)', padding: '1.5rem', borderRadius: '20px' }}>
-                                    <div style={{ fontWeight: 800, color: 'var(--clr-gold)', fontSize: '1.2rem' }}>{t('birman.gloves')}</div>
-                                    <div style={{ fontSize: '0.9rem', marginTop: '0.5rem' }}>Blancs purs sur les 4 pattes.</div>
+                                    <div style={{ fontWeight: 800, color: 'var(--clr-gold)', fontSize: '1.1rem' }}>{t('birman.gloves')}</div>
+                                    <div style={{ fontSize: '0.85rem', marginTop: '0.4rem' }}>Blancs purs sur les 4 pattes.</div>
                                 </div>
                                 <div style={{ background: 'var(--clr-silk)', padding: '1.5rem', borderRadius: '20px' }}>
-                                    <div style={{ fontWeight: 800, color: 'var(--clr-gold)', fontSize: '1.2rem' }}>{t('birman.spurs')}</div>
-                                    <div style={{ fontSize: '0.9rem', marginTop: '0.5rem' }}>Forme de V renversé (Keil).</div>
+                                    <div style={{ fontWeight: 800, color: 'var(--clr-gold)', fontSize: '1.1rem' }}>{t('birman.spurs')}</div>
+                                    <div style={{ fontSize: '0.85rem', marginTop: '0.4rem' }}>Forme de V renversé (Keil).</div>
                                 </div>
                             </div>
                         </motion.div>
                     </div>
                 </div>
+                <style jsx>{`
+                    .char-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 5rem; }
+                    @media (max-width: 1024px) { .char-grid { grid-template-columns: 1fr; gap: 4rem; } }
+                `}</style>
             </section>
 
             {/* COLORS GALLERY (CATEGORIES) */}
@@ -264,7 +268,7 @@ export default function BirmanPage() {
                         <p style={{ fontSize: '1.5rem', color: 'var(--clr-text-muted)' }}>{t('birman.colors_subtitle')}</p>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '6rem' }}>
+                    <div className="varieties-grid">
                         {VARIETIES.map((v, idx) => (
                             <motion.div
                                 key={v.id}
@@ -272,30 +276,39 @@ export default function BirmanPage() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: idx * 0.1 }}
                                 viewport={{ once: true }}
-                                style={{ display: 'grid', gridTemplateColumns: '0.8fr 1.2fr', gap: '3rem', alignItems: 'center' }}
+                                className="variety-item"
                             >
-                                <div style={{ position: 'relative', borderRadius: '35px', overflow: 'hidden', boxShadow: '0 15px 40px rgba(0,0,0,0.08)', aspectRatio: '1/1' }}>
-                                    <img
-                                        src={v.img}
-                                        alt={t(v.title_key)}
-                                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                                    />
+                                <div className="variety-img">
+                                    <img src={v.img} alt={t(v.title_key)} />
                                 </div>
                                 <div>
-                                    <h3 style={{ fontSize: '2rem', color: 'var(--clr-gold)', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                                        {t(v.title_key)}
-                                    </h3>
-                                    <p style={{ color: 'var(--clr-text-muted)', fontSize: '1.1rem', lineHeight: 1.7, marginBottom: '1.5rem' }}>
-                                        {t(v.desc_key)}
-                                    </p>
-                                    <div style={{ fontSize: '0.9rem', color: 'var(--clr-text)', fontWeight: 700, padding: '0.8rem 1.2rem', background: 'white', borderRadius: '12px', display: 'inline-block', boxShadow: 'var(--shadow-sm)' }}>
-                                        {t(v.colors_key)}
-                                    </div>
+                                    <h3>{t(v.title_key)}</h3>
+                                    <p>{t(v.desc_key)}</p>
+                                    <div className="variety-tag">{t(v.colors_key)}</div>
                                 </div>
                             </motion.div>
                         ))}
                     </div>
                 </div>
+                <style jsx>{`
+                    .varieties-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 5rem; }
+                    .variety-item { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 3rem; align-items: center; }
+                    .variety-img { position: relative; borderRadius: 35px; overflow: hidden; boxShadow: 0 15px 40px rgba(0,0,0,0.08); aspect-ratio: 1/1; }
+                    .variety-img img { width: 100%; height: 100%; object-fit: cover; }
+                    .variety-item h3 { fontSize: 2rem; color: var(--clr-gold); marginBottom: 1rem; textTransform: uppercase; letterSpacing: 0.05em; }
+                    .variety-item p { color: var(--clr-text-muted); fontSize: 1.1rem; lineHeight: 1.7; marginBottom: 1.5rem; }
+                    .variety-tag { fontSize: 0.9rem; color: var(--clr-text); fontWeight: 700; padding: 0.8rem 1.2rem; background: white; borderRadius: 12px; display: inline-block; boxShadow: var(--shadow-sm); }
+                    
+                    @media (max-width: 1200px) {
+                        .varieties-grid { gap: 3rem; }
+                        .variety-item { grid-template-columns: 1fr; text-align: center; }
+                        .variety-img { width: 60%; margin: 0 auto; }
+                    }
+                    @media (max-width: 768px) {
+                        .varieties-grid { grid-template-columns: 1fr; gap: 4rem; }
+                        .variety-img { width: 80%; }
+                    }
+                `}</style>
             </section>
 
             {/* MEMBER EXAMPLES GRID */}
@@ -305,7 +318,7 @@ export default function BirmanPage() {
                         <h2 style={{ fontSize: '3.5rem', marginBottom: '1.5rem' }}>{t('birman.member_examples')}</h2>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '2.5rem' }}>
+                    <div className="members-grid">
                         {MEMBER_CATS.map((cat, idx) => (
                             <motion.div
                                 key={idx}
@@ -313,18 +326,24 @@ export default function BirmanPage() {
                                 whileInView={{ opacity: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: (idx % 4) * 0.1 }}
-                                style={{ textAlign: 'center', background: 'var(--clr-bg)', padding: '1.5rem', borderRadius: '24px' }}
+                                style={{ textAlign: 'center', background: 'var(--clr-bg)', padding: '1.2rem', borderRadius: '24px' }}
                             >
-                                <div style={{ borderRadius: '15px', overflow: 'hidden', boxShadow: 'var(--shadow-sm)', marginBottom: '1.2rem', aspectRatio: '4/3' }}>
+                                <div style={{ borderRadius: '15px', overflow: 'hidden', boxShadow: 'var(--shadow-sm)', marginBottom: '1rem', aspectRatio: '4/3' }}>
                                     <img src={cat.img} alt={cat.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                 </div>
-                                <h4 style={{ fontSize: '0.95rem', marginBottom: '0.4rem', fontWeight: 700, minHeight: '2.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{cat.name}</h4>
-                                <div style={{ fontSize: '0.8rem', color: 'var(--clr-gold)', fontWeight: 600 }}>{cat.variety}</div>
-                                <div style={{ fontSize: '0.75rem', color: 'var(--clr-text-muted)' }}>{cat.code}</div>
+                                <h4 style={{ fontSize: '0.9rem', marginBottom: '0.3rem', fontWeight: 700, minHeight: '2.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{cat.name}</h4>
+                                <div style={{ fontSize: '0.75rem', color: 'var(--clr-gold)', fontWeight: 600 }}>{cat.variety}</div>
+                                <div style={{ fontSize: '0.7rem', color: 'var(--clr-text-muted)' }}>{cat.code}</div>
                             </motion.div>
                         ))}
                     </div>
                 </div>
+                <style jsx>{`
+                    .members-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem; }
+                    @media (max-width: 1200px) { .members-grid { grid-template-columns: repeat(3, 1fr); } }
+                    @media (max-width: 900px) { .members-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; } }
+                    @media (max-width: 500px) { .members-grid { grid-template-columns: 1fr; } }
+                `}</style>
             </section>
 
             {/* LEGEND & HISTORY FULL SECTIONS */}
