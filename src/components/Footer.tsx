@@ -13,10 +13,10 @@ const Footer = () => {
             <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '80%', height: '1px', background: 'linear-gradient(90deg, transparent, rgba(0, 51, 153, 0.3), transparent)' }} />
 
             <div className="container-large">
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '6rem', marginBottom: '10rem' }}>
+                <div className="footer-grid" style={{ marginBottom: '10rem' }}>
 
                     {/* Brand Section */}
-                    <div style={{ gridColumn: 'span 1' }}>
+                    <div className="footer-brand-col">
                         <div style={{ marginBottom: '2.5rem' }}>
                             <h3 style={{ fontSize: '1.4rem', fontWeight: 700, letterSpacing: '-0.02em', color: 'white' }}>
                                 CLUB BIRMAN <span style={{ color: 'var(--clr-gold)', display: 'block', fontSize: '1rem', marginTop: '0.2rem' }}>SCHWEIZ · SUISSE · SVIZZERA</span>
@@ -64,11 +64,11 @@ const Footer = () => {
                 </div>
 
                 {/* Bottom Bar */}
-                <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '4rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div className="footer-bottom">
                     <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.3)', letterSpacing: '0.02em' }}>
                         {t('footer.rights')}
                     </p>
-                    <div style={{ display: 'flex', gap: '3rem', fontSize: '0.85rem' }}>
+                    <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap', fontSize: '0.85rem' }}>
                         <Link href="/mentions" style={{ color: 'rgba(255,255,255,0.2)', transition: '0.3s' }}>{t('footer.privacy')}</Link>
                         <Link href="/mentions" style={{ color: 'rgba(255,255,255,0.2)', transition: '0.3s' }}>{t('footer.terms')}</Link>
                     </div>
@@ -76,6 +76,21 @@ const Footer = () => {
             </div>
 
             <style jsx>{`
+                .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6rem; }
+                .footer-brand-col { grid-column: span 1; }
+                .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 4rem; display: flex; justify-content: space-between; align-items: center; gap: 2rem; flex-wrap: wrap; }
+                
+                @media (max-width: 1024px) {
+                    .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 4rem; }
+                    .footer-brand-col { grid-column: span 2; }
+                }
+
+                @media (max-width: 600px) {
+                    .footer-grid { grid-template-columns: 1fr; gap: 3rem; }
+                    .footer-brand-col { grid-column: span 1; }
+                    .footer-bottom { flex-direction: column; align-items: flex-start; }
+                }
+
                 .footer-title {
                     font-size: 0.85rem;
                     font-weight: 700;
