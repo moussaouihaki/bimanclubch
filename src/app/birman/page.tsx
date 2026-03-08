@@ -113,14 +113,58 @@ export default function BirmanPage() {
                         <p style={{ fontSize: '1.2rem', color: 'var(--clr-text-muted)' }}>Les caractéristiques physiques essentielles du Sacré de Birmanie</p>
                     </div>
 
-                    <div style={{ position: 'relative', maxWidth: '1000px', margin: '0 auto', height: '800px' }}>
-                        {/* Central Image - Larger and centered */}
+                    <div style={{ position: 'relative', maxWidth: '1000px', margin: '0 auto', height: '850px' }}>
+                        {/* SVG Layer for high precision */}
+                        <svg
+                            className="standard-lines"
+                            style={{
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                width: '100%',
+                                height: '100%',
+                                pointerEvents: 'none',
+                                zIndex: 5
+                            }}
+                            viewBox="0 0 1000 850"
+                        >
+                            <defs>
+                                <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" style={{ stopColor: 'var(--clr-gold)', stopOpacity: 0.2 }} />
+                                    <stop offset="100%" style={{ stopColor: 'var(--clr-gold)', stopOpacity: 0.8 }} />
+                                </linearGradient>
+                            </defs>
+
+                            {/* Lines Mapping */}
+                            {/* 1. OREILLES: Box(120, 150) -> Cat(520, 310) */}
+                            <line x1="240" y1="150" x2="520" y2="305" stroke="var(--clr-gold)" strokeWidth="1" strokeDasharray="5 3" opacity="0.6" />
+
+                            {/* 2. PROFIL: Box(120, 350) -> Cat(570, 415) */}
+                            <line x1="240" y1="360" x2="565" y2="415" stroke="var(--clr-gold)" strokeWidth="1" strokeDasharray="5 3" opacity="0.6" />
+
+                            {/* 3. PELAGE: Box(120, 600) -> Cat(420, 550) */}
+                            <line x1="240" y1="620" x2="420" y2="550" stroke="var(--clr-gold)" strokeWidth="1" strokeDasharray="5 3" opacity="0.6" />
+
+                            {/* 4. QUEUE: Box(250, 780) -> Cat(350, 780) */}
+                            <line x1="360" y1="790" x2="380" y2="780" stroke="var(--clr-gold)" strokeWidth="1" strokeDasharray="5 3" opacity="0.6" />
+
+                            {/* 5. YEUX: Box(880, 180) -> Cat(550, 385) */}
+                            <line x1="760" y1="180" x2="550" y2="385" stroke="var(--clr-gold)" strokeWidth="1" strokeDasharray="5 3" opacity="0.6" />
+
+                            {/* 6. CORPS: Box(880, 450) -> Cat(580, 580) */}
+                            <line x1="760" y1="460" x2="600" y2="600" stroke="var(--clr-gold)" strokeWidth="1" strokeDasharray="5 3" opacity="0.6" />
+
+                            {/* 7. EPERONS: Box(880, 750) -> Cat(560, 840) */}
+                            <line x1="760" y1="760" x2="560" y2="840" stroke="var(--clr-gold)" strokeWidth="1" strokeDasharray="5 3" opacity="0.6" />
+                        </svg>
+
+                        {/* Central Image */}
                         <div style={{
                             position: 'absolute',
-                            top: '50%',
+                            top: '52%',
                             left: '50%',
                             transform: 'translate(-50%, -50%)',
-                            width: '70%',
+                            width: '60%',
                             borderRadius: '40px',
                             overflow: 'hidden',
                             boxShadow: '0 30px 60px rgba(0,0,0,0.1)'
@@ -132,62 +176,48 @@ export default function BirmanPage() {
                             />
                         </div>
 
-                        {/* Annotation Labels & Lines */}
-
-                        {/* 1. OREILLES (Haut Gauche) */}
-                        <div style={{ position: 'absolute', top: '15%', left: '0', width: '220px', zIndex: 10 }}>
+                        {/* DESCRIPTIONS LEFT */}
+                        <div style={{ position: 'absolute', top: '100px', left: '20px', width: '220px', zIndex: 10 }}>
                             <div style={{ background: 'white', padding: '1rem', borderRadius: '15px', borderLeft: '4px solid var(--clr-gold)', boxShadow: 'var(--shadow-lg)' }}>
-                                <p style={{ fontSize: '0.85rem', lineHeight: 1.4, margin: 0 }}>{t('birman.std_ears')}</p>
+                                <p style={{ fontSize: '0.8rem', fontWeight: 500, margin: 0 }}>{t('birman.std_ears')}</p>
                             </div>
-                            <div style={{ position: 'absolute', top: '50%', left: '100%', width: '120px', height: '2px', background: 'var(--clr-gold)', opacity: 0.4, transform: 'rotate(15deg)', transformOrigin: 'left' }} />
                         </div>
 
-                        {/* 2. QUEUE (Haut Droite) */}
-                        <div style={{ position: 'absolute', top: '5%', right: '5%', width: '220px', zIndex: 10 }}>
-                            <div style={{ background: 'white', padding: '1rem', borderRadius: '15px', borderRight: '4px solid var(--clr-gold)', boxShadow: 'var(--shadow-lg)' }}>
-                                <p style={{ fontSize: '0.85rem', lineHeight: 1.4, margin: 0 }}>{t('birman.std_tail')}</p>
-                            </div>
-                            <div style={{ position: 'absolute', top: '50%', right: '100%', width: '140px', height: '2px', background: 'var(--clr-gold)', opacity: 0.4, transform: 'rotate(-10deg)', transformOrigin: 'right' }} />
-                        </div>
-
-                        {/* 3. PROFIL (Milieu Gauche) */}
-                        <div style={{ position: 'absolute', top: '38%', left: '-5%', width: '220px', zIndex: 10 }}>
+                        <div style={{ position: 'absolute', top: '320px', left: '20px', width: '220px', zIndex: 10 }}>
                             <div style={{ background: 'white', padding: '1rem', borderRadius: '15px', borderLeft: '4px solid var(--clr-gold)', boxShadow: 'var(--shadow-lg)' }}>
-                                <p style={{ fontSize: '0.85rem', lineHeight: 1.4, margin: 0 }}>{t('birman.std_profile')}</p>
+                                <p style={{ fontSize: '0.8rem', fontWeight: 500, margin: 0 }}>{t('birman.std_profile')}</p>
                             </div>
-                            <div style={{ position: 'absolute', top: '50%', left: '100%', width: '100px', height: '2px', background: 'var(--clr-gold)', opacity: 0.4, transform: 'rotate(5deg)', transformOrigin: 'left' }} />
                         </div>
 
-                        {/* 4. YEUX (Milieu Droite) */}
-                        <div style={{ position: 'absolute', top: '35%', right: '0', width: '220px', zIndex: 10 }}>
-                            <div style={{ background: 'white', padding: '1rem', borderRadius: '15px', borderRight: '4px solid var(--clr-gold)', boxShadow: 'var(--shadow-lg)' }}>
-                                <p style={{ fontSize: '0.85rem', lineHeight: 1.4, margin: 0 }}>{t('birman.std_eyes')}</p>
-                            </div>
-                            <div style={{ position: 'absolute', top: '50%', right: '100%', width: '100px', height: '2px', background: 'var(--clr-gold)', opacity: 0.4, transform: 'rotate(-5deg)', transformOrigin: 'right' }} />
-                        </div>
-
-                        {/* 5. CORPS (Milieu Droite Bas) */}
-                        <div style={{ position: 'absolute', top: '60%', right: '-5%', width: '220px', zIndex: 10 }}>
-                            <div style={{ background: 'white', padding: '1rem', borderRadius: '15px', borderRight: '4px solid var(--clr-gold)', boxShadow: 'var(--shadow-lg)' }}>
-                                <p style={{ fontSize: '0.85rem', lineHeight: 1.4, margin: 0 }}>{t('birman.std_body')}</p>
-                            </div>
-                            <div style={{ position: 'absolute', top: '50%', right: '100%', width: '130px', height: '2px', background: 'var(--clr-gold)', opacity: 0.4, transform: 'rotate(-15deg)', transformOrigin: 'right' }} />
-                        </div>
-
-                        {/* 6. PELAGE (Bas Gauche) */}
-                        <div style={{ position: 'absolute', bottom: '15%', left: '0', width: '220px', zIndex: 10 }}>
+                        <div style={{ position: 'absolute', top: '580px', left: '20px', width: '220px', zIndex: 10 }}>
                             <div style={{ background: 'white', padding: '1rem', borderRadius: '15px', borderLeft: '4px solid var(--clr-gold)', boxShadow: 'var(--shadow-lg)' }}>
-                                <p style={{ fontSize: '0.85rem', lineHeight: 1.4, margin: 0 }}>{t('birman.std_coat')}</p>
+                                <p style={{ fontSize: '0.8rem', fontWeight: 500, margin: 0 }}>{t('birman.std_coat')}</p>
                             </div>
-                            <div style={{ position: 'absolute', bottom: '50%', left: '100%', width: '110px', height: '2px', background: 'var(--clr-gold)', opacity: 0.4, transform: 'rotate(-20deg)', transformOrigin: 'left' }} />
                         </div>
 
-                        {/* 7. EPERONS (Bas Droite) */}
-                        <div style={{ position: 'absolute', bottom: '5%', right: '5%', width: '240px', zIndex: 10 }}>
-                            <div style={{ background: 'white', padding: '1rem', borderRadius: '15px', borderRight: '4px solid var(--clr-gold)', boxShadow: 'var(--shadow-lg)' }}>
-                                <p style={{ fontSize: '0.85rem', lineHeight: 1.4, margin: 0 }}>{t('birman.std_spurs')}</p>
+                        <div style={{ position: 'absolute', bottom: '20px', left: '140px', width: '220px', zIndex: 10 }}>
+                            <div style={{ background: 'white', padding: '1rem', borderRadius: '15px', borderLeft: '4px solid var(--clr-gold)', boxShadow: 'var(--shadow-lg)' }}>
+                                <p style={{ fontSize: '0.8rem', fontWeight: 500, margin: 0 }}>{t('birman.std_tail')}</p>
                             </div>
-                            <div style={{ position: 'absolute', bottom: '50%', right: '100%', width: '100px', height: '2px', background: 'var(--clr-gold)', opacity: 0.4, transform: 'rotate(25deg)', transformOrigin: 'right' }} />
+                        </div>
+
+                        {/* DESCRIPTIONS RIGHT */}
+                        <div style={{ position: 'absolute', top: '140px', right: '20px', width: '220px', zIndex: 10 }}>
+                            <div style={{ background: 'white', padding: '1rem', borderRadius: '15px', borderRight: '4px solid var(--clr-gold)', boxShadow: 'var(--shadow-lg)' }}>
+                                <p style={{ fontSize: '0.8rem', fontWeight: 500, margin: 0 }}>{t('birman.std_eyes')}</p>
+                            </div>
+                        </div>
+
+                        <div style={{ position: 'absolute', top: '420px', right: '20px', width: '220px', zIndex: 10 }}>
+                            <div style={{ background: 'white', padding: '1rem', borderRadius: '15px', borderRight: '4px solid var(--clr-gold)', boxShadow: 'var(--shadow-lg)' }}>
+                                <p style={{ fontSize: '0.8rem', fontWeight: 500, margin: 0 }}>{t('birman.std_body')}</p>
+                            </div>
+                        </div>
+
+                        <div style={{ position: 'absolute', bottom: '50px', right: '20px', width: '220px', zIndex: 10 }}>
+                            <div style={{ background: 'white', padding: '1rem', borderRadius: '15px', borderRight: '4px solid var(--clr-gold)', boxShadow: 'var(--shadow-lg)' }}>
+                                <p style={{ fontSize: '0.8rem', fontWeight: 500, margin: 0 }}>{t('birman.std_spurs')}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
