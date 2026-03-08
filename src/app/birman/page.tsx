@@ -114,49 +114,6 @@ export default function BirmanPage() {
                     </div>
 
                     <div style={{ position: 'relative', maxWidth: '1000px', margin: '0 auto', height: '850px' }}>
-                        {/* SVG Layer for high precision */}
-                        <svg
-                            className="standard-lines"
-                            style={{
-                                position: 'absolute',
-                                top: 0,
-                                left: 0,
-                                width: '100%',
-                                height: '100%',
-                                pointerEvents: 'none',
-                                zIndex: 5
-                            }}
-                            viewBox="0 0 1000 850"
-                        >
-                            <defs>
-                                <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                    <stop offset="0%" style={{ stopColor: 'var(--clr-gold)', stopOpacity: 0.2 }} />
-                                    <stop offset="100%" style={{ stopColor: 'var(--clr-gold)', stopOpacity: 0.8 }} />
-                                </linearGradient>
-                            </defs>
-
-                            {/* Lines Mapping */}
-                            {/* 1. OREILLES: Box(120, 150) -> Cat(520, 310) */}
-                            <line x1="240" y1="150" x2="520" y2="305" stroke="var(--clr-gold)" strokeWidth="1" strokeDasharray="5 3" opacity="0.6" />
-
-                            {/* 2. PROFIL: Box(120, 350) -> Cat(570, 415) */}
-                            <line x1="240" y1="360" x2="565" y2="415" stroke="var(--clr-gold)" strokeWidth="1" strokeDasharray="5 3" opacity="0.6" />
-
-                            {/* 3. PELAGE: Box(120, 600) -> Cat(420, 550) */}
-                            <line x1="240" y1="620" x2="420" y2="550" stroke="var(--clr-gold)" strokeWidth="1" strokeDasharray="5 3" opacity="0.6" />
-
-                            {/* 4. QUEUE: Box(250, 780) -> Cat(350, 780) */}
-                            <line x1="360" y1="790" x2="380" y2="780" stroke="var(--clr-gold)" strokeWidth="1" strokeDasharray="5 3" opacity="0.6" />
-
-                            {/* 5. YEUX: Box(880, 180) -> Cat(550, 385) */}
-                            <line x1="760" y1="180" x2="550" y2="385" stroke="var(--clr-gold)" strokeWidth="1" strokeDasharray="5 3" opacity="0.6" />
-
-                            {/* 6. CORPS: Box(880, 450) -> Cat(580, 580) */}
-                            <line x1="760" y1="460" x2="600" y2="600" stroke="var(--clr-gold)" strokeWidth="1" strokeDasharray="5 3" opacity="0.6" />
-
-                            {/* 7. EPERONS: Box(880, 750) -> Cat(560, 840) */}
-                            <line x1="760" y1="760" x2="560" y2="840" stroke="var(--clr-gold)" strokeWidth="1" strokeDasharray="5 3" opacity="0.6" />
-                        </svg>
 
                         {/* Central Image */}
                         <div style={{
