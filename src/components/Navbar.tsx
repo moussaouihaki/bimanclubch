@@ -46,14 +46,14 @@ export function Navbar() {
         <nav className={`nav-luxury ${isMenuOpen ? 'menu-open' : ''}`}>
             <div className="nav-container">
                 <Link href="/" className="nav-brand" onClick={() => setIsMenuOpen(false)}>
-                    <div style={{ position: 'relative', width: '32px', height: '32px', flexShrink: 0 }}>
+                    <div style={{ position: 'relative', width: '38px', height: '38px', flexShrink: 0 }}>
                         <Image src="/images/logo.png" alt="CBS Logo" fill style={{ objectFit: 'contain' }} />
                     </div>
                     <div className="brand-text">
-                        <span style={{ fontWeight: 700, letterSpacing: '-0.02em', fontSize: '15px', color: 'var(--clr-text)', whiteSpace: 'nowrap' }}>
+                        <span style={{ fontWeight: 800, letterSpacing: '-0.02em', fontSize: 'clamp(15px, 4vw, 20px)', color: 'var(--clr-text)', whiteSpace: 'nowrap' }}>
                             CLUB BIRMAN
                         </span>
-                        <span className="brand-subtitle" style={{ fontWeight: 500, letterSpacing: '0.15em', fontSize: '8px', color: 'var(--clr-gold)', whiteSpace: 'nowrap' }}>
+                        <span className="brand-subtitle" style={{ fontWeight: 600, letterSpacing: '0.15em', fontSize: 'clamp(8px, 2vw, 10px)', color: 'var(--clr-gold)', whiteSpace: 'nowrap', opacity: 0.9 }}>
                             SCHWEIZ · SUISSE · SVIZZERA
                         </span>
                     </div>
@@ -169,12 +169,10 @@ export function Navbar() {
                     .menu-open .nav-links { transform: translateX(0); }
                     .nav-group { width: 100%; border-bottom: 1px solid #f5f5f7; padding: 15px 0; }
                     .nav-dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; padding: 15px 0 0 20px; border: none; }
-                    .hamburger { display: flex; }
-                    .lang-switcher-desktop, .desktop-nav-btn { display: none; }
-                    .mobile-extras { display: flex; }
+                    .hamburger { display: flex; z-index: 2000; }
                     
-                    .brand-text span:first-child { font-size: 14px !important; }
-                    .brand-subtitle { font-size: 7px !important; letter-spacing: 0.1em !important; opacity: 0.7; }
+                    .brand-text span:first-child { font-size: 16px !important; }
+                    .brand-subtitle { font-size: 8px !important; letter-spacing: 0.1em !important; opacity: 0.8; }
                     
                     .menu-open .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
                     .menu-open .bar:nth-child(2) { opacity: 0; }

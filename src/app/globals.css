@@ -137,6 +137,23 @@ h5 {
   padding-right: var(--side-pad);
 }
 
+/* Navigation & Hide Utilities */
+.desktop-nav-btn {
+  display: flex !important;
+}
+
+.lang-switcher-desktop {
+  display: flex !important;
+}
+
+@media (max-width: 1150px) {
+
+  .desktop-nav-btn,
+  .lang-switcher-desktop {
+    display: none !important;
+  }
+}
+
 /* Enhanced Apple-style Cards */
 .card-apple {
   background: rgba(255, 255, 255, 0.85);
