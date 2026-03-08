@@ -45,13 +45,15 @@ export function Navbar() {
     return (
         <nav className={`nav-luxury ${isMenuOpen ? 'menu-open' : ''}`}>
             <div className="nav-container">
-                <Link href="/" className="nav-brand">
-                    <Image src="/images/logo.png" alt="CBS Logo" width={32} height={32} style={{ objectFit: 'contain' }} />
+                <Link href="/" className="nav-brand" onClick={() => setIsMenuOpen(false)}>
+                    <div style={{ position: 'relative', width: '32px', height: '32px', flexShrink: 0 }}>
+                        <Image src="/images/logo.png" alt="CBS Logo" fill style={{ objectFit: 'contain' }} />
+                    </div>
                     <div className="brand-text">
-                        <span style={{ fontWeight: 700, letterSpacing: '-0.02em', fontSize: '15px', color: 'var(--clr-text)' }}>
+                        <span style={{ fontWeight: 700, letterSpacing: '-0.02em', fontSize: '15px', color: 'var(--clr-text)', whiteSpace: 'nowrap' }}>
                             CLUB BIRMAN
                         </span>
-                        <span style={{ fontWeight: 400, letterSpacing: '0.2em', fontSize: '9px', color: 'var(--clr-gold)' }}>
+                        <span className="brand-subtitle" style={{ fontWeight: 500, letterSpacing: '0.15em', fontSize: '8px', color: 'var(--clr-gold)', whiteSpace: 'nowrap' }}>
                             SCHWEIZ · SUISSE · SVIZZERA
                         </span>
                     </div>
@@ -134,59 +136,55 @@ export function Navbar() {
             </div>
 
             <style jsx>{`
-                .nav-luxury { height: 80px; }
-                .brand-text { display: flex; flexDirection: column; lineHeight: 1.1; }
-                .nav-actions { display: flex; gap: 1.5rem; alignItems: center; }
-                .lang-switcher-desktop { display: flex; background: rgba(0,0,0,0.04); padding: 3px; borderRadius: 100px; }
-                .desktop-nav-btn { fontSize: 0.8rem; padding: 0.7rem 1.8rem; fontWeight: 600; letterSpacing: 0.02em; }
-                .hamburger { display: none; background: none; border: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 10px; }
+                .nav-luxury { height: 80px; width: 100%; border-bottom: 1px solid rgba(0,0,0,0.05); }
+                .nav-container { height: 100%; display: flex; align-items: center; justify-content: space-between; max-width: 1400px; margin: 0 auto; padding: 0 40px; }
+                .brand-text { display: flex; flex-direction: column; line-height: 1.2; margin-left: 10px; }
+                .nav-actions { display: flex; gap: 1.5rem; align-items: center; }
+                .lang-switcher-desktop { display: flex; background: rgba(0,0,0,0.04); padding: 3px; border-radius: 100px; }
+                .hamburger { display: none; background: none; border: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 10px; z-index: 2000; }
                 .bar { width: 22px; height: 2px; background: var(--clr-text); transition: 0.3s; }
-                .mobile-extras { display: none; flex-direction: column; gap: 1.5rem; margin-top: 1rem; }
-                .mobile-divider { height: 1px; background: rgba(0,0,0,0.05); width: 100%; }
-                .lang-pill { padding: 4px 12px; border-radius: 100px; font-size: 11px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; border: 1px solid transparent; }
-                .lang-pill.active { background: var(--clr-gold); color: white; }
-                .lang-switcher-mobile { display: flex; gap: 8px; justify-content: center; background: rgba(0,0,0,0.03); padding: 8px; border-radius: 100px; }
-                .mobile-nav-btn { width: 100%; text-align: center; padding: 1rem; }
+                .mobile-extras { display: none; flex-direction: column; gap: 2rem; margin-top: 2rem; width: 100%; }
+                .mobile-divider { height: 1px; background: rgba(0,0,0,0.08); width: 100%; }
+                .lang-switcher-mobile { display: flex; gap: 10px; justify-content: center; background: #f5f5f7; padding: 12px; border-radius: 100px; }
+                .mobile-nav-btn { width: 100%; text-align: center; padding: 1.2rem; font-weight: 600; border-radius: 16px; font-size: 1rem; }
 
                 @media (max-width: 1150px) {
+                    .nav-container { padding: 0 20px; }
                     .nav-links {
                         position: fixed;
-                        top: 80px;
+                        top: 0;
                         left: 0;
                         width: 100%;
-                        height: calc(100vh - 80px);
+                        height: 100vh;
                         background: white;
                         flex-direction: column;
-                        padding: 2rem;
+                        padding: 100px 30px 40px 30px;
                         gap: 1.5rem;
                         transform: translateX(100%);
-                        transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                        transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
                         overflow-y: auto;
                         display: flex;
-                        z-index: 999;
+                        z-index: 1500;
                     }
                     .menu-open .nav-links { transform: translateX(0); }
-                    .nav-group { width: 100%; flex-direction: column; align-items: flex-start; }
-                    .nav-dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; padding: 10px 0 0 15px; border-radius: 0; border: none; }
-                    .hamburger { display: flex; z-index: 1001; }
-                    .lang-switcher-desktop { display: none; }
-                    .desktop-nav-btn { display: none; }
+                    .nav-group { width: 100%; border-bottom: 1px solid #f5f5f7; padding: 15px 0; }
+                    .nav-dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; padding: 15px 0 0 20px; border: none; }
+                    .hamburger { display: flex; }
+                    .lang-switcher-desktop, .desktop-nav-btn { display: none; }
                     .mobile-extras { display: flex; }
-                    .brand-text span:last-child { 
-                        font-size: 8px !important; 
-                        letter-spacing: 0.1em !important; 
-                        white-space: nowrap; 
-                    }
-                    .brand-text span:first-child { font-size: 13px !important; }
-                    .nav-container { padding: 0 15px; }
+                    
+                    .brand-text span:first-child { font-size: 14px !important; }
+                    .brand-subtitle { font-size: 7px !important; letter-spacing: 0.1em !important; opacity: 0.7; }
+                    
                     .menu-open .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
                     .menu-open .bar:nth-child(2) { opacity: 0; }
                     .menu-open .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+                    
+                    .menu-open .nav-brand { z-index: 2000; position: relative; }
                 }
-                
+
                 @media (max-width: 400px) {
-                    .brand-text span:last-child { display: none; }
-                    .brand-text { justify-content: center; }
+                    .brand-subtitle { display: none; }
                 }
             `}</style>
         </nav >

@@ -19,10 +19,12 @@
   /* Responsive Spacing */
   --side-pad: 2rem;
   --section-pad: 8rem;
+  --nav-height: 80px;
 
   @media (max-width: 768px) {
     --side-pad: 1.25rem;
-    --section-pad: 5rem;
+    --section-pad: 4rem;
+    --nav-height: 70px;
   }
 
   /* Deep colors for contrast */
@@ -87,10 +89,17 @@ h5 {
 }
 
 .title-massive {
-  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-size: clamp(2.5rem, 8vw, 6.5rem);
   font-weight: 700;
   letter-spacing: -0.04em;
   margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+@media (max-width: 768px) {
+  .title-massive {
+    font-size: 2.8rem;
+  }
 }
 
 /* Keep serif for special elegant accents */
@@ -142,6 +151,11 @@ h5 {
   border: 1px solid rgba(255, 255, 255, 0.6);
   position: relative;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    padding: 2rem;
+    border-radius: 24px;
+  }
 }
 
 .card-apple::after {

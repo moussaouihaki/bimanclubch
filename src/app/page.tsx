@@ -20,7 +20,7 @@ export default function Home() {
             style={{ objectFit: 'cover' }}
             priority
           />
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7))' }} />
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.85))' }} />
         </div>
 
         <div className="container" style={{ textAlign: 'center', color: 'white', position: 'relative', zIndex: 10 }}>
@@ -29,19 +29,19 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="hero-title" style={{ textShadow: '0 15px 45px rgba(0,0,0,0.6)' }}>
+            <h1 className="hero-title" style={{ textShadow: '0 10px 30px rgba(0,0,0,0.5)' }}>
               <span style={{ color: 'white' }}>{t('hero.title')}</span> <br />
               <motion.span
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5, duration: 1 }}
                 className="text-serif"
-                style={{ fontStyle: 'italic', fontWeight: 300, color: 'var(--clr-gold)' }}
+                style={{ fontStyle: 'italic', fontWeight: 300, color: 'var(--clr-gold)', textShadow: '0 5px 15px rgba(0,0,0,0.3)' }}
               >
                 {t('hero.subtitle')}
               </motion.span>
             </h1>
-            <p className="hero-text">
+            <p className="hero-text" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
               {t('hero.text')}
             </p>
             <div className="hero-actions">

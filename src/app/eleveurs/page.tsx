@@ -34,42 +34,33 @@ export default function EleveursPage() {
     );
 
     return (
-        <main style={{ paddingTop: '150px', paddingBottom: '100px', minHeight: '100vh', background: 'var(--clr-bg)' }}>
-            <section className="section">
-                <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+        <main style={{ paddingTop: 'var(--nav-height)', paddingBottom: 'var(--section-pad)', minHeight: '100vh', background: 'var(--clr-bg)' }}>
+            <section className="section" style={{ padding: 'var(--section-pad) 0' }}>
+                <div className="container-large">
 
-                    <div style={{ textAlign: 'center', marginBottom: '6rem' }}>
+                    <div style={{ textAlign: 'center', marginBottom: 'clamp(3rem, 10vw, 6rem)' }}>
                         <span style={{ color: 'var(--clr-gold)', letterSpacing: '0.2em', textTransform: 'uppercase', fontSize: '0.85rem', fontWeight: 600 }}>{t('breeder.tag')}</span>
                         <h1 className="title-massive">
                             {t('breeder.title_main')} <span className="text-serif text-gold">{t('breeder.title_sub')}</span>
                         </h1>
-                        <p style={{ maxWidth: '650px', margin: '1.5rem auto 0 auto', fontSize: '1.25rem', color: 'var(--clr-text-muted)', lineHeight: 1.8 }}>
+                        <p style={{ maxWidth: '650px', margin: '1.5rem auto 0 auto', fontSize: 'clamp(1rem, 4vw, 1.25rem)', color: 'var(--clr-text-muted)', lineHeight: 1.8 }}>
                             {t('breeder.subtitle')}
                         </p>
                     </div>
 
                     {/* Filter Bar */}
-                    <div style={{ display: 'flex', gap: '1rem', overflowX: 'auto', paddingBottom: '2rem', marginBottom: '4rem', scrollbarWidth: 'none' }}>
-                        {cantonsList.map(c => (
-                            <button
-                                key={c}
-                                onClick={() => setActiveCanton(c)}
-                                style={{
-                                    padding: '0.8rem 1.5rem',
-                                    borderRadius: '100px',
-                                    border: '1px solid',
-                                    borderColor: activeCanton === c ? 'var(--clr-gold)' : '#eee',
-                                    background: activeCanton === c ? 'var(--clr-gold)' : 'white',
-                                    color: activeCanton === c ? 'white' : 'var(--clr-text)',
-                                    fontWeight: 600,
-                                    cursor: 'pointer',
-                                    whiteSpace: 'nowrap',
-                                    transition: '0.3s'
-                                }}
-                            >
-                                {c === "Alle" ? t('breeder.filter_all') : c}
-                            </button>
-                        ))}
+                    <div className="filter-scroll-wrapper" style={{ overflowX: 'auto', paddingBottom: '2rem', marginBottom: '2rem', scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}>
+                        <div style={{ display: 'flex', gap: '0.8rem', minWidth: 'max-content' }}>
+                            {cantonsList.map(c => (
+                                <button
+                                    key={c}
+                                    onClick={() => setActiveCanton(c)}
+                                    className={`filter-pill ${activeCanton === c ? 'active' : ''}`}
+                                >
+                                    {c === "Alle" ? t('breeder.filter_all') : c}
+                                </button>
+                            ))}
+                        </div>
                     </div>
 
                     {loading ? (
@@ -77,9 +68,9 @@ export default function EleveursPage() {
                             <div className="loader"></div>
                         </div>
                     ) : (
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(400px, 1fr))', gap: '3rem' }}>
+                        <div className="breeders-grid">
                             {filteredBreeders.length === 0 ? (
-                                <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '6rem', background: 'white', borderRadius: '40px' }}>
+                                <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: 'var(--section-pad)', background: 'white', borderRadius: '40px' }}>
                                     <p style={{ fontSize: '1.2rem', color: 'var(--clr-text-muted)' }}>Aucun éleveur répertorié pour ce canton pour le moment.</p>
                                 </div>
                             ) : (
@@ -90,10 +81,10 @@ export default function EleveursPage() {
                                         animate={{ opacity: 1, scale: 1 }}
                                         transition={{ delay: i * 0.05 }}
                                         className="card-apple"
-                                        style={{ display: 'flex', flexDirection: 'column' }}
+                                        style={{ display: 'flex', flexDirection: 'column', height: '100%' }}
                                     >
-                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '2rem' }}>
-                                            <span style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--clr-gold)', fontWeight: 800 }}>
+                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.5rem' }}>
+                                            <span style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--clr-gold)', fontWeight: 800 }}>
                                                 {t('breeder.card_cattery')}
                                             </span>
                                             <div style={{ background: 'rgba(0, 51, 153, 0.05)', color: 'var(--clr-sapphire)', fontWeight: 700, fontSize: '0.8rem', padding: '0.4rem 1.2rem', borderRadius: '100px' }}>
@@ -101,20 +92,20 @@ export default function EleveursPage() {
                                             </div>
                                         </div>
 
-                                        <h3 style={{ fontSize: '2.2rem', marginBottom: '0.5rem', color: 'var(--clr-seal)', fontFamily: 'var(--font-serif)' }}>
+                                        <h3 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.2rem)', marginBottom: '0.5rem', color: 'var(--clr-seal)', fontFamily: 'var(--font-serif)' }}>
                                             {breeder.catteryName}
                                         </h3>
-                                        <p style={{ fontSize: '1.1rem', color: 'var(--clr-text)', fontWeight: 500, marginBottom: '2.5rem', opacity: 0.8 }}>
+                                        <p style={{ fontSize: '1.1rem', color: 'var(--clr-text)', fontWeight: 500, marginBottom: '2rem', opacity: 0.8 }}>
                                             {breeder.ownerName}
                                         </p>
 
-                                        <div style={{ flex: 1, borderTop: '1px solid #f0f0f5', paddingTop: '2rem' }}>
+                                        <div style={{ flex: 1, borderTop: '1px solid #f0f0f5', paddingTop: '1.5rem' }}>
                                             <div style={{ display: 'grid', gap: '1rem' }}>
                                                 <div style={{ display: 'flex', alignItems: 'center', gap: '1.2rem' }}>
                                                     <span style={{ fontSize: '1.2rem' }}>📍</span>
                                                     <div>
                                                         <span style={{ display: 'block', fontSize: '0.65rem', textTransform: 'uppercase', color: 'var(--clr-text-muted)', fontWeight: 700 }}>Localisation</span>
-                                                        <span style={{ fontWeight: 500 }}>{breeder.location}</span>
+                                                        <span style={{ fontSize: '0.95rem', fontWeight: 500 }}>{breeder.location}</span>
                                                     </div>
                                                 </div>
                                                 {breeder.phone && (
@@ -122,19 +113,19 @@ export default function EleveursPage() {
                                                         <span style={{ fontSize: '1.2rem' }}>📞</span>
                                                         <div>
                                                             <span style={{ display: 'block', fontSize: '0.65rem', textTransform: 'uppercase', color: 'var(--clr-text-muted)', fontWeight: 700 }}>Téléphone</span>
-                                                            <span style={{ fontWeight: 500 }}>{breeder.phone}</span>
+                                                            <span style={{ fontSize: '0.95rem', fontWeight: 500 }}>{breeder.phone}</span>
                                                         </div>
                                                     </div>
                                                 )}
                                             </div>
                                         </div>
 
-                                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginTop: '3rem' }}>
-                                            <a href={`mailto:${breeder.email}`} className="btn-gold" style={{ padding: '0.8rem', fontSize: '0.9rem', borderRadius: '12px' }}>
+                                        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)', gap: '0.8rem', marginTop: '2.5rem' }}>
+                                            <a href={`mailto:${breeder.email}`} className="btn-gold" style={{ padding: '0.8rem', fontSize: '0.85rem', borderRadius: '12px', width: '100%' }}>
                                                 Contact
                                             </a>
                                             {breeder.website && (
-                                                <a href={breeder.website} target="_blank" rel="noopener noreferrer" className="btn-outline" style={{ padding: '0.8rem', fontSize: '0.9rem', borderRadius: '12px', textAlign: 'center' }}>
+                                                <a href={breeder.website} target="_blank" rel="noopener noreferrer" className="btn-outline" style={{ padding: '0.8rem', fontSize: '0.85rem', borderRadius: '12px', textAlign: 'center', width: '100%' }}>
                                                     Site Web
                                                 </a>
                                             )}
