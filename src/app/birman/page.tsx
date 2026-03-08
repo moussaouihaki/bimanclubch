@@ -76,8 +76,8 @@ export default function BirmanPage() {
             {/* LEGEND SECTION */}
             <section className="section" style={{ paddingTop: '0' }}>
                 <div className="container-large">
-                    <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '5rem', alignItems: 'center' }}>
-                        <div style={{ position: 'relative', height: '600px', borderRadius: '40px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.1)' }}>
+                    <div className="legend-grid">
+                        <div className="legend-image-wrapper">
                             <img
                                 src="/images/hero-birman.png"
                                 alt="Legendary Birman"
@@ -85,24 +85,50 @@ export default function BirmanPage() {
                             />
                             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent, rgba(0,0,0,0.3))' }} />
                         </div>
-                        <div style={{ padding: '1rem' }}>
-                            <h2 style={{ fontSize: '3rem', marginBottom: '2.5rem', fontFamily: 'var(--font-serif)' }}>{t('birman.legend_title')}</h2>
-                            <p style={{ fontSize: '1.3rem', lineHeight: 1.8, color: 'var(--clr-text-muted)', marginBottom: '3rem' }}>
+                        <div className="legend-content-wrapper">
+                            <h2 className="legend-title">{t('birman.legend_title')}</h2>
+                            <p className="legend-text">
                                 {t('birman.legend_text')}
                             </p>
-                            <div style={{ display: 'flex', gap: '3rem' }}>
-                                <div style={{ background: 'white', padding: '1.5rem 2rem', borderRadius: '24px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}>
-                                    <div style={{ fontSize: '2.5rem', color: 'var(--clr-gold)', fontWeight: 700 }}>100%</div>
-                                    <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 700, color: 'var(--clr-text-muted)' }}>{t('birman.gloves')}</div>
+                            <div className="legend-stats">
+                                <div className="stat-card">
+                                    <div className="stat-value">100%</div>
+                                    <div className="stat-label">{t('birman.gloves')}</div>
                                 </div>
-                                <div style={{ background: 'white', padding: '1.5rem 2rem', borderRadius: '24px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}>
-                                    <div style={{ fontSize: '2.5rem', color: 'var(--clr-gold)', fontWeight: 700 }}>~20</div>
-                                    <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 700, color: 'var(--clr-text-muted)' }}>Variétés</div>
+                                <div className="stat-card">
+                                    <div className="stat-value">~20</div>
+                                    <div className="stat-label">Variétés</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <style jsx>{`
+                    .legend-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 5rem; align-items: center; }
+                    .legend-image-wrapper { position: relative; height: 600px; border-radius: 40px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+                    .legend-content-wrapper { padding: 1rem; }
+                    .legend-title { font-size: 3rem; marginBottom: 2.5rem; font-family: var(--font-serif); }
+                    .legend-text { font-size: 1.3rem; line-height: 1.8; color: var(--clr-text-muted); marginBottom: 3rem; }
+                    .legend-stats { display: flex; gap: 3rem; }
+                    .stat-card { background: white; padding: 1.5rem 2rem; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+                    .stat-value { fontSize: 2.5rem; color: var(--clr-gold); fontWeight: 700; }
+                    .stat-label { fontSize: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; fontWeight: 700; color: var(--clr-text-muted); }
+
+                    @media (max-width: 1024px) {
+                        .legend-grid { grid-template-columns: 1fr; gap: 3rem; }
+                        .legend-image-wrapper { height: 400px; border-radius: 24px; }
+                        .legend-title { font-size: 2.5rem; text-align: center; }
+                        .legend-text { font-size: 1.1rem; text-align: center; }
+                        .legend-stats { justify-content: center; gap: 1.5rem; }
+                    }
+                    @media (max-width: 480px) {
+                        .legend-image-wrapper { height: 280px; }
+                        .legend-title { font-size: 2.2rem; }
+                        .stat-card { padding: 1.2rem; flex: 1; text-align: center; }
+                        .stat-value { font-size: 2rem; }
+                    }
+                `}</style>
             </section>
 
             {/* ANATOMICAL STANDARD SECTION */}
