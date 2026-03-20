@@ -1,6 +1,8 @@
 "use client";
-import { motion } from 'framer-motion';
 import { useI18n } from '@/i18n/I18nContext';
+import { Section } from '@/components/Section';
+import { PageHeader } from '@/components/PageHeader';
+import { BirmanCard } from '@/components/BirmanCard';
 
 const LINKS_DATA = [
     {
@@ -25,47 +27,36 @@ export default function LiensPage() {
     const { t, language } = useI18n();
 
     return (
-        <main style={{ paddingTop: '150px', paddingBottom: '100px', minHeight: '100vh', background: 'var(--clr-bg)' }}>
-            <section className="section">
-                <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+        <main className="mt-12">
+            <Section>
+                <PageHeader 
+                    tag={t('links.tag') || "RESSOURCES"}
+                    title={t('links.title_main') || "Liens Utiles"}
+                    subtitle={t('links.subtitle') || "Une sélection de sites officiels et partenaires de confiance."}
+                />
 
-                    <div style={{ textAlign: 'center', marginBottom: '6rem' }}>
-                        <span style={{ color: 'var(--clr-gold)', letterSpacing: '0.2em', textTransform: 'uppercase', fontSize: '0.85rem', fontWeight: 600 }}>{t('links.tag')}</span>
-                        <h1 className="title-massive">
-                            {t('links.title_main')} <span className="text-serif text-gold">{t('links.title_sub')}</span>
-                        </h1>
-                        <p style={{ maxWidth: '650px', margin: '1.5rem auto 0 auto', fontSize: '1.25rem', color: 'var(--clr-text-muted)', lineHeight: 1.8 }}>
-                            {t('links.subtitle')}
-                        </p>
-                    </div>
-
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(400px, 1fr))', gap: '3rem' }}>
-                        {LINKS_DATA.map((link, i) => (
-                            <motion.div
-                                key={i}
-                                initial={{ opacity: 0, y: 30 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: i * 0.1 }}
-                                className="card-apple"
-                            >
-                                <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.5rem' }}>
-                                    <span style={{ background: 'rgba(0, 51, 153, 0.05)', padding: '0.4rem 1rem', borderRadius: '100px', fontSize: '0.8rem', fontWeight: 600, color: 'var(--clr-sapphire)' }}>
-                                        {/* @ts-ignore */}
-                                        {link.type[language]}
-                                    </span>
-                                </div>
-
-                                <h3 style={{ fontSize: '1.8rem', color: 'var(--clr-text)', marginBottom: '2rem' }}>{link.name}</h3>
-
-                                <a href={link.url} target="_blank" rel="noopener noreferrer" className="btn-outline" style={{ display: 'inline-flex', padding: '0.8rem 2rem' }}>
-                                    {t('links.visit')}
+                <div className="links-grid">
+                    {LINKS_DATA.map((link, i) => (
+                        <BirmanCard
+                            key={i}
+                            delay={i * 0.1}
+                            tag={(link.type as any)[language]}
+                            title={link.name}
+                            variant="glass"
+                            footer={
+                                <a href={link.url} target="_blank" rel="noopener noreferrer" className="btn-outline w-fit mt-4">
+                                    {t('links.visit') || "Visiter le site"}
                                 </a>
-                            </motion.div>
-                        ))}
-                    </div>
-
+                            }
+                        />
+                    ))}
                 </div>
-            </section>
+            </Section>
+
+            <style jsx>{`
+                .links-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 3rem; }
+            `}</style>
         </main>
     );
 }
+

@@ -1,7 +1,9 @@
 "use client";
-import { motion } from 'framer-motion';
-import Link from 'next/link';
 import { useI18n } from '@/i18n/I18nContext';
+import { Section } from '@/components/Section';
+import { PageHeader } from '@/components/PageHeader';
+import { BirmanCard } from '@/components/BirmanCard';
+import Link from 'next/link';
 
 export default function ClubPage() {
     const { t, language } = useI18n();
@@ -16,72 +18,101 @@ export default function ClubPage() {
     ];
 
     return (
-        <main style={{ paddingTop: 'var(--nav-height)', paddingBottom: 'var(--section-pad)', minHeight: '100vh', background: 'var(--clr-bg)' }}>
-            <section className="section" style={{ padding: 'var(--section-pad) 0' }}>
-                <div className="container" style={{ textAlign: 'center' }}>
-                    <span style={{ color: 'var(--clr-gold)', letterSpacing: '0.2em', textTransform: 'uppercase', fontSize: '0.85rem', fontWeight: 600 }}>{t('club.tag')}</span>
-                    <h1 className="title-massive" style={{ marginBottom: 'clamp(2rem, 8vw, 4rem)' }}>
-                        {t('club.title_main')} <span className="text-serif text-gold">{t('club.title_sub')}</span>
-                    </h1>
+        <main className="mt-12">
+            <Section>
+                <PageHeader 
+                    tag={t('club.tag') || "NOTRE CLUB"}
+                    title={t('club.title_main') || "Le Club Birman"}
+                    subtitle={t('club.subtitle') || "Une communauté passionnée au service du Sacré de Birmanie depuis des années."}
+                />
 
-                    <div style={{ display: 'grid', gap: 'clamp(3rem, 10vw, 6rem)', textAlign: 'left' }}>
-
-                        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                            <div className="card-apple">
-                                <h3 style={{ fontSize: 'clamp(1.8rem, 6vw, 3rem)', color: 'var(--clr-text)', marginBottom: '1.5rem' }}>{t('club.history_title')}</h3>
-                                <p style={{ fontSize: 'clamp(1rem, 4vw, 1.25rem)', color: 'var(--clr-text-muted)', lineHeight: 1.8, marginBottom: '2rem' }}>
-                                    {t('club.history_text')}
-                                </p>
-                                <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                                    <button className="btn-outline" style={{ padding: '0.8rem 1.5rem', fontSize: '0.9rem' }}>{t('club.statutes_btn')}</button>
-                                    <button className="btn-outline" style={{ padding: '0.8rem 1.5rem', fontSize: '0.9rem' }}>{t('club.agm_btn')}</button>
-                                </div>
-                            </div>
-                        </motion.div>
-
-                        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                            <h2 style={{ fontSize: 'clamp(1.8rem, 6vw, 3rem)', color: 'var(--clr-text)', marginBottom: '2.5rem', textAlign: 'center' }}>{t('club.comite_title')}</h2>
-                            <div className="breeders-grid">
-                                {COMITE.map((member, i) => (
-                                    <div key={i} className="card-apple" style={{ textAlign: 'center', padding: '2.5rem 1.5rem' }}>
-                                        <div style={{ width: '60px', height: '60px', borderRadius: '50%', background: 'linear-gradient(135deg, var(--clr-gold), var(--clr-sapphire))', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem auto', fontSize: '1.5rem', fontWeight: 700 }}>{member.name.charAt(0)}</div>
-                                        <span style={{ color: 'var(--clr-gold)', fontWeight: 600, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{member.role}</span>
-                                        <h3 style={{ fontSize: '1.5rem', color: 'var(--clr-text)', margin: '0.8rem 0' }}>{member.name}</h3>
-                                        <a href={`mailto:${member.email}`} style={{ color: 'var(--clr-text-muted)', textDecoration: 'none', fontSize: '0.9rem', wordBreak: 'break-all' }}>{member.email}</a>
-                                    </div>
-                                ))}
-                            </div>
-                        </motion.div>
-
-                        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                            <div className="card-apple" style={{ background: 'var(--clr-sapphire)', border: 'none', color: 'white', textAlign: 'center', padding: 'clamp(2rem, 8vw, 4rem)' }}>
-                                <span style={{ color: 'var(--clr-gold)', fontWeight: 600, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{t('club.simplified_tag')}</span>
-                                <h3 style={{ fontSize: 'clamp(1.8rem, 6vw, 3rem)', margin: '1.5rem 0', color: 'white' }}>{t('club.simplified_title')}</h3>
-                                <p style={{ fontSize: 'clamp(1rem, 4vw, 1.2rem)', color: 'rgba(255,255,255,0.7)', maxWidth: '600px', margin: '0 auto 3rem auto' }}>
-                                    {t('club.simplified_desc')}
-                                </p>
-                                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem', textAlign: 'left' }}>
-                                    <Link href="/formulaires/adhesion" style={{ textDecoration: 'none', background: 'rgba(255,255,255,0.1)', padding: '1.5rem', borderRadius: '24px', display: 'block' }}>
-                                        <h4 style={{ fontSize: '1.1rem', marginBottom: '1.2rem', fontFamily: 'var(--font-serif)', color: 'white' }}>{t('club.form_adhesion')}</h4>
-                                        <span className="btn-gold" style={{ padding: '0.5rem 1.2rem', fontSize: '0.75rem' }}>{t('club.form_btn')}</span>
-                                    </Link>
-
-                                    <Link href="/formulaires/adhesion" style={{ textDecoration: 'none', background: 'rgba(255,255,255,0.1)', padding: '1.5rem', borderRadius: '24px', display: 'block' }}>
-                                        <h4 style={{ fontSize: '1.1rem', marginBottom: '1.2rem', fontFamily: 'var(--font-serif)', color: 'white' }}>{t('club.form_litter')}</h4>
-                                        <span className="btn-gold" style={{ padding: '0.5rem 1.2rem', fontSize: '0.75rem' }}>{t('club.form_btn')}</span>
-                                    </Link>
-
-                                    <div style={{ background: 'rgba(255,255,255,0.1)', padding: '1.5rem', borderRadius: '24px', opacity: 0.5 }}>
-                                        <h4 style={{ fontSize: '1.1rem', marginBottom: '1.2rem', fontFamily: 'var(--font-serif)', color: 'white' }}>{t('club.form_affixe')}</h4>
-                                        <button disabled className="btn-outline" style={{ padding: '0.5rem 1.2rem', fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)', borderColor: 'rgba(255,255,255,0.5)' }}>{t('club.form_soon')}</button>
+                <div className="flex flex-col gap-24">
+                    {/* HISTOIRE SECTION */}
+                    <div className="max-w-4xl mx-auto w-full">
+                        <BirmanCard
+                            title={t('club.history_title') || "Notre Histoire"}
+                            description={
+                                <div className="flex flex-col gap-8 mt-4">
+                                    <p className="text-muted leading-relaxed text-lg">
+                                        {t('club.history_text')}
+                                    </p>
+                                    <div className="flex gap-4 flex-wrap">
+                                        <button className="btn-outline">{t('club.statutes_btn') || "Statuts du Club"}</button>
+                                        <button className="btn-outline">{t('club.agm_btn') || "Procès-verbal de l'AG"}</button>
                                     </div>
                                 </div>
-                            </div>
-                        </motion.div>
-
+                            }
+                        />
                     </div>
+
+                    {/* COMITE SECTION */}
+                    <div className="w-full">
+                        <h2 className="section-tag mb-12 text-center" style={{ fontSize: '1rem', letterSpacing: '0.3em' }}>{t('club.comite_title') || "LE COMITÉ"}</h2>
+                        <div className="comite-grid">
+                            {COMITE.map((member, i) => (
+                                <BirmanCard
+                                    key={i}
+                                    delay={i * 0.05}
+                                    variant="glass"
+                                    tag={member.role}
+                                    title={member.name}
+                                    description={
+                                        <a href={`mailto:${member.email}`} className="text-muted hover:text-blue-vibrant transition-colors text-sm break-all font-medium">
+                                            {member.email}
+                                        </a>
+                                    }
+                                    className="text-center"
+                                />
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* ACTIONS / FORMULAIRES */}
+                    <Section dark className="rounded-[40px] overflow-hidden">
+                        <div className="max-w-4xl mx-auto text-center py-12">
+                            <PageHeader 
+                                centered
+                                theme="dark"
+                                tag={t('club.simplified_tag') || "REJOINDRE LE CLUB"}
+                                title={t('club.simplified_title') || "Devenez membre ou parrain"}
+                                subtitle={t('club.simplified_desc') || "Accédez à des services exclusifs et soutenez le développement de la race en Suisse."}
+                            />
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12 text-left">
+                                <Link href="/formulaires/adhesion" className="form-card group">
+                                    <h4 className="text-white text-lg font-serif mb-6 group-hover:text-gold transition-colors">{t('club.form_adhesion') || "Demande d'adhésion"}</h4>
+                                    <span className="btn-gold-small">{t('club.form_btn') || "Remplir le formulaire"}</span>
+                                </Link>
+
+                                <Link href="/formulaires/adhesion" className="form-card group">
+                                    <h4 className="text-white text-lg font-serif mb-6 group-hover:text-gold transition-colors">{t('club.form_litter') || "Déclaration de portée"}</h4>
+                                    <span className="btn-gold-small">{t('club.form_btn') || "Remplir le formulaire"}</span>
+                                </Link>
+
+                                <div className="form-card opacity-50 cursor-not-allowed">
+                                    <h4 className="text-white text-lg font-serif mb-6">{t('club.form_affixe') || "Demande d'affixe"}</h4>
+                                    <span className="text-xs uppercase tracking-widest text-white/50 font-bold">{t('club.form_soon') || "Bientôt disponible"}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </Section>
                 </div>
-            </section>
+            </Section>
+
+            <style jsx>{`
+                .comite-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+                .form-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 2.5rem; border-radius: 30px; transition: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); display: flex; flex-direction: column; justify-content: space-between; }
+                .form-card:hover:not(.opacity-50) { background: rgba(255,255,255,0.08); transform: translateY(-8px); border-color: var(--clr-gold-real); }
+                .btn-gold-small { display: inline-block; padding: 0.6rem 1.2rem; background: var(--gold-gradient); border-radius: 100px; color: white; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+                
+                @media (max-width: 1024px) {
+                    .comite-grid { grid-template-columns: repeat(2, 1fr); }
+                }
+                @media (max-width: 640px) {
+                    .comite-grid { grid-template-columns: 1fr; }
+                }
+            `}</style>
         </main>
     );
 }
+

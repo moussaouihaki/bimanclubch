@@ -1,82 +1,85 @@
 "use client";
-import { motion } from 'framer-motion';
 import { useI18n } from '@/i18n/I18nContext';
+import { Section } from '@/components/Section';
+import { PageHeader } from '@/components/PageHeader';
+import { BirmanCard } from '@/components/BirmanCard';
 
 export default function ContactPage() {
     const { t } = useI18n();
 
     return (
-        <main style={{ paddingTop: '150px', paddingBottom: '100px', minHeight: '100vh', background: 'var(--clr-bg)' }}>
-            <section className="section">
-                <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+        <main className="mt-12">
+            <Section>
+                <PageHeader 
+                    tag={t('contact.tag') || "NOUS CONTACTER"}
+                    title={t('contact.title_main') || "Une Question ?"}
+                    subtitle={t('contact.subtitle') || "Notre équipe est à votre écoute pour vous renseigner sur la race et le club."}
+                />
 
-                    <div style={{ textAlign: 'center', marginBottom: '6rem' }}>
-                        <span style={{ color: 'var(--clr-gold)', letterSpacing: '0.2em', textTransform: 'uppercase', fontSize: '0.85rem', fontWeight: 600 }}>{t('contact.tag')}</span>
-                        <h1 className="title-massive">
-                            {t('contact.title_main')} <span className="text-serif text-gold">{t('contact.title_sub')}</span>
-                        </h1>
-                        <p style={{ maxWidth: '650px', margin: '1.5rem auto 0 auto', fontSize: '1.25rem', color: 'var(--clr-text-muted)', lineHeight: 1.8 }}>
-                            {t('contact.subtitle')}
-                        </p>
+                <div className="contact-grid">
+                    <div className="flex flex-col gap-8">
+                        <BirmanCard
+                            variant="glass"
+                            tag={t('nav.club') || "LE CLUB"}
+                            title="Birma Club Schweiz"
+                            description={
+                                <div className="flex flex-col gap-6 mt-4">
+                                    <div>
+                                        <p className="section-tag mb-1 text-[0.6rem]">{t('form.field_email') || "EMAIL"}</p>
+                                        <a href="mailto:info@club-birman.ch" className="text-lg font-medium hover:text-blue-vibrant transition-colors">info@club-birman.ch</a>
+                                    </div>
+                                    <div>
+                                        <p className="section-tag mb-1 text-[0.6rem]">SECTION FFH</p>
+                                        <p className="text-lg font-medium">Birma Club Schweiz (BCS)</p>
+                                    </div>
+                                </div>
+                            }
+                        />
                     </div>
 
-                    <div className="contact-grid">
-
-                        <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="card-apple" style={{ background: 'var(--clr-silk)', height: 'fit-content' }}>
-                            <h3 style={{ fontSize: '1.8rem', color: 'var(--clr-seal)', marginBottom: '2rem' }}>{t('nav.club')}</h3>
-                            <div style={{ display: 'grid', gap: '1.5rem' }}>
-                                <div>
-                                    <p style={{ fontWeight: 600, fontSize: '0.9rem', color: 'var(--clr-gold)' }}>Email</p>
-                                    <p style={{ fontSize: '1.1rem' }}>info@club-birman.ch</p>
+                    <BirmanCard
+                        title="Envoyez un message"
+                        className="h-full"
+                        description={
+                            <form className="flex flex-col gap-6 mt-8">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                    <div className="flex flex-col gap-2">
+                                        <label className="form-label">{t('form.field_name') || "Votre Nom"}</label>
+                                        <input type="text" className="input-premium" required />
+                                    </div>
+                                    <div className="flex flex-col gap-2">
+                                        <label className="form-label">{t('form.field_email') || "Votre Email"}</label>
+                                        <input type="email" className="input-premium" required />
+                                    </div>
                                 </div>
-                                <div>
-                                    <p style={{ fontWeight: 600, fontSize: '0.9rem', color: 'var(--clr-gold)' }}>FFH Section</p>
-                                    <p style={{ fontSize: '1.1rem' }}>Birma Club Schweiz (BCS)</p>
-                                </div>
-                            </div>
-                        </motion.div>
-
-                        <motion.form initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="card-apple" style={{ background: 'white', display: 'grid', gap: '2rem' }}>
-                            <div className="contact-name-grid">
-                                <div>
-                                    <label className="form-label">{t('form.field_name')}</label>
+                                <div className="flex flex-col gap-2">
+                                    <label className="form-label">{t('contact.field_subject') || "Sujet"}</label>
                                     <input type="text" className="input-premium" required />
                                 </div>
-                                <div>
-                                    <label className="form-label">{t('form.field_email')}</label>
-                                    <input type="email" className="input-premium" required />
+                                <div className="flex flex-col gap-2">
+                                    <label className="form-label">{t('contact.field_message') || "Votre Message"}</label>
+                                    <textarea className="input-premium" style={{ minHeight: '150px', resize: 'vertical' as const }} required></textarea>
                                 </div>
-                            </div>
-                            <div>
-                                <label className="form-label">{t('contact.field_subject')}</label>
-                                <input type="text" className="input-premium" required />
-                            </div>
-                            <div>
-                                <label className="form-label">{t('contact.field_message')}</label>
-                                <textarea className="input-premium" style={{ minHeight: '150px', resize: 'vertical' as const }} required></textarea>
-                            </div>
-                            <button type="submit" className="btn-gold">
-                                {t('contact.send')}
-                            </button>
-                        </motion.form>
-
-                    </div>
+                                <button type="submit" className="btn-gold w-full mt-4">
+                                    {t('contact.send') || "Envoyer le message"}
+                                </button>
+                            </form>
+                        }
+                    />
                 </div>
-            </section>
-            <style jsx>{`
-                .form-label { display: block; margin-bottom: 0.6rem; font-size: 0.9rem; font-weight: 500; color: var(--clr-text-muted); }
-                .input-premium { width: 100%; padding: 1.2rem; border-radius: 14px; border: 1px solid #e0e0e0; outline: none; font-size: 1rem; transition: border 0.3s; }
-                .input-premium:focus { border-color: var(--clr-gold); }
-                .contact-grid { display: grid; grid-template-columns: minmax(300px, 1fr) 2fr; gap: 4rem; }
-                .contact-name-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+            </Section>
 
-                @media (max-width: 768px) {
+            <style jsx>{`
+                .contact-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; max-width: 1000px; margin: 0 auto; align-items: stretch; }
+                .form-label { font-size: 0.75rem; font-weight: 700; color: var(--clr-text-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+                .input-premium { width: 100%; padding: 1.2rem; border-radius: 14px; border: 1px solid rgba(0,0,0,0.05); background: #fbfbfb; outline: none; font-size: 1rem; font-weight: 500; transition: 0.3s; }
+                .input-premium:focus { border-color: var(--clr-blue-vibrant); background: white; box-shadow: 0 0 0 4px rgba(0, 51, 153, 0.05); }
+
+                @media (max-width: 900px) {
                     .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
-                }
-                @media (max-width: 480px) {
-                    .contact-name-grid { grid-template-columns: 1fr; }
                 }
             `}</style>
         </main>
     );
 }
+

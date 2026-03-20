@@ -3,6 +3,9 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useI18n } from '@/i18n/I18nContext';
+import { Section } from '@/components/Section';
+import { PageHeader } from '@/components/PageHeader';
+import { BirmanCard } from '@/components/BirmanCard';
 
 // --- TYPES & CONSTANTS ---
 type ColorId = 'seal' | 'blue' | 'chocolate' | 'lilac' | 'red' | 'cream';
@@ -14,6 +17,11 @@ interface ParentState {
     isDilCarrier: boolean;
     tabby: TabbyStatus;
     isTortie?: boolean;
+}
+
+interface ResultItem {
+    key: string;
+    prob: number;
 }
 
 const COLORS_HEX: Record<string, string> = {
@@ -85,11 +93,11 @@ function calculateGenetics(sire: ParentState, dam: ParentState) {
 }
 
 export default function ZuchtplanerPage() {
-    const { t, language } = useI18n();
+    const { t } = useI18n();
 
     const [sire, setSire] = useState<ParentState>({ color: 'seal', isChocCarrier: false, isDilCarrier: false, tabby: 'aa' });
     const [dam, setDam] = useState<ParentState>({ color: 'seal', isChocCarrier: false, isDilCarrier: false, tabby: 'aa', isTortie: false });
-    const [results, setResults] = useState<any>(null);
+    const [results, setResults] = useState<{ males: ResultItem[], females: ResultItem[] } | null>(null);
 
     const formatColorName = (key: string) => {
         const base = key.replace('-tabby', '');
@@ -101,111 +109,144 @@ export default function ZuchtplanerPage() {
     };
 
     return (
-        <main style={{ paddingTop: '150px', paddingBottom: '100px', minHeight: '100vh', background: 'var(--clr-bg)' }}>
-            <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+        <main className="mt-12">
+            <Section>
+                <PageHeader 
+                    tag={t('genetics.tag') || "Génétique"}
+                    title={t('genetics.title')}
+                    subtitle="Simulez les portées futures en fonction de la génétique des parents."
+                />
 
-                <h1 className="title-massive" style={{ textAlign: 'center', marginBottom: '4rem', fontSize: '3.5rem' }}>{t('genetics.title')}</h1>
-
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(450px, 1fr))', gap: '2rem', marginBottom: '4rem' }}>
-
+                <div className="genetics-grid mb-12">
                     {/* SIRE */}
-                    <div style={{ background: 'white', padding: '3rem', borderRadius: '30px', boxShadow: 'var(--shadow-soft)' }}>
-                        <h3 style={{ fontSize: '1.8rem', color: 'var(--clr-sapphire)', marginBottom: '2rem' }}>{t('genetics.sire')}</h3>
-                        <div style={{ marginBottom: '2rem' }}>
-                            <label style={{ display: 'block', marginBottom: '1rem', fontWeight: 600 }}>{t('genetics.point_color')}</label>
-                            <select value={sire.color} onChange={(e) => setSire({ ...sire, color: e.target.value as ColorId })} className="select-apple">
-                                {['seal', 'blue', 'chocolate', 'lilac', 'red', 'cream'].map(c => <option key={c} value={c}>{t(`color.${c}`)}</option>)}
-                            </select>
-                        </div>
-                        <div style={{ display: 'grid', gap: '1rem', marginBottom: '2rem' }}>
-                            <label className="checkbox-label"><input type="checkbox" checked={sire.isChocCarrier} onChange={e => setSire({ ...sire, isChocCarrier: e.target.checked })} /> {t('genetics.choc_carrier')}</label>
-                            <label className="checkbox-label"><input type="checkbox" checked={sire.isDilCarrier} onChange={e => setSire({ ...sire, isDilCarrier: e.target.checked })} /> {t('genetics.dil_carrier')}</label>
-                        </div>
-                        <div style={{ marginBottom: '2rem' }}>
-                            <label style={{ display: 'block', marginBottom: '1rem', fontWeight: 600 }}>{t('genetics.tabby_status')}</label>
-                            <div style={{ display: 'grid', gap: '0.8rem' }}>
-                                {(['aa', 'Aa', 'AA'] as TabbyStatus[]).map(status => (
-                                    <label key={status} className="radio-label">
-                                        <input type="radio" checked={sire.tabby === status} onChange={() => setSire({ ...sire, tabby: status })} />
-                                        <span>{t(`genetics.tabby_${status}`)}</span>
-                                    </label>
-                                ))}
+                    <BirmanCard
+                        tag="MÂLE (SIRE)"
+                        title={t('genetics.sire')}
+                        description={
+                            <div className="flex flex-col gap-8 mt-4">
+                                <div>
+                                    <label className="section-tag mb-4" style={{ fontSize: '0.65rem' }}>{t('genetics.point_color')}</label>
+                                    <select value={sire.color} onChange={(e) => setSire({ ...sire, color: e.target.value as ColorId })} className="select-apple">
+                                        {['seal', 'blue', 'chocolate', 'lilac', 'red', 'cream'].map(c => <option key={c} value={c}>{t(`color.${c}`)}</option>)}
+                                    </select>
+                                </div>
+                                <div className="flex flex-col gap-2">
+                                    <label className="checkbox-label"><input type="checkbox" checked={sire.isChocCarrier} onChange={e => setSire({ ...sire, isChocCarrier: e.target.checked })} /> {t('genetics.choc_carrier')}</label>
+                                    <label className="checkbox-label"><input type="checkbox" checked={sire.isDilCarrier} onChange={e => setSire({ ...sire, isDilCarrier: e.target.checked })} /> {t('genetics.dil_carrier')}</label>
+                                </div>
+                                <div>
+                                    <label className="section-tag mb-4" style={{ fontSize: '0.65rem' }}>{t('genetics.tabby_status')}</label>
+                                    <div className="flex flex-col gap-2">
+                                        {(['aa', 'Aa', 'AA'] as TabbyStatus[]).map(status => (
+                                            <label key={status} className="radio-label">
+                                                <input type="radio" checked={sire.tabby === status} onChange={() => setSire({ ...sire, tabby: status })} />
+                                                <span>{t(`genetics.tabby_${status}`)}</span>
+                                            </label>
+                                        ))}
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                        }
+                    />
 
                     {/* DAM */}
-                    <div style={{ background: 'white', padding: '3rem', borderRadius: '30px', boxShadow: 'var(--shadow-soft)' }}>
-                        <h3 style={{ fontSize: '1.8rem', color: 'var(--clr-sapphire)', marginBottom: '2rem' }}>{t('genetics.dam')}</h3>
-                        <div style={{ marginBottom: '2rem' }}>
-                            <label style={{ display: 'block', marginBottom: '1rem', fontWeight: 600 }}>{t('genetics.point_color')}</label>
-                            <select value={dam.color} onChange={(e) => setDam({ ...dam, color: e.target.value as ColorId })} className="select-apple">
-                                {['seal', 'blue', 'chocolate', 'lilac', 'red', 'cream'].map(c => <option key={c} value={c}>{t(`color.${c}`)}</option>)}
-                            </select>
-                        </div>
-                        <div style={{ display: 'grid', gap: '1rem', marginBottom: '2rem' }}>
-                            <label className="checkbox-label"><input type="checkbox" checked={dam.isChocCarrier} onChange={e => setDam({ ...dam, isChocCarrier: e.target.checked })} /> {t('genetics.choc_carrier')}</label>
-                            <label className="checkbox-label"><input type="checkbox" checked={dam.isDilCarrier} onChange={e => setDam({ ...dam, isDilCarrier: e.target.checked })} /> {t('genetics.dil_carrier')}</label>
-                            <label className="checkbox-label"><input type="checkbox" checked={dam.isTortie} onChange={e => setDam({ ...dam, isTortie: e.target.checked })} /> {t('genetics.tortie')}</label>
-                        </div>
-                        <div style={{ marginBottom: '2rem' }}>
-                            <label style={{ display: 'block', marginBottom: '1rem', fontWeight: 600 }}>{t('genetics.tabby_status')}</label>
-                            <div style={{ display: 'grid', gap: '0.8rem' }}>
-                                {(['aa', 'Aa', 'AA'] as TabbyStatus[]).map(status => (
-                                    <label key={status} className="radio-label">
-                                        <input type="radio" checked={dam.tabby === status} onChange={() => setDam({ ...dam, tabby: status })} />
-                                        <span>{t(`genetics.tabby_${status}`)}</span>
-                                    </label>
-                                ))}
+                    <BirmanCard
+                        tag="FEMELLE (DAM)"
+                        title={t('genetics.dam')}
+                        description={
+                            <div className="flex flex-col gap-8 mt-4">
+                                <div>
+                                    <label className="section-tag mb-4" style={{ fontSize: '0.65rem' }}>{t('genetics.point_color')}</label>
+                                    <select value={dam.color} onChange={(e) => setDam({ ...dam, color: e.target.value as ColorId })} className="select-apple">
+                                        {['seal', 'blue', 'chocolate', 'lilac', 'red', 'cream'].map(c => <option key={c} value={c}>{t(`color.${c}`)}</option>)}
+                                    </select>
+                                </div>
+                                <div className="flex flex-col gap-2">
+                                    <label className="checkbox-label"><input type="checkbox" checked={dam.isChocCarrier} onChange={e => setDam({ ...dam, isChocCarrier: e.target.checked })} /> {t('genetics.choc_carrier')}</label>
+                                    <label className="checkbox-label"><input type="checkbox" checked={dam.isDilCarrier} onChange={e => setDam({ ...dam, isDilCarrier: e.target.checked })} /> {t('genetics.dil_carrier')}</label>
+                                    <label className="checkbox-label"><input type="checkbox" checked={dam.isTortie} onChange={e => setDam({ ...dam, isTortie: e.target.checked })} /> {t('genetics.tortie')}</label>
+                                </div>
+                                <div>
+                                    <label className="section-tag mb-4" style={{ fontSize: '0.65rem' }}>{t('genetics.tabby_status')}</label>
+                                    <div className="flex flex-col gap-2">
+                                        {(['aa', 'Aa', 'AA'] as TabbyStatus[]).map(status => (
+                                            <label key={status} className="radio-label">
+                                                <input type="radio" checked={dam.tabby === status} onChange={() => setDam({ ...dam, tabby: status })} />
+                                                <span>{t(`genetics.tabby_${status}`)}</span>
+                                            </label>
+                                        ))}
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                        }
+                    />
                 </div>
 
-                <div style={{ textAlign: 'center', marginBottom: '6rem' }}>
+                <div className="text-center mb-12">
                     <button onClick={() => setResults(calculateGenetics(sire, dam))} className="btn-gold" style={{ padding: '1.2rem 5rem' }}>{t('genetics.calculate')}</button>
                 </div>
 
                 <AnimatePresence>
                     {results && (
-                        <motion.section initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} className="card-apple" style={{ background: 'white', padding: '4rem' }}>
-                            <h2 style={{ fontSize: '2.4rem', color: 'var(--clr-seal)', marginBottom: '4rem', textAlign: 'center' }}>{t('genetics.results')}</h2>
-                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '4rem' }}>
-                                {['males', 'females'].map(sex => (
-                                    <div key={sex}>
-                                        <h3 style={{ fontSize: '1.6rem', color: 'var(--clr-sapphire)', marginBottom: '2rem' }}>{t(`genetics.${sex}`)}</h3>
-                                        <div style={{ display: 'grid', gap: '1.5rem' }}>
-                                            <div style={{ display: 'grid', gridTemplateColumns: '1.5fr 1fr', paddingBottom: '1rem', borderBottom: '1px solid #eee', fontWeight: 700, fontSize: '0.8rem', color: 'var(--clr-gold)', textTransform: 'uppercase' }}>
-                                                <span>{t('genetics.color')}</span>
-                                                <span>{t('genetics.probability')}</span>
-                                            </div>
-                                            {results[sex].map((res: any) => (
-                                                <div key={res.key} style={{ display: 'grid', gridTemplateColumns: '1.5fr 1fr', alignItems: 'center' }}>
-                                                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                                                        <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: COLORS_HEX[res.key.replace('-tabby', '')] || '#ccc' }} />
-                                                        <span style={{ fontWeight: 500 }}>{formatColorName(res.key)}</span>
+                        <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="results-container">
+                            <BirmanCard
+                                variant="glass"
+                                title={t('genetics.results')}
+                                className="w-full"
+                                description={
+                                    <div className="results-grid mt-8">
+                                        {['males', 'females'].map(sex => (
+                                            <div key={sex} className="sex-results">
+                                                <h3 className="mb-8" style={{ fontSize: '1.6rem', color: 'var(--clr-sapphire)' }}>{t(`genetics.${sex}`)}</h3>
+                                                <div className="flex flex-col gap-4">
+                                                    <div className="results-header">
+                                                        <span>{t('genetics.color')}</span>
+                                                        <span className="text-right">{t('genetics.probability')}</span>
                                                     </div>
-                                                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                                                        <div style={{ flexGrow: 1, height: '10px', background: 'rgba(0,51,153,0.05)', borderRadius: '5px', overflow: 'hidden' }}>
-                                                            <div style={{ height: '100%', background: 'var(--clr-sapphire)', width: `${res.prob}%` }} />
+                                                    {results[sex as 'males' | 'females'].map((res) => (
+                                                        <div key={res.key} className="result-row">
+                                                            <div className="flex items-center gap-4">
+                                                                <div className="color-dot" style={{ background: COLORS_HEX[res.key.replace('-tabby', '')] || '#ccc' }} />
+                                                                <span style={{ fontWeight: 600, fontSize: '0.95rem' }}>{formatColorName(res.key)}</span>
+                                                            </div>
+                                                            <div className="flex items-center gap-4">
+                                                                <div className="prob-bar-bg">
+                                                                    <div className="prob-bar-fill" style={{ width: `${res.prob}%` }} />
+                                                                </div>
+                                                                <span style={{ fontWeight: 800, minWidth: '60px', textAlign: 'right', color: 'var(--clr-blue-deep)' }}>{res.prob.toFixed(1)}%</span>
+                                                            </div>
                                                         </div>
-                                                        <span style={{ fontWeight: 700, minWidth: '60px', textAlign: 'right' }}>{res.prob.toFixed(1)}%</span>
-                                                    </div>
+                                                    ))}
                                                 </div>
-                                            ))}
-                                        </div>
+                                            </div>
+                                        ))}
                                     </div>
-                                ))}
-                            </div>
-                        </motion.section>
+                                }
+                            />
+                        </motion.div>
                     )}
                 </AnimatePresence>
-            </div>
+            </Section>
+
             <style jsx>{`
-                .select-apple { width: 100%; padding: 1rem; borderRadius: 12px; border: 1px solid #eee; background: #fafafa; font-size: 1rem; }
-                .checkbox-label, .radio-label { display: flex; alignItems: center; gap: 1rem; cursor: pointer; font-size: 1rem; color: var(--clr-text-muted); }
-                .checkbox-label:hover, .radio-label:hover { color: var(--clr-seal); }
+                .genetics-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4rem; }
+                .results-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6rem; }
+                .select-apple { width: 100%; padding: 1rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.05); background: #fbfbfb; font-size: 1rem; font-weight: 500; outline: none; transition: 0.3s; }
+                .select-apple:focus { border-color: var(--clr-blue-vibrant); background: white; }
+                .checkbox-label, .radio-label { display: flex; alignItems: center; gap: 1rem; cursor: pointer; font-size: 1rem; color: var(--clr-text-muted); font-weight: 500; }
+                .checkbox-label input, .radio-label input { width: 20px; height: 20px; accent-color: var(--clr-blue-vibrant); }
+                .results-header { display: grid; grid-template-columns: 1.5fr 1fr; padding-bottom: 0.5rem; border-bottom: 2px solid rgba(0,0,0,0.05); font-weight: 700; font-size: 0.75rem; color: var(--clr-gold-real); text-transform: uppercase; letter-spacing: 0.1em; }
+                .result-row { display: grid; grid-template-columns: 1.5fr 1fr; align-items: center; border-bottom: 1px solid rgba(0,0,0,0.03); padding: 0.8rem 0; }
+                .color-dot { width: 14px; height: 14px; border-radius: 50%; box-shadow: 0 0 0 2px white, 0 0 0 3px rgba(0,0,0,0.05); }
+                .prob-bar-bg { flex-grow: 1; height: 8px; background: rgba(0,0,0,0.04); border-radius: 100px; overflow: hidden; }
+                .prob-bar-fill { height: 100%; background: linear-gradient(90deg, var(--clr-sapphire), var(--clr-blue-vibrant)); border-radius: 100px; }
+
+                @media (max-width: 1024px) {
+                    .genetics-grid { grid-template-columns: 1fr; gap: 2rem; }
+                    .results-grid { grid-template-columns: 1fr; gap: 4rem; }
+                }
             `}</style>
         </main>
     );
 }
+

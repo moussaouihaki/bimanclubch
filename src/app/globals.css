@@ -3,19 +3,18 @@
 :root {
   /* Apple-inspired Light Palette with Club Colors */
   --clr-bg: #F5F5F7;
-  /* Apple classic light gray background */
   --clr-card: #FFFFFF;
   --clr-sapphire: #012B7C;
   --clr-blue-vibrant: #007AFF;
-  /* Apple Blue for vibrancy */
   --clr-blue-deep: #003399;
-  /* Official Blue */
-  --clr-gold: #007AFF;
-  /* Redirected to vibrant blue per user request */
+  --clr-gold: #007AFF; /* Note: User requested redirecting gold to vibrant blue */
   --clr-text: #1D1D1F;
   --clr-text-muted: #86868B;
-  /* Apple secondary text */
   --clr-border: rgba(0, 0, 0, 0.05);
+
+  /* Refined Palette */
+  --clr-gold-real: #B8860B; /* To be used sparingly for elegant accents */
+  --clr-cream-bg: #FBFBFD;
 
   /* Responsive Spacing */
   --side-pad: 2rem;
@@ -24,31 +23,18 @@
 
   @media (max-width: 768px) {
     --side-pad: 1.25rem;
-    --section-pad: 3rem;
+    --section-pad: 4rem;
     --nav-height: 80px;
   }
 
   /* Deep colors for contrast */
-  --clr-seal: #2D2D2D;
+  --clr-seal: #1D1D1F;
   --clr-silk: #F8F9FA;
   --clr-opal: #FFFFFF;
 
   /* Typography */
-  --font-sans: 'Inter',
-  -apple-system,
-  BlinkMacSystemFont,
-  "Segoe UI",
-  Roboto,
-  Helvetica,
-  Arial,
-  sans-serif;
-  --font-serif: 'Playfair Display',
-  serif;
-  /* Keep serif for elegant headers only */
-
-  /* Spacing */
-  --margin-edge: 5vw;
-  --section-pad: 8rem;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: 'Playfair Display', serif;
 
   /* Effects */
   --shadow-sm: 0 4px 14px 0 rgba(0, 0, 0, 0.05);
@@ -57,6 +43,11 @@
   --shadow-hover: 0 30px 60px -15px rgba(0, 51, 153, 0.15);
   --glass-bg: rgba(255, 255, 255, 0.75);
   --glass-blur: blur(20px) saturate(180%);
+  
+  --radius-card: 32px;
+  --radius-btn: 100px;
+  
+  --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
@@ -78,13 +69,8 @@ body {
 }
 
 /* Typography Mastery */
-h1,
-h2,
-h3,
-h4,
-h5 {
+h1, h2, h3, h4, h5 {
   font-family: var(--font-sans);
-  /* Moving towards clean sans-serif for Apple feel */
   font-weight: 600;
   line-height: 1.1;
   color: var(--clr-text);
@@ -92,37 +78,73 @@ h5 {
 }
 
 .title-massive {
-  font-size: clamp(2.5rem, 8vw, 6rem);
-  font-weight: 700;
+  font-size: clamp(2.5rem, 8vw, 6.5rem);
+  font-weight: 800;
   letter-spacing: -0.04em;
   margin-bottom: 1rem;
-  line-height: 1.05;
+  line-height: 1;
+}
+
+.section-tag {
+  color: var(--clr-gold-real);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.section-subtitle {
+  max-width: 700px;
+  margin: 2rem auto 0 auto;
+  font-size: 1.25rem;
+  color: var(--clr-text-muted);
+  line-height: 1.8;
+  font-weight: 400;
 }
 
 @media (max-width: 768px) {
-  .title-massive {
-    font-size: 2.8rem;
-  }
+  .title-massive { font-size: 3rem; }
+  .section-subtitle { font-size: 1.1rem; }
 }
 
-/* Keep serif for special elegant accents */
 .text-serif {
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 400;
 }
 
-.text-blue-vibrant {
-  color: var(--clr-blue-vibrant);
+.text-blue-vibrant { color: var(--clr-blue-vibrant); }
+.text-gold { color: var(--clr-gold-real); }
+.text-sapphire { color: var(--clr-sapphire); }
+.text-gradient {
+  background: linear-gradient(135deg, var(--clr-sapphire) 0%, var(--clr-blue-vibrant) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.text-gold {
-  color: var(--clr-gold);
-}
+.max-w-prose { max-width: 65ch; }
+.text-center { text-align: center; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-8 { margin-bottom: 2rem; }
+.mb-12 { margin-bottom: 3rem; }
+.mt-4 { margin-top: 1rem; }
+.mt-8 { margin-top: 2.5rem; }
+.mt-12 { margin-top: 4rem; }
+.gap-2 { gap: 0.5rem; }
+.gap-4 { gap: 1rem; }
+.gap-8 { gap: 2rem; }
 
-.text-sapphire {
-  color: var(--clr-sapphire);
-}
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.w-full { width: 100%; }
 
 /* Grids */
 .breeders-grid {
@@ -184,16 +206,12 @@ h5 {
 
 /* Enhanced Apple-style Cards */
 .card-apple {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(24px) saturate(150%);
-  -webkit-backdrop-filter: blur(24px) saturate(150%);
-  border-radius: 32px;
+  background: var(--clr-card);
+  border-radius: var(--radius-card);
   padding: 3.5rem;
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.05),
-    0 0 0 1px rgba(0, 0, 0, 0.03) inset,
-    0 1px 1px rgba(255, 255, 255, 0.8) inset;
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-smooth);
+  border: 1px solid rgba(0, 0, 0, 0.03);
   position: relative;
   overflow: hidden;
 
@@ -203,22 +221,18 @@ h5 {
   }
 }
 
-.card-apple::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 50%;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
-  pointer-events: none;
+.card-apple:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(0, 122, 255, 0.1);
 }
 
-.card-apple:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 30px 60px -15px rgba(0, 51, 153, 0.12),
-    0 0 0 1px rgba(0, 0, 0, 0.05) inset,
-    0 1px 1px rgba(255, 255, 255, 0.9) inset;
+.card-glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-radius: var(--radius-card);
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 /* Modern Spacious Navbar */

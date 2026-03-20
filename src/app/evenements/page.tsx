@@ -1,6 +1,8 @@
 "use client";
-import { motion } from 'framer-motion';
 import { useI18n } from '@/i18n/I18nContext';
+import { Section } from '@/components/Section';
+import { PageHeader } from '@/components/PageHeader';
+import { BirmanCard } from '@/components/BirmanCard';
 
 export default function EvenementsPage() {
     const { t, language } = useI18n();
@@ -26,54 +28,41 @@ export default function EvenementsPage() {
     ];
 
     return (
-        <main style={{ paddingTop: '150px', paddingBottom: '100px', minHeight: '100vh', background: 'var(--clr-bg)' }}>
-            <section className="section">
-                <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+        <main className="mt-12">
+            <Section>
+                <PageHeader 
+                    tag={t('events.tag') || "AGENDA"}
+                    title={t('events.title_main') || "Événements"}
+                    subtitle={t('events.subtitle') || "Ne manquez aucun rendez-vous de la communauté du Sacré de Birmanie."}
+                />
 
-                    <div style={{ textAlign: 'center', marginBottom: '6rem' }}>
-                        <span style={{ color: 'var(--clr-gold)', letterSpacing: '0.2em', textTransform: 'uppercase', fontSize: '0.85rem', fontWeight: 600 }}>{t('events.tag')}</span>
-                        <h1 className="title-massive">
-                            {t('events.title_main')} <span className="text-serif text-gold">{t('events.title_sub')}</span>
-                        </h1>
-                        <p style={{ maxWidth: '650px', margin: '1.5rem auto 0 auto', fontSize: '1.25rem', color: 'var(--clr-text-muted)', lineHeight: 1.8 }}>
-                            {t('events.subtitle')}
-                        </p>
-                    </div>
-
-                    <div style={{ display: 'grid', gap: '2rem' }}>
-                        {EVENTS_DATA.map((ev, i) => (
-                            <motion.div
-                                key={ev.id}
-                                initial={{ opacity: 0, y: 30 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: i * 0.1 }}
-                                className="card-apple event-card"
-                                style={{ display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' as const }}
-                            >
-                                <div style={{ textAlign: 'center', minWidth: '150px' }}>
-                                    {/* @ts-ignore */}
-                                    <div style={{ fontSize: '2.5rem', fontFamily: 'var(--font-serif)', color: 'var(--clr-text)', lineHeight: 1 }}>{ev.date[language]}</div>
+                <div className="flex flex-col gap-8 max-w-4xl mx-auto">
+                    {EVENTS_DATA.map((ev, i) => (
+                        <BirmanCard
+                            key={ev.id}
+                            delay={i * 0.1}
+                            tag={ev.type}
+                            title={(ev.title as any)[language]}
+                            description={
+                                <div className="flex flex-col gap-2 mt-2">
+                                    <div className="text-3xl font-serif text-blue-deep mb-2">
+                                        {(ev.date as any)[language]}
+                                    </div>
+                                    <p className="text-muted leading-relaxed text-lg">
+                                        {(ev.desc as any)[language]}
+                                    </p>
                                 </div>
-
-                                <div style={{ flex: 1 }}>
-                                    <span style={{ display: 'inline-block', background: ev.type === 'Expo' ? 'var(--clr-gold)' : 'var(--clr-sapphire)', color: 'white', padding: '0.3rem 0.8rem', borderRadius: '100px', fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', marginBottom: '1rem' }}>
-                                        {ev.type}
-                                    </span>
-                                    {/* @ts-ignore */}
-                                    <h3 style={{ fontSize: '2rem', color: 'var(--clr-text)', marginBottom: '0.5rem' }}>{ev.title[language]}</h3>
-                                    {/* @ts-ignore */}
-                                    <p style={{ color: 'var(--clr-text-muted)', fontSize: '1.1rem', lineHeight: 1.6 }}>{ev.desc[language]}</p>
-                                </div>
-
-                                <div>
-                                    <button className="btn-outline">{t('events.details')}</button>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-
+                            }
+                            footer={
+                                <button className="btn-outline w-fit mt-6">
+                                    {t('events.details') || "Voir les détails"}
+                                </button>
+                            }
+                        />
+                    ))}
                 </div>
-            </section>
+            </Section>
         </main>
     );
 }
+

@@ -1,53 +1,54 @@
 "use client";
-import { motion } from 'framer-motion';
 import { useI18n } from '@/i18n/I18nContext';
+import { Section } from '@/components/Section';
+import { PageHeader } from '@/components/PageHeader';
+import { BirmanCard } from '@/components/BirmanCard';
 
 export default function MecenePage() {
     const { t } = useI18n();
 
     return (
-        <main style={{ paddingTop: '150px', paddingBottom: '100px', minHeight: '100vh', background: 'var(--clr-bg)' }}>
-            <section className="section">
-                <div style={{ maxWidth: '1000px', margin: '0 auto', textAlign: 'center' }}>
-                    <span style={{ color: 'var(--clr-gold)', letterSpacing: '0.2em', textTransform: 'uppercase', fontSize: '0.85rem', fontWeight: 600 }}>{t('donator.subtitle')}</span>
-                    <h1 className="title-massive" style={{ marginBottom: '4rem' }}>
-                        {t('donator.title')}
-                    </h1>
+        <main className="mt-12">
+            <Section>
+                <PageHeader 
+                    tag={t('donator.subtitle') || "SOUTIEN"}
+                    title={t('donator.title') || "Devenir Mécène"}
+                    subtitle={t('donator.intro') || "Soutenez nos actions et contribuez au rayonnement du Sacré de Birmanie."}
+                />
 
-                    <div style={{ textAlign: 'left', display: 'grid', gap: '4rem' }}>
-
-                        <motion.div className="card-apple" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}>
-                            <h2 style={{ fontSize: '2.5rem', color: 'var(--clr-seal)', marginBottom: '2rem' }}>{t('donator.privileges')}</h2>
-                            <p style={{ fontSize: '1.25rem', color: 'var(--clr-text-muted)', lineHeight: 1.8, marginBottom: '2rem' }}>
-                                {t('donator.intro')}
-                            </p>
-                            <ul style={{ listStyle: 'none', padding: 0, display: 'grid', gap: '1.5rem' }}>
-                                <li style={{ display: 'flex', gap: '1rem', fontSize: '1.2rem', color: 'var(--clr-text)' }}>
-                                    <span style={{ color: 'var(--clr-gold)' }}>✔</span> {t('donator.p1')}
-                                </li>
-                                <li style={{ display: 'flex', gap: '1rem', fontSize: '1.2rem', color: 'var(--clr-text)' }}>
-                                    <span style={{ color: 'var(--clr-gold)' }}>✔</span> {t('donator.p2')}
-                                </li>
-                                <li style={{ display: 'flex', gap: '1rem', fontSize: '1.2rem', color: 'var(--clr-text)' }}>
-                                    <span style={{ color: 'var(--clr-gold)' }}>✔</span> {t('donator.p3')}
-                                </li>
+                <div className="flex flex-col gap-12 max-w-4xl mx-auto">
+                    <BirmanCard
+                        title={t('donator.privileges') || "Vos Privilèges"}
+                        description={
+                            <ul className="flex flex-col gap-6 mt-6">
+                                {[t('donator.p1'), t('donator.p2'), t('donator.p3')].map((p, i) => (
+                                    <li key={i} className="flex gap-4 items-start text-lg text-muted leading-relaxed italic">
+                                        <span className="text-gold font-bold">✔</span> {p}
+                                    </li>
+                                ))}
                             </ul>
-                        </motion.div>
+                        }
+                    />
 
-                        <motion.div className="card-apple" style={{ background: 'var(--clr-silk)', border: 'none' }} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
-                            <h3 style={{ fontSize: '2rem', color: 'var(--clr-seal)', marginBottom: '2rem', textAlign: 'center' }}>{t('donator.bank_title')}</h3>
-                            <div style={{ background: 'white', padding: '3rem', borderRadius: '24px', textAlign: 'center', boxShadow: 'var(--shadow-soft)' }}>
-                                <p style={{ fontSize: '1.4rem', fontWeight: 700, color: 'var(--clr-sapphire)', letterSpacing: '0.05em', marginBottom: '1rem' }}>CH12 0000 0000 0000 0000 0</p>
-                                <p style={{ color: 'var(--clr-text-muted)', fontSize: '1.1rem' }}>{t('donator.bank_name')}</p>
+                    <BirmanCard
+                        variant="glass"
+                        title={t('donator.bank_title') || "Informations de Paiement"}
+                        className="text-center"
+                        description={
+                            <div className="flex flex-col items-center gap-8 mt-8">
+                                <div className="p-8 bg-white/50 backdrop-blur-sm rounded-3xl border border-gold/10 w-full">
+                                    <p className="text-2xl font-bold text-blue-deep tracking-wider mb-2">CH12 0000 0000 0000 0000 0</p>
+                                    <p className="text-muted font-medium uppercase tracking-widest text-xs">{t('donator.bank_name') || "BANQUE CANTONALE"}</p>
+                                </div>
+                                <p className="text-xl font-serif text-gold italic">
+                                    Merci pour votre générosité !
+                                </p>
                             </div>
-                            <p style={{ marginTop: '3rem', textAlign: 'center', color: 'var(--clr-gold)', fontWeight: 600, fontSize: '1.2rem' }}>
-                                Merci pour votre générosité !
-                            </p>
-                        </motion.div>
-
-                    </div>
+                        }
+                    />
                 </div>
-            </section>
+            </Section>
         </main>
     );
 }
+

@@ -4,9 +4,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useI18n } from '@/i18n/I18nContext';
 import { db } from '@/lib/firebase';
 import { collection, query, orderBy, onSnapshot } from 'firebase/firestore';
+import { Section } from '@/components/Section';
+import { PageHeader } from '@/components/PageHeader';
+import { BirmanCard } from '@/components/BirmanCard';
 
 export default function ChatonsPage() {
-    const { t, language } = useI18n();
+    const { t } = useI18n();
     const [ads, setAds] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
 
@@ -26,104 +29,87 @@ export default function ChatonsPage() {
     }, []);
 
     return (
-        <main style={{ paddingTop: 'var(--nav-height)', paddingBottom: 'var(--section-pad)', minHeight: '100vh', background: 'var(--clr-bg)' }}>
-            <section className="section" style={{ padding: 'var(--section-pad) 0' }}>
-                <div className="container-large">
+        <main className="mt-12">
+            <Section>
+                <PageHeader 
+                    tag={t('kitten.tag')}
+                    title={<>{t('kitten.title_main')}<span className="text-serif text-gold">{t('kitten.title_sub')}</span></>}
+                    subtitle={t('kitten.subtitle')}
+                />
 
-                    <div style={{ textAlign: 'center', marginBottom: 'clamp(3rem, 10vw, 6rem)' }}>
-                        <span style={{ color: 'var(--clr-gold)', letterSpacing: '0.2em', textTransform: 'uppercase', fontSize: '0.85rem', fontWeight: 600 }}>{t('kitten.tag')}</span>
-                        <h1 className="title-massive">
-                            {t('kitten.title_main')}<span className="text-serif text-gold">{t('kitten.title_sub')}</span>
-                        </h1>
-                        <p style={{ maxWidth: '650px', margin: '1.5rem auto 0 auto', fontSize: 'clamp(1rem, 4vw, 1.25rem)', color: 'var(--clr-text-muted)', lineHeight: 1.8 }}>
-                            {t('kitten.subtitle')}
-                        </p>
+                {loading ? (
+                    <div className="text-center" style={{ padding: '100px' }}>
+                        <div className="loader"></div>
+                        <p className="mt-4 text-gold">{t('common.loading')}</p>
                     </div>
-
-                    {loading ? (
-                        <div style={{ textAlign: 'center', padding: '100px' }}>
-                            <div className="loader"></div>
-                            <p style={{ marginTop: '20px', color: 'var(--clr-gold)' }}>{t('common.loading')}</p>
-                        </div>
-                    ) : (
-                        <div className="breeders-grid">
+                ) : (
+                    <div className="breeders-grid">
+                        <AnimatePresence mode="popLayout">
                             {ads.length === 0 ? (
-                                <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: 'var(--section-pad)', background: 'white', borderRadius: '40px' }}>
-                                    <p style={{ fontSize: '1.2rem', color: 'var(--clr-text-muted)' }}>Aucune annonce active pour le moment. Revenez bientôt !</p>
-                                </div>
+                                <motion.div 
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    style={{ gridColumn: '1 / -1' }}
+                                >
+                                    <BirmanCard 
+                                        description="Aucune annonce active pour le moment. Revenez bientôt !"
+                                        variant="glass"
+                                        className="text-center"
+                                    />
+                                </motion.div>
                             ) : (
                                 ads.map((ad, i) => (
-                                    <motion.div
+                                    <BirmanCard
                                         key={ad.id}
-                                        initial={{ opacity: 0, y: 30 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: i * 0.1 }}
-                                        className="card-apple"
-                                        style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden', padding: 0, height: '100%' }}
-                                    >
-                                        {/* Image Gallery / Header */}
-                                        <div style={{ height: '240px', background: '#f5f5f7', position: 'relative' }}>
-                                            {ad.images && ad.images.length > 0 ? (
-                                                <img
-                                                    src={ad.images[0]}
-                                                    alt={ad.name}
-                                                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                                                />
-                                            ) : (
-                                                <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ccc', fontSize: '3rem' }}>🐱</div>
-                                            )}
-                                            <div style={{ position: 'absolute', top: '15px', right: '15px', background: 'rgba(255,255,255,0.9)', padding: '0.4rem 0.8rem', borderRadius: '100px', fontSize: '10px', fontWeight: 800, color: 'var(--clr-gold)', textTransform: 'uppercase' }}>
-                                                {ad.status === 'available' ? t('ads.available') : ad.status === 'reserved' ? t('ads.reserved') : t('ads.sold')}
-                                            </div>
-                                        </div>
-
-                                        {/* Content */}
-                                        <div style={{ padding: '2rem' }}>
-                                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
-                                                <h3 style={{ fontSize: '1.5rem', color: 'var(--clr-seal)', fontFamily: 'var(--font-serif)' }}>{ad.name}</h3>
-                                                <span style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--clr-gold)' }}>{ad.price} CHF</span>
-                                            </div>
-
-                                            <div style={{ display: 'flex', gap: '1.5rem', marginBottom: '1.5rem' }}>
-                                                <div>
-                                                    <span style={{ display: 'block', fontSize: '10px', color: 'var(--clr-text-muted)', textTransform: 'uppercase', fontWeight: 700 }}>Couleur</span>
-                                                    <span style={{ fontSize: '14px', fontWeight: 500 }}>{ad.color}</span>
+                                        image={ad.images && ad.images.length > 0 ? ad.images[0] : undefined}
+                                        tag={ad.status === 'available' ? t('ads.available') : ad.status === 'reserved' ? t('ads.reserved') : t('ads.sold')}
+                                        title={ad.name}
+                                        subtitle={`${ad.price} CHF`}
+                                        delay={i * 0.1}
+                                        description={
+                                            <div className="flex flex-col gap-4">
+                                                <div className="flex gap-8 mb-4">
+                                                    <div>
+                                                        <span className="section-tag" style={{ marginBottom: 0, fontSize: '0.65rem' }}>Couleur</span>
+                                                        <span style={{ fontSize: '14px', fontWeight: 500 }}>{ad.color}</span>
+                                                    </div>
+                                                    <div>
+                                                        <span className="section-tag" style={{ marginBottom: 0, fontSize: '0.65rem' }}>Sexe</span>
+                                                        <span style={{ fontSize: '14px', fontWeight: 500 }}>{ad.sex === 'male' ? t('ads.male') : t('ads.female')}</span>
+                                                    </div>
                                                 </div>
-                                                <div>
-                                                    <span style={{ display: 'block', fontSize: '10px', color: 'var(--clr-text-muted)', textTransform: 'uppercase', fontWeight: 700 }}>Sexe</span>
-                                                    <span style={{ fontSize: '14px', fontWeight: 500 }}>{ad.sex === 'male' ? t('ads.male') : t('ads.female')}</span>
-                                                </div>
+                                                <p style={{ fontSize: '0.95rem', color: 'var(--clr-text-muted)', lineHeight: 1.6 }}>
+                                                    {ad.description}
+                                                </p>
                                             </div>
-
-                                            <p style={{ fontSize: '0.95rem', color: 'var(--clr-text-muted)', lineHeight: 1.6, marginBottom: '2rem' }}>
-                                                {ad.description}
-                                            </p>
-
-                                            <button className="btn-gold" style={{ width: '100%', padding: '0.8rem', fontSize: '0.9rem' }}>
+                                        }
+                                        footer={
+                                            <button className="btn-gold w-full" style={{ padding: '0.8rem', fontSize: '0.9rem' }}>
                                                 Contacter l'éleveur
                                             </button>
-                                        </div>
-                                    </motion.div>
+                                        }
+                                    />
                                 ))
                             )}
-                        </div>
-                    )}
-
-                    <div className="card-apple" style={{ marginTop: 'clamp(4rem, 12vw, 8rem)', textAlign: 'center', border: '2px solid var(--clr-gold)', padding: 'clamp(2rem, 8vw, 4rem)' }}>
-                        <h2 style={{ fontSize: 'clamp(2rem, 6vw, 3rem)', color: 'var(--clr-text)', marginBottom: '1.5rem' }}>{t('kitten.cta_title')}</h2>
-                        <p style={{ fontSize: 'clamp(1rem, 4vw, 1.2rem)', color: 'var(--clr-text-muted)', maxWidth: '600px', margin: '0 auto 2.5rem auto' }}>
-                            {t('kitten.cta_desc')}
-                        </p>
-                        <button className="btn-outline" style={{ padding: '1rem 2rem' }}>{t('kitten.cta_btn')}</button>
+                        </AnimatePresence>
                     </div>
+                )}
 
+                <div className="mt-12">
+                    <BirmanCard
+                        title={t('kitten.cta_title')}
+                        description={t('kitten.cta_desc')}
+                        className="text-center"
+                        style={{ border: '2px solid var(--clr-blue-vibrant)', background: 'var(--clr-cream-bg)' }}
+                        footer={<button className="btn-outline" style={{ padding: '1rem 3rem' }}>{t('kitten.cta_btn')}</button>}
+                    />
                 </div>
-            </section>
+            </Section>
 
             <style jsx>{`
                 .loader {
                     border: 3px solid #f3f3f3;
-                    border-top: 3px solid var(--clr-gold);
+                    border-top: 3px solid var(--clr-blue-vibrant);
                     border-radius: 50%;
                     width: 40px;
                     height: 40px;
@@ -138,3 +124,4 @@ export default function ChatonsPage() {
         </main>
     );
 }
+
